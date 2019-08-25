@@ -1,0 +1,72 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - IQKeyboardManager (6.0.4)
+  - Masonry (1.1.0)
+  - "MBProgressHUD+DK (1.1.1)"
+  - MJRefresh (3.1.15.3)
+  - NinaPagerView (1.6.2)
+  - ReactiveObjC (3.1.0)
+  - RTRootNavigationController (0.6.7):
+    - RTRootNavigationController/Core (= 0.6.7)
+  - RTRootNavigationController/Core (0.6.7)
+  - SDAutoLayout (2.2.0)
+  - WechatOpenSDK (1.8.2)
+  - WZLBadge (1.2.6)
+
+DEPENDENCIES:
+  - AFNetworking
+  - IQKeyboardManager
+  - Masonry
+  - "MBProgressHUD+DK"
+  - MJRefresh
+  - NinaPagerView
+  - ReactiveObjC
+  - RTRootNavigationController
+  - SDAutoLayout
+  - WechatOpenSDK
+  - WZLBadge
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - IQKeyboardManager
+    - Masonry
+    - "MBProgressHUD+DK"
+    - MJRefresh
+    - NinaPagerView
+    - ReactiveObjC
+    - RTRootNavigationController
+    - SDAutoLayout
+    - WechatOpenSDK
+    - WZLBadge
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  IQKeyboardManager: 29514134ef0334a6fa33cf4eee11c36c064baeaf
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  "MBProgressHUD+DK": 9394614f7106e640784d044bc19512c1167e9e97
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  NinaPagerView: d197b579cb5a9beb5c3cb45c027a7463de52e64f
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  RTRootNavigationController: d6aa6cbb78a3eaecea4f6e4df63f15dd887836b8
+  SDAutoLayout: c5509e77ae75735d9a39f7bc83dba6d3f75d49d8
+  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
+  WZLBadge: 9ec779dcfd94c825518b395e8315fccaabff1bfa
+
+PODFILE CHECKSUM: 12af105eb9f62ded4f44bc7ab7c1decbc691c457
+
+COCOAPODS: 1.5.0

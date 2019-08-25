@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GanLuXiangBan/App/Personal&#xff08;&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;&#xff09;/PersonalInfo&#xff08;&#x4e2a;&#x4eba;&#x4fe1;&#x606f;&#xff09;/PersonalInfo&#xff08;&#x4e2a;&#x4eba;&#x4fe1;&#x606f;&#xff09;/ViewModel/PersonalInfoViewModel.m"
+            timestampString = "554786775.518777"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-getDoctorFilesInfoWithId:complete:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GanLuXiangBan/App/HomePage&#xff08;&#x9996;&#x9875;&#xff09;/Message&#xff08;&#x6d88;&#x606f;&#xff09;/Cell/ChatDrugTableViewCell.m"
+            timestampString = "555496265.2835881"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-setModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GanLuXiangBan/App/Personal&#xff08;&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;&#xff09;/Setting&#xff08;&#x8bbe;&#x7f6e;&#xff09;/About&#xff08;&#x5173;&#x4e8e;&#x516d;&#x533b;&#x536b;&#xff09;/AboutViewController.m"
+            timestampString = "558499967.393941"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

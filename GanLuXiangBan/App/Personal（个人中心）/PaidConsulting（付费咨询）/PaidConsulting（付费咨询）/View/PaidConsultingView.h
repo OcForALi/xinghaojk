@@ -1,0 +1,16 @@
+//
+//  PaidConsultingView.h
+//  GanLuXiangBan
+//
+//  Created by M on 2018/5/2.
+//  Copyright © 2018年 黄锡凯. All rights reserved.
+//
+
+#import "BaseTableView.h"
+
+@interface PaidConsultingView : BaseTableView
+
+@property (nonatomic, strong) NSArray *prices;
+@property (nonatomic, strong) void (^goViewControllerBlock)(BaseViewController *viewController);
+
+@end

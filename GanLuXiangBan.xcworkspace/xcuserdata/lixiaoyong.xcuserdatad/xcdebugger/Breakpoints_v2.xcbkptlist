@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GanLuXiangBan/App/HomePage&#xff08;&#x9996;&#x9875;&#xff09;/AddDrugs&#xff08;&#x6dfb;&#x52a0;&#x7528;&#x836f;&#xff09;/VC/AllDrug&#xff08;&#x6240;&#x6709;&#x836f;&#x54c1;&#xff09;/AllDrugViewController.m"
+            timestampString = "588258855.8378839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-showEditDrug:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GanLuXiangBan/App/HomePage&#xff08;&#x9996;&#x9875;&#xff09;/RecDrugs&#xff08;&#x63a8;&#x8350;&#x7528;&#x836f;&#xff09;/View/RecDrugsView.m"
+            timestampString = "588258871.0254149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "628"
+            endingLineNumber = "628"
+            landmarkName = "-compile:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GanLuXiangBan/App/HomePage&#xff08;&#x9996;&#x9875;&#xff09;/MyStudio&#xff08;&#x6211;&#x7684;&#x5de5;&#x4f5c;&#x5ba4;&#xff09;/PrescriptionAddView.m"
+            timestampString = "588258885.886829"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "-compile:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
