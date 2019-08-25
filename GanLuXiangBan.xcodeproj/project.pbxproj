@@ -5677,7 +5677,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_ENTITLEMENTS = GanLuXiangBan/GanLuXiangBan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VX79Q859H7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5699,7 +5699,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xinghaojk.agent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "XingHaoJK DL";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -5711,8 +5711,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_ENTITLEMENTS = GanLuXiangBan/GanLuXiangBan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VX79Q859H7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5734,7 +5734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xinghaojk.agent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "XingHaoJK DL App Store";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
