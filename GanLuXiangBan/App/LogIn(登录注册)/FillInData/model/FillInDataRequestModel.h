@@ -38,5 +38,11 @@
 @property (nonatomic ,copy) NSString *Introduction;
 ///擅长
 @property (nonatomic ,copy) NSString *Remark;
+///身份证
+@property (nonatomic ,copy) NSString *IdCard;
+///代理区域
+@property (nonatomic ,copy) NSString *ProvinceId;
+@property (nonatomic ,copy) NSString *CityId;
+
 
 @end
