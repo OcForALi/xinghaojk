@@ -32,23 +32,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    if (!GetUserDefault(UserPhone)) {
-        [self initLogIn];
-        SetUserDefault(UserCheck_status, @"3");
-    }else if ([GetUserDefault(UserCheck_status) integerValue] == 0  && GetUserDefault(UserCheck_status) != nil){
-        self.isLogined = YES;
-        [self initMainController];
-    }else if ([GetUserDefault(UserCheck_status) integerValue] == 1){
-        [self initFillInData];
-        SetUserDefault(UserCheck_status, @"3");
-    }else if ([GetUserDefault(UserCheck_status) integerValue] == 2){
-        [self initCertification];
-        SetUserDefault(UserCheck_status, @"3");
-    } else {
-        [self initLogIn];
-        SetUserDefault(UserCheck_status, @"3");
-    }
+//    if (!GetUserDefault(UserPhone)) {
+//        [self initLogIn];
+//        SetUserDefault(UserCheck_status, @"3");
+//    }else if ([GetUserDefault(UserCheck_status) integerValue] == 0  && GetUserDefault(UserCheck_status) != nil){
+//        self.isLogined = YES;
+//        [self initMainController];
+//    }else if ([GetUserDefault(UserCheck_status) integerValue] == 1){
+//        [self initFillInData];
+//        SetUserDefault(UserCheck_status, @"3");
+//    }else if ([GetUserDefault(UserCheck_status) integerValue] == 2){
+//        [self initCertification];
+//        SetUserDefault(UserCheck_status, @"3");
+//    } else {
+//        [self initLogIn];
+//        SetUserDefault(UserCheck_status, @"3");
+//    }
     
+    [self initMainController];
     [WXApi registerApp:WeiXin_AppID];
     
 #if DEBUG

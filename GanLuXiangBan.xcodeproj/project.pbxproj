@@ -66,7 +66,6 @@
 		0C7B0A3A20CE0B9C00FC33DF /* PaySetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7B0A3920CE0B9C00FC33DF /* PaySetViewModel.m */; };
 		0C86F74620971F3F002A0052 /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F74420971F3F002A0052 /* UIColor+category.m */; };
 		0C86F74920972064002A0052 /* PersonalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F74820972064002A0052 /* PersonalView.m */; };
-		0C86F74C20972CC2002A0052 /* VisitsRelatedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F74B20972CC2002A0052 /* VisitsRelatedCell.m */; };
 		0C86F74F2097318D002A0052 /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F74E2097318D002A0052 /* PersonalInfoViewController.m */; };
 		0C86F752209731D2002A0052 /* PersonalInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F751209731D2002A0052 /* PersonalInfoView.m */; };
 		0C86F75B2097761D002A0052 /* UILabel+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F75A2097761D002A0052 /* UILabel+Category.m */; };
@@ -350,6 +349,7 @@
 		11FFCCEA20C6D278003F3710 /* RecDrugsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FFCCE920C6D278003F3710 /* RecDrugsRequest.m */; };
 		11FFCCEE20C6D495003F3710 /* RecDrugsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FFCCED20C6D495003F3710 /* RecDrugsView.m */; };
 		11FFCCF220C6D4FC003F3710 /* RecDrugsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FFCCF120C6D4FC003F3710 /* RecDrugsModel.m */; };
+		1E37E8082316C8A5008C5B5A /* PersonalInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37E8072316C8A5008C5B5A /* PersonalInfoCell.m */; };
 		271A4A95945A04C9E3E4B5AD /* libPods-GanLuXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */; };
 		BD0FA245224A830D0091EC35 /* AddDrugsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA244224A830D0091EC35 /* AddDrugsRequest.m */; };
 		BD0FA249224A832A0091EC35 /* AddDrugsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA248224A832A0091EC35 /* AddDrugsModel.m */; };
@@ -594,8 +594,6 @@
 		0C86F74520971F3F002A0052 /* UIColor+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
 		0C86F74720972064002A0052 /* PersonalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalView.h; sourceTree = "<group>"; };
 		0C86F74820972064002A0052 /* PersonalView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalView.m; sourceTree = "<group>"; };
-		0C86F74A20972CC2002A0052 /* VisitsRelatedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisitsRelatedCell.h; sourceTree = "<group>"; };
-		0C86F74B20972CC2002A0052 /* VisitsRelatedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisitsRelatedCell.m; sourceTree = "<group>"; };
 		0C86F74D2097318D002A0052 /* PersonalInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInfoViewController.h; sourceTree = "<group>"; };
 		0C86F74E2097318D002A0052 /* PersonalInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoViewController.m; sourceTree = "<group>"; };
 		0C86F750209731D2002A0052 /* PersonalInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInfoView.h; sourceTree = "<group>"; };
@@ -1164,6 +1162,8 @@
 		11FFCCED20C6D495003F3710 /* RecDrugsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecDrugsView.m; sourceTree = "<group>"; };
 		11FFCCF020C6D4FC003F3710 /* RecDrugsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecDrugsModel.h; sourceTree = "<group>"; };
 		11FFCCF120C6D4FC003F3710 /* RecDrugsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecDrugsModel.m; sourceTree = "<group>"; };
+		1E37E8062316C8A5008C5B5A /* PersonalInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInfoCell.h; sourceTree = "<group>"; };
+		1E37E8072316C8A5008C5B5A /* PersonalInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoCell.m; sourceTree = "<group>"; };
 		70469BD2CC2D2B8D6759CE3D /* Pods-GanLuXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GanLuXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-GanLuXiangBan/Pods-GanLuXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GanLuXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0FA243224A830D0091EC35 /* AddDrugsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDrugsRequest.h; sourceTree = "<group>"; };
@@ -1798,10 +1798,10 @@
 		0C696CB92097155B00827F12 /* Personal（个人中心） */ = {
 			isa = PBXGroup;
 			children = (
-				BD6153DB2247609E00D42597 /* MyPrescription(我开具的处方) */,
-				BD6153DA2247605F00D42597 /* Gift(患者心意) */,
 				0C696DD120971AE100827F12 /* Personal（个人中心） */,
 				0CDB1DA2209969DF00DCF82A /* PersonalInfo（个人信息） */,
+				BD6153DB2247609E00D42597 /* MyPrescription(我开具的处方) */,
+				BD6153DA2247605F00D42597 /* Gift(患者心意) */,
 				0CDB1DB3209992FF00DCF82A /* VisitDetails（出诊详情） */,
 				0CDB1DB62099949200DCF82A /* PaidConsulting（付费咨询） */,
 				0C999AE320D598D80066146D /* Subscribe（我的预约） */,
@@ -1925,9 +1925,9 @@
 		0C696D002097155B00827F12 /* PersonalInfo（个人信息） */ = {
 			isa = PBXGroup;
 			children = (
+				0C735F1A209D942C000928A3 /* ViewModel */,
 				0C735F19209D9427000928A3 /* Model */,
 				0C696D032097155B00827F12 /* View */,
-				0C735F1A209D942C000928A3 /* ViewModel */,
 				0C696D042097155B00827F12 /* ViewController */,
 			);
 			path = "PersonalInfo（个人信息）";
@@ -2145,8 +2145,8 @@
 			children = (
 				0C86F74720972064002A0052 /* PersonalView.h */,
 				0C86F74820972064002A0052 /* PersonalView.m */,
-				0C86F74A20972CC2002A0052 /* VisitsRelatedCell.h */,
-				0C86F74B20972CC2002A0052 /* VisitsRelatedCell.m */,
+				1E37E8062316C8A5008C5B5A /* PersonalInfoCell.h */,
+				1E37E8072316C8A5008C5B5A /* PersonalInfoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5221,6 +5221,7 @@
 				11F1E4D220C57E5D000E84BD /* DiseasesViewController.m in Sources */,
 				BD660AD92258D76D0000A283 /* RegisterStatusViewController.m in Sources */,
 				0C5DD9BA20BC37A900A6E3B7 /* MyCardView.m in Sources */,
+				1E37E8082316C8A5008C5B5A /* PersonalInfoCell.m in Sources */,
 				11E622E020AABEF200629079 /* HomeRequest.m in Sources */,
 				11CE8DDA20D6E7810094AF41 /* AddFasetReplyViewController.m in Sources */,
 				11234C2220E3259E00259338 /* amrFileCodec.mm in Sources */,
@@ -5350,7 +5351,6 @@
 				1166799420DB92A100205A64 /* ContinueModel.m in Sources */,
 				113EC89120D50699009EC67E /* ChatDrugsModel.m in Sources */,
 				F5F0738122FC64BB0047E2D1 /* DocCircleViewController.m in Sources */,
-				0C86F74C20972CC2002A0052 /* VisitsRelatedCell.m in Sources */,
 				BDA2CE332274A46000ABA0C1 /* AAXAxis.m in Sources */,
 				0C999ADF20D57C9E0066146D /* CheckTimeListView.m in Sources */,
 				BDA2CE482274A46000ABA0C1 /* AAChart.m in Sources */,
@@ -5677,8 +5677,8 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_ENTITLEMENTS = GanLuXiangBan/GanLuXiangBan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = VX79Q859H7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5699,7 +5699,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xinghaojk.agent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "XingHaoJK DL";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -5712,8 +5712,8 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_ENTITLEMENTS = GanLuXiangBan/GanLuXiangBan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = VX79Q859H7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5734,7 +5734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xinghaojk.agent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "XingHaoJK DL";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

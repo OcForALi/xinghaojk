@@ -31,17 +31,13 @@
 
     self.title = @"个人中心";
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackgroundStopTimer) name:UIApplicationWillResignActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterForegroundStartTimer) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
+    [self addNoti];
     [self setupSubviews];
-    [self getInfo];
-}
--(void)action{
     [self getInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
@@ -57,7 +53,14 @@
     
 }
 
+- (void)addNoti {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackgroundStopTimer) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterForegroundStartTimer) name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
 - (void)applicationEnterBackgroundStopTimer {
+    
     if (self.timer) {
         [self.timer invalidate];
         self.timer = nil;
@@ -65,10 +68,15 @@
 }
 
 - (void)applicationEnterForegroundStartTimer {
+    
     [self applicationEnterBackgroundStopTimer];
     
     self.timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(action) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)action{
+    [self getInfo];
 }
 
 - (void)setupSubviews {
@@ -89,6 +97,7 @@
 }
 
 - (void)getInfo {
+    
     BOOL logined = GLAppDelegate.isLogined;
     if (!logined) {
         return;

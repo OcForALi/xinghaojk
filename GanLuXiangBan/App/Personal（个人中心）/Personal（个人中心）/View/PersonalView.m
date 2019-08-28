@@ -7,24 +7,19 @@
 //
 
 #import "PersonalView.h"
-#import "VisitsRelatedCell.h"
+#import "PersonalInfoCell.h"
 
-#define HeaderHeight 280
+#define HeaderHeight 200
 
 @interface PersonalView ()
+
+@property (nonatomic, assign) float cellHeight;
 
 @property (nonatomic, strong) NSArray *imgs;
 
 @property (nonatomic, strong) UIButton *headBgView;
-@property (nonatomic, strong) UILabel *positionLabel;
 @property (nonatomic, strong) UILabel *userNameLabel;
 @property (nonatomic, strong) UIImageView *headImgView;
-@property (nonatomic, strong) UILabel *statusLabel;
-
-@property (nonatomic, strong) UILabel *registerLabel;
-@property (nonatomic, strong) UILabel *consultLabel;
-@property (nonatomic, strong) UILabel *chargeLabel;
-@property (nonatomic, strong) UILabel *prescriptionLabel;
 
 @end
 
@@ -35,12 +30,12 @@
     
     if (self = [super initWithFrame:frame style:style]) {
         
-        [self registerClass:[VisitsRelatedCell class] forCellReuseIdentifier:@"VisitsRelatedCell"];
+        [self registerClass:[PersonalInfoCell class] forCellReuseIdentifier:@"PersonalInfoCell"];
         [self registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
         [self insertSubview:self.headBgView atIndex:0];
         
-        self.imgs = @[@"PersonalIntegral", @"PersonalSubscribeImg", @"PersonalBankCard", @"PersonalBankCard", @"PersonalBankCard", @"PersonAlassistant", @"PersonSetting"];
-        self.dataSources = @[@"工作室业绩", @"我的预约", @"患者心意", @"我开具的处方", @"银行卡", @"医生助理", @"设置"];
+        self.imgs = @[@"PersonalBankCard", @"PersonAlassistant", @"PersonSetting"];
+        self.dataSources = @[@"银行卡", @"联系客服", @"设置"];
     }
     
     return self;
@@ -51,37 +46,15 @@
     _model = model;
     
     self.userNameLabel.text = model.Name;
-    self.positionLabel.text = [NSString stringWithFormat:@"%@ %@", model.CustName, model.Title];
-    if (model.Auth_Status && [model.Auth_Status isEqualToString:@"2"]) {
-        self.statusLabel.backgroundColor = kSixColor;
-        self.statusLabel.text = @"已认证";
-        self.statusLabel.textColor = [UIColor colorWithHexString:@"0xEEEEEE"];
-    }
-    else {
-        self.statusLabel.backgroundColor = kMainColor;
-        self.statusLabel.text = @"未认证";
-        self.statusLabel.textColor = [UIColor whiteColor];
-    }
     
     [self.headImgView sd_setImageWithURL:[NSURL URLWithString:model.Head] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
     [self reloadData];
 }
 
-- (void)setDataModel:(PersonalStaticModel *)dataModel {
-    _dataModel = dataModel;
-    if (dataModel) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.registerLabel.text = [NSString stringWithFormat:@"%@", dataModel.reg_count];
-            self.consultLabel.text = [NSString stringWithFormat:@"%@", dataModel.zx_count];
-            self.chargeLabel.text = [NSString stringWithFormat:@"%@", dataModel.pay_count];
-            self.prescriptionLabel.text = [NSString stringWithFormat:@"%@", dataModel.recipe_count];
-        });
-    }
-}
-
 #pragma mark - lazy
 
 - (UILabel *)setupLabel:(NSString *)title type:(NSInteger)type view:(UIView *)view {
+    
     UILabel *label = [[UILabel alloc] init];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = kFontRegular(14);
@@ -108,70 +81,19 @@
             }
         }];
         
-        UIView *menu = [[UIView alloc] init];
-        menu.backgroundColor = [UIColor whiteColor];
-        [headBgView addSubview:menu];
-        [menu mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(80);
+        // 用户头像
+        self.headImgView = [UIImageView new];
+        self.headImgView.image = [UIImage imageNamed:@"Home_HeadDefault"];
+        self.headImgView.layer.cornerRadius = 40;
+        self.headImgView.layer.masksToBounds = YES;
+        self.headImgView.userInteractionEnabled = NO;
+        [self.headBgView addSubview:self.headImgView];
+        [self.headImgView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.headBgView);
+            make.centerY.equalTo(self.headBgView);
+            make.height.width.equalTo(@80);
         }];
-        self.registerLabel = [self setupLabel:@"0" type:1 view:menu];
-        self.consultLabel = [self setupLabel:@"0" type:1 view:menu];
-        self.chargeLabel = [self setupLabel:@"0" type:1 view:menu];;
-        self.prescriptionLabel = [self setupLabel:@"0" type:1 view:menu];
-        [self.registerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(10);
-            make.left.mas_equalTo(0);
-            make.height.mas_equalTo(30);
-        }];
-        [self.consultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.registerLabel.mas_right);
-            make.top.height.width.equalTo(self.registerLabel);
-        }];
-        [self.chargeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.consultLabel.mas_right);
-            make.top.height.width.equalTo(self.registerLabel);
-        }];
-        [self.prescriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(0);
-            make.left.equalTo(self.chargeLabel.mas_right);
-            make.top.height.width.equalTo(self.registerLabel);
-        }];
-        UILabel *reg = [self setupLabel:@"注册" type:0 view:menu];
-        UILabel *con = [self setupLabel:@"咨询" type:0 view:menu];
-        UILabel *fee = [self setupLabel:@"付费" type:0 view:menu];;
-        UILabel *pre = [self setupLabel:@"处方" type:0 view:menu];
-        [reg mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.registerLabel.mas_bottom);
-            make.left.mas_equalTo(0);
-            make.height.mas_equalTo(30);
-        }];
-        [con mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(reg.mas_right);
-            make.top.height.width.equalTo(reg);
-        }];
-        [fee mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(con.mas_right);
-            make.top.height.width.equalTo(reg);
-        }];
-        [pre mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(0);
-            make.left.equalTo(fee.mas_right);
-            make.top.height.width.equalTo(reg);
-        }];
-        
-        // 用户属性
-        self.positionLabel = [UILabel new];
-        self.positionLabel.font = [UIFont systemFontOfSize:13];
-        self.positionLabel.textAlignment = NSTextAlignmentCenter;
-        self.positionLabel.textColor = RGBA(255, 255, 255, 0.6);
-        [headBgView addSubview:self.positionLabel];
-        
-        [self.positionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(self.headBgView);
-            make.bottom.equalTo(menu.mas_top).offset(-20);
-            make.height.equalTo(@15);
-        }];
+
         
         // 用户昵称
         self.userNameLabel = [UILabel new];
@@ -179,26 +101,12 @@
         self.userNameLabel.textAlignment = NSTextAlignmentCenter;
         self.userNameLabel.textColor = [UIColor whiteColor];
         self.userNameLabel.text = GetUserDefault(UserName);
-        [headBgView addSubview:self.userNameLabel];
-        
+        self.userNameLabel.text = @"用户昵称";
+        [self.headBgView addSubview:self.userNameLabel];
         [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.headBgView);
-            make.bottom.equalTo(self.positionLabel.mas_top).equalTo(@-10);
+            make.top.equalTo(self.headImgView.mas_bottom).equalTo(@(25));
             make.height.equalTo(@15);
-        }];
-        
-        // 用户头像
-        self.headImgView = [UIImageView new];
-        self.headImgView.image = [UIImage imageNamed:@"Home_HeadDefault"];
-        self.headImgView.layer.cornerRadius = 40;
-        self.headImgView.layer.masksToBounds = YES;
-        self.headImgView.userInteractionEnabled = NO;
-        [headBgView addSubview:self.headImgView];
-        
-        [self.headImgView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.headBgView);
-            make.height.width.equalTo(@80);
-            make.bottom.equalTo(self.userNameLabel.mas_top).equalTo(@-15);
         }];
         
         UIImageView *edit = [[UIImageView alloc] init];
@@ -206,25 +114,11 @@
         [headBgView addSubview:edit];
         [edit mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.height.mas_equalTo(24);
-            make.top.equalTo(self.headImgView.mas_bottom);
-            make.left.equalTo(self.headImgView.mas_right);//.offset(-20);
+            make.bottom.equalTo(self.headImgView.mas_bottom);
+            make.left.equalTo(self.headImgView.mas_right);
         }];
-        
+
         self.contentInset = UIEdgeInsetsMake(HeaderHeight, 0, 0, 0);
-        
-        self.statusLabel = [[UILabel alloc] init];
-        self.statusLabel.backgroundColor = kMainColor;
-        self.statusLabel.textAlignment = NSTextAlignmentCenter;
-        self.statusLabel.font = kFontRegular(15);
-        self.statusLabel.layer.masksToBounds = YES;
-        self.statusLabel.layer.cornerRadius = 6;
-        [headBgView addSubview:self.statusLabel];
-        [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(40);
-            make.right.mas_equalTo(8);
-            make.width.mas_equalTo(70);
-            make.height.mas_equalTo(30);
-        }];
     }
     
     return headBgView;
@@ -260,10 +154,8 @@
     
     if (indexPath.section == 0) {
         
-        VisitsRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VisitsRelatedCell"];
-        [cell setGoViewControllerBlock:^(UIViewController *viewController) {
-            self.goViewControllerBlock(viewController);
-        }];
+        PersonalInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalInfoCell"];
+        self.cellHeight = cell.cellHeight;
         return cell;
     }
     
@@ -282,18 +174,32 @@
     
     if (indexPath.section != 0) {
         
-        NSArray *viewControllers = @[@"MyPointsViewController", @"SubscribeViewController", @"MyGiftController", @"MyPrescriptionController", @"MyCardViewController", @"AssistantViewController", @"SettingViewController"];
+        NSString *vcname = @"";
+        NSString *text = self.dataSources[indexPath.row];
+        if ([text containsString:@"银行卡"]) {
+            vcname = @"MyPointsViewController";
+        }
+        else if ([text containsString:@"联系客服"]) {
+            
+            
+        }
+        else if ([text containsString:@"设置"]) {
+            vcname = @"SettingViewController";
+        }
         
-        BaseViewController *viewController = [NSClassFromString(viewControllers[indexPath.row]) new];
-        viewController.title = self.dataSources[indexPath.row];
-        self.goViewControllerBlock(viewController);
+        if (vcname.length > 0 && self.goViewControllerBlock) {
+            
+            UIViewController *vc = [NSClassFromString(vcname) new];
+            vc.title = text;
+            self.goViewControllerBlock(vc);
+        }
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-        return VisitsRelatedCellHeight;
+        return self.cellHeight;
     }
     
     return 45;

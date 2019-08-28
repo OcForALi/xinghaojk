@@ -29,45 +29,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSString *text = self.dataSources[indexPath.section][indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     }
     
-    cell.textLabel.text = self.dataSources[indexPath.section][indexPath.row];
+    cell.textLabel.text = text;
     cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     if (indexPath.section == 0) {
         
-        if (indexPath.row == 0) {
-            cell.detailTextLabel.text = self.model.Name;
+        NSString *detailText = @"";
+        if ([text containsString:@"姓名"]) {
+            detailText = self.model.Name;
         }
-        else {
-            cell.detailTextLabel.text = self.model.Gender;
+        else if ([text containsString:@"性别"]) {
+            detailText = self.model.Gender;
         }
-    }
-    else if (indexPath.section == 1) {
-        
-        if (indexPath.row == 0) {
-            cell.detailTextLabel.text = self.model.HospitalName;
+        else if ([text containsString:@"身份证号"]) {
+            
         }
-        else if (indexPath.row == 1) {
-            cell.detailTextLabel.text = self.model.CustName;
-        }
-        else {
-            cell.detailTextLabel.text = self.model.Title;
-        }
-    }
-    else if (indexPath.section == 2) {
-        
-        if (indexPath.row == 0) {
-            cell.detailTextLabel.text = self.model.Remark;
-        }
-        else {
-            cell.detailTextLabel.text = self.model.Introduction;
+        else if ([text containsString:@"代理区域"]) {
+            
         }
         
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.detailTextLabel.text = detailText;
     }
     else {
         
@@ -97,53 +85,40 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    
-    if (indexPath.section > 1) {
+
+    BaseViewController *vc;
+    NSString *vcname = @"";
+    NSString *text = self.dataSources[indexPath.section][indexPath.row];
+
+    if (indexPath.section == 0) {
         
-        NSArray *viewControllerNames = @[@[@"EditUserInfoViewController",@""],
-                                         @[@"SelHospitalViewController", @"SelDepartmentViewController", @""],
-                                         @[@"ModifyViewController", @"ModifyViewController"],
-                                         @[@"CertificationViewController", @"CertificationViewController"]];
-        NSString *viewControllerName = viewControllerNames[indexPath.section][indexPath.row];
-        
-        // 前往控制器
-        if (self.goViewControllerBlock && ![viewControllerName isEqualToString:@""]) {
+        if ([text containsString:@"性别"]) {
             
-            BaseViewController *viewController = [NSClassFromString(viewControllerName) new];
-            viewController.title = self.dataSources[indexPath.section][indexPath.row];
+            NSArray *titles = @[@"男", @"女"];
+            [self actionSheetWithTitle:@"请选择性别" titles:titles isCan:NO completeBlock:^(NSInteger index) {
+                self.model.Gender = titles[index];
+                [self reloadData];
+            }];
+        }
+        else if ([text containsString:@"代理区域"]) {
             
-            if ([viewControllerName isEqualToString:@"ModifyViewController"]) {
-             
-                ModifyViewController *vc = (ModifyViewController *)viewController;
-                vc.contentString = self.model.Introduction;
-                if (indexPath.row == 0) {
-                    vc.contentString = self.model.Remark;
-                }
-            }
-            
-            if (self.goViewControllerBlock) {
-                self.goViewControllerBlock(viewController);
-            }
         }
         else {
             
-            // 选择性别
-            if (indexPath.section == 0) {
-                NSArray *titles = @[@"男", @"女"];
-                [self actionSheetWithTitle:@"请选择性别" titles:titles isCan:NO completeBlock:^(NSInteger index) {
-                    self.model.Gender = titles[index];
-                    [self reloadData];
-                }];
-            }
-            else {
-                
-                NSArray *titles = @[@"主任医师", @"副主任医师", @"主治医师", @"医师"];
-                [self actionSheetWithTitle:@"请选择职称" titles:titles isCan:NO completeBlock:^(NSInteger index) {
-                    self.model.Title = titles[index];
-                    [self reloadData];
-                }];
-            }
+            vcname = @"EditUserInfoViewController";
+            vc = [NSClassFromString(vcname) new];
+            vc.title = text;
         }
+    }
+    else {
+        
+        vcname = @"CertificationViewController";
+        vc = [NSClassFromString(vcname) new];
+        vc.title = text;
+    }
+    
+    if (self.goViewControllerBlock && vcname.length > 0) {
+        self.goViewControllerBlock(vc);
     }
 }
 
