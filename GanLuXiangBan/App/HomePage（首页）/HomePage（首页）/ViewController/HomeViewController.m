@@ -346,6 +346,24 @@
         bannerView.backgroundColor = RGB(233, 233, 233);
         [self.view addSubview:bannerView];
         
+        if (IS_iPhoneX) {
+            
+            bannerView.sd_layout
+            .topSpaceToView(self.view, -20)
+            .centerXEqualToView(self.view)
+            .widthIs(ScreenWidth)
+            .heightIs(ScreenWidth / 2.5);
+            
+        }else{
+            
+            bannerView.sd_layout
+            .topSpaceToView(self.view, 0)
+            .centerXEqualToView(self.view)
+            .widthIs(ScreenWidth)
+            .heightIs(ScreenWidth / 2.5);
+            
+        }
+        
         //获取轮播图
         self.homeRequest = [HomeRequest new];
         
@@ -378,50 +396,51 @@
     self.doctorView = [UIImageView new];
     self.doctorView.image = [UIImage imageNamed:@"HomeBG"];
     self.doctorView.contentMode = UIViewContentModeScaleAspectFill;
+    self.doctorView.clipsToBounds = YES;
     self.doctorView.userInteractionEnabled = YES;
     [self.view addSubview:self.doctorView];
     
-    if (IS_iPhoneX) {
-        
+//    if (IS_iPhoneX) {
+//
+//        self.doctorView.sd_layout
+//        .topSpaceToView(self.view, -20)
+//        .centerXEqualToView(self.view)
+//        .widthIs(ScreenWidth)
+//        .heightIs(ScreenHeight * 0.214);
+//
+//    }else{
+    
         self.doctorView.sd_layout
-        .topSpaceToView(self.view, -20)
+        .topSpaceToView(bannerView, 0)
         .centerXEqualToView(self.view)
         .widthIs(ScreenWidth)
-        .heightIs(ScreenHeight * 0.214);
+        .heightIs(ScreenHeight * 0.08);
         
-    }else{
-     
-        self.doctorView.sd_layout
-        .topSpaceToView(self.view, 0)
-        .centerXEqualToView(self.view)
-        .widthIs(ScreenWidth)
-        .heightIs(ScreenHeight * 0.214);
-        
-    }
+//    }
     
-    UILabel *label = [UILabel new];
-    label.text = @"首页";
-    label.font = [UIFont systemFontOfSize:24];
-    label.textColor = [UIColor whiteColor];
-    [self.doctorView addSubview:label];
-    
-    if (IS_iPhoneX) {
-        
-        label.sd_layout
-        .centerXEqualToView(self.doctorView)
-        .topSpaceToView(self.doctorView, 70)
-        .heightIs(18);
-        [label setSingleLineAutoResizeWithMaxWidth:200];
-
-    }else{
-       
-        label.sd_layout
-        .centerXEqualToView(self.doctorView)
-        .topSpaceToView(self.doctorView, 30)
-        .heightIs(18);
-        [label setSingleLineAutoResizeWithMaxWidth:200];
-
-    }
+//    UILabel *label = [UILabel new];
+//    label.text = @"首页";
+//    label.font = [UIFont systemFontOfSize:24];
+//    label.textColor = [UIColor whiteColor];
+//    [self.doctorView addSubview:label];
+//
+//    if (IS_iPhoneX) {
+//
+//        label.sd_layout
+//        .centerXEqualToView(self.doctorView)
+//        .topSpaceToView(self.doctorView, 70)
+//        .heightIs(18);
+//        [label setSingleLineAutoResizeWithMaxWidth:200];
+//
+//    }else{
+//
+//        label.sd_layout
+//        .centerXEqualToView(self.doctorView)
+//        .topSpaceToView(self.doctorView, 30)
+//        .heightIs(18);
+//        [label setSingleLineAutoResizeWithMaxWidth:200];
+//
+//    }
     
     self.headImageView = [UIImageView new];
     if (!GetUserDefault(UserHead)) {
@@ -444,7 +463,7 @@
     .heightEqualToWidth();
     
     NSArray *imageArray = @[@"Home_Patient",@"Home_Comment"];
-    NSArray *titleArray = @[@"患者",@"评价"];
+    NSArray *titleArray = @[@"医生",@"开单金额"];
     
     for (int i = 0; i < imageArray.count; i++) {
 
@@ -459,7 +478,7 @@
 
         iconView.sd_layout
         .leftSpaceToView(self.headImageView, 30 + i * ScreenWidth * 0.3)
-        .centerYEqualToView(self.headImageView)
+        .centerYEqualToView(self.doctorView)
         .widthIs(100)
         .heightIs(30);
         
@@ -470,7 +489,7 @@
         [self.doctorView addSubview:label];
         
         label.sd_layout
-        .centerYEqualToView(self.headImageView)
+        .centerYEqualToView(self.doctorView)
         .leftSpaceToView(self.headImageView, 30 + i * ScreenWidth * 0.3)
         .heightIs(12);
         [label setSingleLineAutoResizeWithMaxWidth:100];
@@ -484,7 +503,7 @@
             
             self.patientLabel.sd_layout
             .leftSpaceToView(label, 5)
-            .centerYEqualToView(self.headImageView)
+            .centerYEqualToView(self.doctorView)
             .heightIs(14);
             [self.patientLabel setSingleLineAutoResizeWithMaxWidth:100];
             
@@ -507,7 +526,7 @@
             
             self.evaluateLabel.sd_layout
             .leftSpaceToView(label, 5)
-            .centerYEqualToView(self.headImageView)
+            .centerYEqualToView(self.doctorView)
             .heightIs(14);
             [self.evaluateLabel setSingleLineAutoResizeWithMaxWidth:100];
             
@@ -540,13 +559,13 @@
     [self.view addSubview:self.toolView];
     
     self.toolView.sd_layout
-    .topSpaceToView(self.bannerView, 13)
+    .topSpaceToView(self.doctorView, 13)
     .centerXEqualToView(self.view)
     .heightIs(88)
     .widthIs(ScreenWidth);
     
-    NSArray *imageArray = @[@"Home_Invitation",@"Home_Schedule",@"Home_Studio",@"home_article", @"home_live"];
-    NSArray *titleArray = @[@"医患邀请",@"我的日程",@"我的工作室",@"患教文章",@"会议直播"];
+    NSArray *imageArray = @[@"Home_Invitation",@"Home_Schedule",@"Home_Studio"];
+    NSArray *titleArray = @[@"邀请加入",@"产品代理",@"业绩查看"];
     CGFloat width = ScreenWidth/titleArray.count;
     
     for (int i = 0; i < imageArray.count; i++) {
@@ -581,13 +600,13 @@
         .heightIs(14);
     }
     
-    self.leftButton = [self menuButton:@"患者&平台" tag:1];
+    self.leftButton = [self menuButton:@"开单排行榜" tag:1];
     [self.view addSubview:self.leftButton];
-    self.leftButton.sd_layout.topSpaceToView(self.toolView, 0).leftSpaceToView(self.view, 0).widthRatioToView(self.view, 0.5).heightIs(50);
+    self.leftButton.sd_layout.topSpaceToView(self.toolView, 0).leftSpaceToView(self.view, 0).widthRatioToView(self.view, 1).heightIs(50);
     self.leftButton.selected = YES;
-    self.rightButton = [self menuButton:@"药师助理" tag:2];
-    [self.view addSubview:self.rightButton];
-    self.rightButton.sd_layout.topSpaceToView(self.toolView, 0).rightSpaceToView(self.view, 0).widthRatioToView(self.leftButton, 1.0).heightRatioToView(self.leftButton, 1.0);
+//    self.rightButton = [self menuButton:@"药师助理" tag:2];
+//    [self.view addSubview:self.rightButton];
+//    self.rightButton.sd_layout.topSpaceToView(self.toolView, 0).rightSpaceToView(self.view, 0).widthRatioToView(self.leftButton, 1.0).heightRatioToView(self.leftButton, 1.0);
     
     self.lineView = [[UIView alloc] init];
     self.lineView.backgroundColor = kMainColor;

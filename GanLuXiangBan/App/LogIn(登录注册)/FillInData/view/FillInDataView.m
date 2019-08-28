@@ -58,9 +58,9 @@
     }
     
     NSArray *array1 = @[
-                        @{@"titleName":@"医院",@"placeholderString":@"必填"},
-                        @{@"titleName":@"科室",@"placeholderString":@"必填"},
-                        @{@"titleName":@"职称",@"placeholderString":@"必填"}
+                        @{@"titleName":@"身份证号",@"placeholderString":@"必填"},
+                        @{@"titleName":@"代理区域",@"placeholderString":@"必填"},
+                        @{@"titleName":@"代理医院",@"placeholderString":@"必填"}
                         ];
     NSMutableArray *secton1 = [NSMutableArray array];
     
@@ -70,22 +70,22 @@
         [secton1 addObject:model];
     }
     
-    NSArray *array2 = @[
-                        @{@"titleName":@"擅长",@"placeholderString":@"选填"},
-                        @{@"titleName":@"简介",@"placeholderString":@"选填"}
-                        ];
-    NSMutableArray *secton2 = [NSMutableArray array];
-    
-    for (NSDictionary *dict in array2) {
-        FillInDataModel *model = [FillInDataModel new];
-        [model setValuesForKeysWithDictionary:dict];
-        [secton2 addObject:model];
-    }
+//    NSArray *array2 = @[
+//                        @{@"titleName":@"擅长",@"placeholderString":@"选填"},
+//                        @{@"titleName":@"简介",@"placeholderString":@"选填"}
+//                        ];
+//    NSMutableArray *secton2 = [NSMutableArray array];
+//
+//    for (NSDictionary *dict in array2) {
+//        FillInDataModel *model = [FillInDataModel new];
+//        [model setValuesForKeysWithDictionary:dict];
+//        [secton2 addObject:model];
+//    }
     
     NSArray *array = @[
                        secton0,
-                       secton1,
-                       secton2];
+                       secton1
+                       ];
     
     [self.dataSountArray addObjectsFromArray:array];
     
@@ -217,7 +217,9 @@
         
     }else{
         
-        NSDictionary *dict = @{@"姓名":@"EditUserInfoViewController",@"医院":@"SelHospitalViewController",@"科室":@"SelDepartmentViewController",@"擅长":@"ModifyViewController",@"简介":@"ModifyViewController"};
+        NSDictionary *dict = @{@"姓名":@"EditUserInfoViewController",@"医院":@"SelHospitalViewController",@"科室":@"SelDepartmentViewController",@"擅长":@"ModifyViewController",@"简介":@"ModifyViewController",@"身份证号":@"EditUserInfoViewController",
+                               @"代理医院":@"SelHospitalViewController"
+                               };
         
         NSArray *allKeys = [dict allKeys];
         
