@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"医患邀请";
+    self.title = @"邀请";
     
     [self initNav];
     
@@ -69,14 +69,14 @@
     qrDoctorView.model = self.model;
     [self addChildViewController:qrDoctorView];
     
-    FamousDoctorViewController *famous = [[FamousDoctorViewController alloc] init];
-//    qrDoctorView.model = self.model;
-    [self addChildViewController:famous];
+//    FamousDoctorViewController *famous = [[FamousDoctorViewController alloc] init];
+////    qrDoctorView.model = self.model;
+//    [self addChildViewController:famous];
 }
 
 -(void)initUI{
     
-    NSArray *titleArray = @[@"邀请患者",@"邀请医生",@"入驻名医"];
+    NSArray *titleArray = @[@"邀请医生",@"邀请同行"];
     
     NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) WithTitles:titleArray WithVCs:self.childViewControllers];
     ninaPagerView.ninaPagerStyles = 0;

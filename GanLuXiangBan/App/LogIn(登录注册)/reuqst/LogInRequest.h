@@ -29,7 +29,6 @@
  账号登录
  
  @param cid 应该传pkid？
- @param device_type 客户端
  */
 - (void)postSaveClientCid:(NSString *)cid complete:(void (^)(LogInModel *model))complete;
 
