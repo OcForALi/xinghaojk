@@ -350,6 +350,8 @@
 		11FFCCEE20C6D495003F3710 /* RecDrugsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FFCCED20C6D495003F3710 /* RecDrugsView.m */; };
 		11FFCCF220C6D4FC003F3710 /* RecDrugsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FFCCF120C6D4FC003F3710 /* RecDrugsModel.m */; };
 		1E37E8082316C8A5008C5B5A /* PersonalInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37E8072316C8A5008C5B5A /* PersonalInfoCell.m */; };
+		1E698F82231D0534009D3458 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698F81231D0534009D3458 /* CityModel.m */; };
+		1E698F84231D0551009D3458 /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E698F83231D0551009D3458 /* city.json */; };
 		271A4A95945A04C9E3E4B5AD /* libPods-GanLuXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */; };
 		BD0FA245224A830D0091EC35 /* AddDrugsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA244224A830D0091EC35 /* AddDrugsRequest.m */; };
 		BD0FA249224A832A0091EC35 /* AddDrugsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA248224A832A0091EC35 /* AddDrugsModel.m */; };
@@ -1164,6 +1166,9 @@
 		11FFCCF120C6D4FC003F3710 /* RecDrugsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecDrugsModel.m; sourceTree = "<group>"; };
 		1E37E8062316C8A5008C5B5A /* PersonalInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInfoCell.h; sourceTree = "<group>"; };
 		1E37E8072316C8A5008C5B5A /* PersonalInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoCell.m; sourceTree = "<group>"; };
+		1E698F80231D0534009D3458 /* CityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		1E698F81231D0534009D3458 /* CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		1E698F83231D0551009D3458 /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 		70469BD2CC2D2B8D6759CE3D /* Pods-GanLuXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GanLuXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-GanLuXiangBan/Pods-GanLuXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GanLuXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0FA243224A830D0091EC35 /* AddDrugsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDrugsRequest.h; sourceTree = "<group>"; };
@@ -1477,6 +1482,7 @@
 		0C497D9620C1836E00FA5ECC /* SelectCityView */ = {
 			isa = PBXGroup;
 			children = (
+				1E698F7E231D0528009D3458 /* Model */,
 				0C497D9320C1836B00FA5ECC /* CityView.h */,
 				0C497D9420C1836B00FA5ECC /* CityView.m */,
 			);
@@ -4539,6 +4545,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1E698F7E231D0528009D3458 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F83231D0551009D3458 /* city.json */,
+				1E698F80231D0534009D3458 /* CityModel.h */,
+				1E698F81231D0534009D3458 /* CityModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6076BB683D90A446E959FB8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -5042,6 +5058,7 @@
 				BDA2CE2B2274A46000ABA0C1 /* AAHighchartsLib.js in Resources */,
 				0C1BF9232096FF0E0027CFC5 /* LaunchScreen.storyboard in Resources */,
 				11EFBDD720B7FE9C004926C5 /* CityList.plist in Resources */,
+				1E698F84231D0551009D3458 /* city.json in Resources */,
 				BDA2CE2D2274A46000ABA0C1 /* AAFunnel.js in Resources */,
 				0C1BF9202096FF0E0027CFC5 /* Assets.xcassets in Resources */,
 				0C1BF91E2096FF0C0027CFC5 /* Main.storyboard in Resources */,
@@ -5416,6 +5433,7 @@
 				0C86F74F2097318D002A0052 /* PersonalInfoViewController.m in Sources */,
 				0C7B0A2320CE0A1100FC33DF /* CheckListDetailsView.m in Sources */,
 				0CAA98DC20C4456F00D2B035 /* SettingViewModel.m in Sources */,
+				1E698F82231D0534009D3458 /* CityModel.m in Sources */,
 				F5220C9B22CA5CC8004BD27C /* HomeChooseArticleTypeController.m in Sources */,
 				0C93AE3C20C6776B00FD8765 /* CertificationCell.m in Sources */,
 				0CAFD01F20DA4029006D4D0E /* TrendView.m in Sources */,

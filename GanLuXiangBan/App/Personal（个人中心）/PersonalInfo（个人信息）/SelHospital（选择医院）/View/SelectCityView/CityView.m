@@ -26,6 +26,8 @@
 @property (nonatomic, strong) UIView *titleBgView;
 /// 下标线
 @property (nonatomic, strong) UIView *lineView;
+/// 完成按钮
+@property (nonatomic, strong) UIButton *okBtn;
 
 @end
 
@@ -53,10 +55,52 @@
     self.cityDict = [NSDictionary dictionaryWithContentsOfFile:path];
 }
 
+- (void)getModel {
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"city.json" ofType:nil];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    id dataSource = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    
+    CityModel *provinceModel = [CityModel new];
+    CityModel *cityModel = [CityModel new];
+    
+    // 获取数据
+    if ([self.provinceString length] > 0) {
+        
+        for (NSDictionary *dict in dataSource) {
+            
+            NSString *name = [dict objectForKey:@"n"];
+            if ([self.provinceString isEqualToString:name]) {
+                
+                // 省份
+                [provinceModel setModelWithDict:dict];
+                
+                // 获取城市
+                if (self.cityString.length > 0) {
+                    
+                    for (NSDictionary *cityDict in [dict objectForKey:@"c"]) {
+                        
+                        NSString *name = [cityDict objectForKey:@"n"];
+                        if ([self.cityString isEqualToString:name]) {
+                            [cityModel setModelWithDict:cityDict];
+                        }
+                    }
+                }
+                
+                break;
+            }
+        }
+    }
+    
+    self.selCityModelBlock(provinceModel, cityModel);
+
+}
+
 #pragma mark - set
 - (void)setIsShowCityList:(BOOL)isShowCityList {
     
     _isShowCityList = isShowCityList;
+    
     [UIView animateWithDuration:0.3 animations:^{
         
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3 * isShowCityList];
@@ -70,7 +114,16 @@
     } completion:^(BOOL finished) {
         
         if (!isShowCityList) {
+            
             self.hidden = YES;
+            
+            if (self.selectCity) {
+                self.selectCity(self.provinceString, self.cityString);
+            }
+            
+            if (self.selCityModelBlock) {
+                [self getModel];
+            }
         }
     }];
     
@@ -115,6 +168,43 @@
         titleLabel.textAlignment = NSTextAlignmentCenter;
         [titleBgView addSubview:titleLabel];
         
+        // 完成、取消按钮
+        for (int i = 0; i < 2; i++) {
+            
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = CGRectMake(15, 0, 45, 30);
+            button.centerY = titleLabel.centerY;
+            button.backgroundColor = [UIColor redColor];
+            button.titleLabel.font = [UIFont systemFontOfSize:13];
+            button.layer.cornerRadius = 5;
+            button.alpha = i == 0 ? 1 : 0;
+            [button setTitle:i == 0 ? @"取消" : @"完成" forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [titleBgView addSubview:button];
+            
+            if (i == 1) {
+                
+                button.backgroundColor = kMainColor;
+                button.x = titleBgView.width - 60;
+                [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+                    self.isShowCityList = NO;
+                }];
+                self.okBtn = button;
+            }
+            else {
+                
+                [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+                   
+                    if (self.removeBlock) {
+                        
+                        [self removeFromSuperview];
+                        
+                        self.removeBlock();
+                    }
+                }];
+            }
+        }
+        
         UIButton *selectBtn;
         for (int i = 0; i < 2; i++) {
             
@@ -142,6 +232,8 @@
     return titleBgView;
 }
 
+
+#pragma mark - lazy
 - (UIScrollView *)scrollView {
     
     if (!scrollView) {
@@ -205,14 +297,15 @@
     if (cell == nil) {
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CityCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.textColor = [UIColor colorWithHexString:@"0x333333"];
         
         UIImageView *selImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 18, 14)];
         selImgView.image = [UIImage imageNamed:@"pirce_select"];
         cell.accessoryView = selImgView;
+        cell.accessoryView.hidden = YES;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.textLabel.textColor = [UIColor colorWithHexString:@"0x333333"];
     
     if (tableView == provinceTableView) {
         cell.textLabel.text = self.cityDict.allKeys[indexPath.row];
@@ -228,7 +321,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     if (tableView == provinceTableView) {
         
         self.provinceString = self.cityDict.allKeys[indexPath.row];
@@ -248,7 +341,6 @@
     else {
      
         self.cityString = self.cityDataSource[indexPath.row];
-        self.isShowCityList = NO;
         
         UIButton *button = [self viewWithTag:667];
         [UIView animateWithDuration:0.3 animations:^{
@@ -256,16 +348,19 @@
             [button setTitleColor:[UIColor colorWithHexString:@"0x333333"] forState:UIControlStateNormal];
             [button setTitle:self.cityString forState:UIControlStateNormal];
         }];
-        
-        if (self.selectCity) {
-            self.selectCity(self.provinceString, self.cityString);
-        }
     }
+    
+    [tableView reloadData];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *titleString = tableView == provinceTableView ? self.provinceString : self.cityString;
+    if ([cell.textLabel.text isEqualToString:titleString]) cell.accessoryView.hidden = NO;
+    else cell.accessoryView.hidden = YES;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.isShowCityList = !self.isShowCityList;
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    self.isShowCityList = !self.isShowCityList;
+//}
 
 #pragma mark - UIScollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -277,6 +372,7 @@
         UILabel *cityLabel = [self viewWithTag:667];
         if (cityLabel.alpha != 1) {
             cityLabel.alpha = offsetX;
+            self.okBtn.alpha = offsetX;
         }
         
         NSLog(@"%.2f", scrollView.contentOffset.x);

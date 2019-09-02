@@ -9,8 +9,54 @@
 #import "BaseViewController.h"
 #import "PersonalInfoView.h"
 #import "ModifyViewController.h"
+#import "CityView.h"
+
+@interface PersonalInfoView ()
+
+@property (nonatomic, strong) CityView *cityView;
+
+@end
 
 @implementation PersonalInfoView
+@synthesize cityView;
+
+#pragma makr - lazy
+- (CityView *)cityView {
+    
+    if (!cityView) {
+        
+        cityView = [[CityView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, self.height)];
+        [self addSubview:cityView];
+        
+        @weakify(self);
+        [cityView setSelectCity:^(NSString *provinceString, NSString *cityString) {
+            
+            @strongify(self);
+            self.scrollEnabled = YES;
+            [self reloadData];
+            
+            [self.cityView removeFromSuperview];
+            self.cityView = nil;
+        }];
+        
+        [cityView setSelCityModelBlock:^(CityModel *province, CityModel *city) {
+           
+            
+        }];
+        
+        [cityView setRemoveBlock:^{
+            
+            @strongify(self);
+            self.scrollEnabled = YES;
+            [self reloadData];
+            
+            [self.cityView removeFromSuperview];
+            self.cityView = nil;
+        }];
+    }
+    
+    return cityView;
+}
 
 - (void)setModel:(PersonalInfoModel *)model {
     
@@ -101,7 +147,9 @@
             }];
         }
         else if ([text containsString:@"代理区域"]) {
-            
+         
+            self.cityView.isShowCityList = YES;
+            self.scrollEnabled = NO;
         }
         else {
             

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CityModel.h"
 
 @interface CityView : UIView
 
@@ -15,6 +16,23 @@
 @property (nonatomic, assign) BOOL isShowCityList;
 
 #pragma mark - Block
-@property (nonatomic, strong) void (^selectCity)(NSString *provinceString, NSString *cityString);
+
+/**
+ *  选择城市
+ */
+@property (nonatomic, strong) void (^selectCity)(NSString *province, NSString *city);
+
+/**
+ *  删除
+ */
+@property (nonatomic, strong) void (^removeBlock)(void);
+
+/**
+ *  选择城市
+ *
+ *  province 省份
+ *  city 城市
+ */
+@property (nonatomic, strong) void (^selCityModelBlock)(CityModel *province, CityModel *city);
 
 @end
