@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) float cellHeight;
 
+@property (nonatomic, strong) void (^goViewControllerBlock)(UIViewController *viewController);
+
 @end
 
 NS_ASSUME_NONNULL_END

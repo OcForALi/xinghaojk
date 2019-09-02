@@ -41,7 +41,9 @@
         
         [cityView setSelCityModelBlock:^(CityModel *province, CityModel *city) {
            
-            
+            @strongify(self);
+            self.model.city = [NSString stringWithFormat:@"%@%@", province.name, city.name];
+            [self reloadData];
         }];
         
         [cityView setRemoveBlock:^{
@@ -98,7 +100,7 @@
             
         }
         else if ([text containsString:@"代理区域"]) {
-            
+            detailText = self.model.city;
         }
         
         cell.detailTextLabel.text = detailText;

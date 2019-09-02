@@ -41,6 +41,11 @@
 /// 身份认证状态 0 未认证 1 已认证 2 认证失败
 @property (nonatomic, strong) NSString *idt_auth_status;
 
+/**
+ *  城市
+ */
+@property (nonatomic, strong) NSString *city;
+
 @end
 
 

@@ -156,6 +156,11 @@
         
         PersonalInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalInfoCell"];
         self.cellHeight = cell.cellHeight;
+        
+        // 前往控制器
+        [cell setGoViewControllerBlock:^(UIViewController * _Nonnull viewController) {
+            self.goViewControllerBlock(viewController);
+        }];
         return cell;
     }
     
@@ -179,12 +184,17 @@
         if ([text containsString:@"银行卡"]) {
             vcname = @"MyPointsViewController";
         }
-        else if ([text containsString:@"联系客服"]) {
-            
-            
-        }
         else if ([text containsString:@"设置"]) {
             vcname = @"SettingViewController";
+        }
+        else if ([text containsString:@"联系客服"]) {
+            
+            [self actionSheetWithTitle:@"客服上班时间：7*12小时（09:00-21:00）" titles:@[@"020-81978876"] isCan:YES completeBlock:^(NSInteger index) {
+                
+                [self reloadData];
+            }];
+            
+            return;
         }
         
         if (vcname.length > 0 && self.goViewControllerBlock) {

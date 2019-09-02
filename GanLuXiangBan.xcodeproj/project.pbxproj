@@ -352,6 +352,14 @@
 		1E37E8082316C8A5008C5B5A /* PersonalInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37E8072316C8A5008C5B5A /* PersonalInfoCell.m */; };
 		1E698F82231D0534009D3458 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698F81231D0534009D3458 /* CityModel.m */; };
 		1E698F84231D0551009D3458 /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E698F83231D0551009D3458 /* city.json */; };
+		1E698F8E231D17C5009D3458 /* AgentVarietyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698F8D231D17C5009D3458 /* AgentVarietyViewController.m */; };
+		1E698F91231D17D2009D3458 /* AgentVarietyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698F90231D17D2009D3458 /* AgentVarietyView.m */; };
+		1E698F94231D17EE009D3458 /* AgentVarietyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698F93231D17EE009D3458 /* AgentVarietyModel.m */; };
+		1E698F97231D17F5009D3458 /* AgentVarietyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698F96231D17F5009D3458 /* AgentVarietyViewModel.m */; };
+		1E698F9F231D1931009D3458 /* PrescriptionNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698F9E231D1931009D3458 /* PrescriptionNumViewController.m */; };
+		1E698FA2231D193D009D3458 /* PrescriptionNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698FA1231D193D009D3458 /* PrescriptionNumView.m */; };
+		1E698FA5231D1948009D3458 /* PrescriptionNumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698FA4231D1948009D3458 /* PrescriptionNumModel.m */; };
+		1E698FA8231D1951009D3458 /* PrescriptionNumViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698FA7231D1951009D3458 /* PrescriptionNumViewModel.m */; };
 		271A4A95945A04C9E3E4B5AD /* libPods-GanLuXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */; };
 		BD0FA245224A830D0091EC35 /* AddDrugsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA244224A830D0091EC35 /* AddDrugsRequest.m */; };
 		BD0FA249224A832A0091EC35 /* AddDrugsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA248224A832A0091EC35 /* AddDrugsModel.m */; };
@@ -1169,6 +1177,22 @@
 		1E698F80231D0534009D3458 /* CityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
 		1E698F81231D0534009D3458 /* CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
 		1E698F83231D0551009D3458 /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
+		1E698F8C231D17C5009D3458 /* AgentVarietyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentVarietyViewController.h; sourceTree = "<group>"; };
+		1E698F8D231D17C5009D3458 /* AgentVarietyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentVarietyViewController.m; sourceTree = "<group>"; };
+		1E698F8F231D17D2009D3458 /* AgentVarietyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentVarietyView.h; sourceTree = "<group>"; };
+		1E698F90231D17D2009D3458 /* AgentVarietyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentVarietyView.m; sourceTree = "<group>"; };
+		1E698F92231D17EE009D3458 /* AgentVarietyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentVarietyModel.h; sourceTree = "<group>"; };
+		1E698F93231D17EE009D3458 /* AgentVarietyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentVarietyModel.m; sourceTree = "<group>"; };
+		1E698F95231D17F5009D3458 /* AgentVarietyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentVarietyViewModel.h; sourceTree = "<group>"; };
+		1E698F96231D17F5009D3458 /* AgentVarietyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentVarietyViewModel.m; sourceTree = "<group>"; };
+		1E698F9D231D1931009D3458 /* PrescriptionNumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrescriptionNumViewController.h; sourceTree = "<group>"; };
+		1E698F9E231D1931009D3458 /* PrescriptionNumViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrescriptionNumViewController.m; sourceTree = "<group>"; };
+		1E698FA0231D193D009D3458 /* PrescriptionNumView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrescriptionNumView.h; sourceTree = "<group>"; };
+		1E698FA1231D193D009D3458 /* PrescriptionNumView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrescriptionNumView.m; sourceTree = "<group>"; };
+		1E698FA3231D1948009D3458 /* PrescriptionNumModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrescriptionNumModel.h; sourceTree = "<group>"; };
+		1E698FA4231D1948009D3458 /* PrescriptionNumModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrescriptionNumModel.m; sourceTree = "<group>"; };
+		1E698FA6231D1951009D3458 /* PrescriptionNumViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrescriptionNumViewModel.h; sourceTree = "<group>"; };
+		1E698FA7231D1951009D3458 /* PrescriptionNumViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrescriptionNumViewModel.m; sourceTree = "<group>"; };
 		70469BD2CC2D2B8D6759CE3D /* Pods-GanLuXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GanLuXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-GanLuXiangBan/Pods-GanLuXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GanLuXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0FA243224A830D0091EC35 /* AddDrugsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDrugsRequest.h; sourceTree = "<group>"; };
@@ -1665,6 +1689,7 @@
 		0C696B582097117800827F12 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				1E698F85231D12C5009D3458 /* XKPersonal（个人中心 - 改） */,
 				0C696BBA2097117800827F12 /* AppDelegate */,
 				0C696CA32097126400827F12 /* RootController */,
 				11D855E0209DC06400283B81 /* LogIn(登录注册) */,
@@ -1804,8 +1829,6 @@
 		0C696CB92097155B00827F12 /* Personal（个人中心） */ = {
 			isa = PBXGroup;
 			children = (
-				0C696DD120971AE100827F12 /* Personal（个人中心） */,
-				0CDB1DA2209969DF00DCF82A /* PersonalInfo（个人信息） */,
 				BD6153DB2247609E00D42597 /* MyPrescription(我开具的处方) */,
 				BD6153DA2247605F00D42597 /* Gift(患者心意) */,
 				0CDB1DB3209992FF00DCF82A /* VisitDetails（出诊详情） */,
@@ -4555,6 +4578,111 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1E698F85231D12C5009D3458 /* XKPersonal（个人中心 - 改） */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F98231D18B2009D3458 /* Prescription（处方数量） */,
+				1E698F86231D1361009D3458 /* AgentVariety（代理品种） */,
+				0C696DD120971AE100827F12 /* Personal（个人中心） */,
+				0CDB1DA2209969DF00DCF82A /* PersonalInfo（个人信息） */,
+			);
+			path = "XKPersonal（个人中心 - 改）";
+			sourceTree = "<group>";
+		};
+		1E698F86231D1361009D3458 /* AgentVariety（代理品种） */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F8B231D16F8009D3458 /* ViewModel */,
+				1E698F8A231D16F6009D3458 /* Model */,
+				1E698F89231D16F1009D3458 /* View */,
+				1E698F87231D16E6009D3458 /* ViewController */,
+			);
+			path = "AgentVariety（代理品种）";
+			sourceTree = "<group>";
+		};
+		1E698F87231D16E6009D3458 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F8C231D17C5009D3458 /* AgentVarietyViewController.h */,
+				1E698F8D231D17C5009D3458 /* AgentVarietyViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1E698F89231D16F1009D3458 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F8F231D17D2009D3458 /* AgentVarietyView.h */,
+				1E698F90231D17D2009D3458 /* AgentVarietyView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E698F8A231D16F6009D3458 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F92231D17EE009D3458 /* AgentVarietyModel.h */,
+				1E698F93231D17EE009D3458 /* AgentVarietyModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E698F8B231D16F8009D3458 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F95231D17F5009D3458 /* AgentVarietyViewModel.h */,
+				1E698F96231D17F5009D3458 /* AgentVarietyViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1E698F98231D18B2009D3458 /* Prescription（处方数量） */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F9C231D18EF009D3458 /* ViewModel */,
+				1E698F9B231D18EC009D3458 /* Model */,
+				1E698F9A231D18E7009D3458 /* View */,
+				1E698F99231D18E4009D3458 /* ViewController */,
+			);
+			path = "Prescription（处方数量）";
+			sourceTree = "<group>";
+		};
+		1E698F99231D18E4009D3458 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E698F9D231D1931009D3458 /* PrescriptionNumViewController.h */,
+				1E698F9E231D1931009D3458 /* PrescriptionNumViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1E698F9A231D18E7009D3458 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E698FA0231D193D009D3458 /* PrescriptionNumView.h */,
+				1E698FA1231D193D009D3458 /* PrescriptionNumView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E698F9B231D18EC009D3458 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E698FA3231D1948009D3458 /* PrescriptionNumModel.h */,
+				1E698FA4231D1948009D3458 /* PrescriptionNumModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E698F9C231D18EF009D3458 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1E698FA6231D1951009D3458 /* PrescriptionNumViewModel.h */,
+				1E698FA7231D1951009D3458 /* PrescriptionNumViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6076BB683D90A446E959FB8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -5152,6 +5280,7 @@
 				0CDA4AFC20B5C834001D041D /* VisitDetailsView.m in Sources */,
 				0CAFD02820DA4050006D4D0E /* ScreeningViewController.m in Sources */,
 				F5F0738522FC68D00047E2D1 /* DocCircleTableView.m in Sources */,
+				1E698F97231D17F5009D3458 /* AgentVarietyViewModel.m in Sources */,
 				11E2E35120C292D400C772AC /* DrugDetailsModel.m in Sources */,
 				F562A74622C8FC2A00D47E5A /* HomeArticleTableViewCell.m in Sources */,
 				117B3C3420D2159D001315CD /* MessageRequest.m in Sources */,
@@ -5302,6 +5431,7 @@
 				0C7B0A2920CE0A2300FC33DF /* CheckListDetailsViewModel.m in Sources */,
 				0CB1428D20CC1B30007E5E11 /* GroupOfMessageView.m in Sources */,
 				F5F1C7F0230314A200C726D1 /* DocCircleExtentionTableView.m in Sources */,
+				1E698FA5231D1948009D3458 /* PrescriptionNumModel.m in Sources */,
 				0C92FD75209EEEFF0022FCD5 /* XmlParsing.m in Sources */,
 				1146BD8F20D8A9E60034D1A4 /* SDWebImageDownloader.m in Sources */,
 				11E2E36620C4189400C772AC /* MedicationDetailsModel.m in Sources */,
@@ -5343,6 +5473,7 @@
 				114A93D620C8C65C0057BCCD /* HomeMessgeView.m in Sources */,
 				0CB7B30620C99F9800C5792A /* GroupAddViewModel.m in Sources */,
 				1146BD6720D8A5A30034D1A4 /* SDBrowserImageView.m in Sources */,
+				1E698F9F231D1931009D3458 /* PrescriptionNumViewController.m in Sources */,
 				11CE8DCA20D6DA460094AF41 /* FastReplyViewController.m in Sources */,
 				BDA2CE462274A46000ABA0C1 /* AAItemStyle.m in Sources */,
 				0CBC977920CD66AE00EA6E60 /* PatientInfoModel.m in Sources */,
@@ -5379,6 +5510,7 @@
 				0C497D9520C1836B00FA5ECC /* CityView.m in Sources */,
 				BDA2CE322274A46000ABA0C1 /* AASeries.m in Sources */,
 				0C47AB0A20ECF97500931424 /* PatientDiagnosisModel.m in Sources */,
+				1E698FA2231D193D009D3458 /* PrescriptionNumView.m in Sources */,
 				F5EFD0EB230783C700A39A6B /* IntegralInfoViewCell.m in Sources */,
 				BDA2CE502274A46000ABA0C1 /* UIColor+BBVoiceRecord.m in Sources */,
 				BD6153FA224761EE00D42597 /* MyGiftView.m in Sources */,
@@ -5414,12 +5546,14 @@
 				0C86F752209731D2002A0052 /* PersonalInfoView.m in Sources */,
 				116EE51220BBFAE00022D460 /* InvitationNewPhoneViewController.m in Sources */,
 				0C3D872320EA6509006ED8E6 /* CerImgModel.m in Sources */,
+				1E698F8E231D17C5009D3458 /* AgentVarietyViewController.m in Sources */,
 				BDA2CE492274A46000ABA0C1 /* AAChartView.m in Sources */,
 				0CDB1DC82099995900DCF82A /* AssistantViewController.m in Sources */,
 				11DC58D820C8262B008D47EB /* ContinuePrescriptionViewController.m in Sources */,
 				BD415D402256EF8400AA1173 /* AddDrugUseController.m in Sources */,
 				BDC9EA00226AD4D500274DCB /* BaseCircleView.m in Sources */,
 				BD81BFEC22412FBB0094CE1C /* PrescriptionView.m in Sources */,
+				1E698F94231D17EE009D3458 /* AgentVarietyModel.m in Sources */,
 				0C7B0A2620CE0A1B00FC33DF /* CheckListDetailsModel.m in Sources */,
 				0C5169C120A1FF3D003DE094 /* PhoneViewController.m in Sources */,
 				0C999B0420D5AFB30066146D /* SubscribeDetailsViewModel.m in Sources */,
@@ -5457,6 +5591,7 @@
 				F5EFD0FA2307B00D00A39A6B /* DocCircleRequest.m in Sources */,
 				0C696DD820971AFC00827F12 /* PersonalViewController.m in Sources */,
 				11E6CACA20A920C60084968D /* ForgotPasswordViewController.m in Sources */,
+				1E698FA8231D1951009D3458 /* PrescriptionNumViewModel.m in Sources */,
 				1146BD9620D8A9E60034D1A4 /* NSData+ImageContentType.m in Sources */,
 				BDA2CE532274A46000ABA0C1 /* BBVoiceRecordController.m in Sources */,
 				11329B2F20CF99B000138256 /* HomeMessgeTableViewCell.m in Sources */,
@@ -5528,6 +5663,7 @@
 				BDA2CE472274A46000ABA0C1 /* AAPie.m in Sources */,
 				110D604D20C039B9006E2185 /* SortView.m in Sources */,
 				117B3C4120D24353001315CD /* ChatTableViewCell.m in Sources */,
+				1E698F91231D17D2009D3458 /* AgentVarietyView.m in Sources */,
 				0CA4BFFD20C27BF000C89687 /* VisitDetailsViewModel.m in Sources */,
 				0C22735A20BD43960085F744 /* DrugRightCell.m in Sources */,
 				F5220CAB22CA62F9004BD27C /* YYClassInfo.m in Sources */,
