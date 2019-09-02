@@ -80,6 +80,9 @@
         [bgButton addSubview:integralTitleLabel];
         
         bgView.height = bgButton.height = integralTitleLabel.maxY + numberLabel.y;
+        [[bgButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            [self goViewController:integralTitleLabel.text];
+        }];
     }
     
     for (NSInteger i = 1; i < texts.count; i++) {
@@ -90,6 +93,44 @@
     }
 
     return bgView;
+}
+
+- (void)goViewController:(NSString *)text {
+    
+    NSString *vcName = @"";
+    
+    if ([text isEqualToString:@"总积分"]) {
+        
+        vcName = @"IntegralDetailsViewController";
+    }
+    else if ([text isEqualToString:@"可用积分"]) {
+        
+        vcName = @"IntegralDetailsViewController";
+    }
+    else if ([text isEqualToString:@"医生"]) {
+        
+        vcName = @"PatientsViewController";
+    }
+    else if ([text isEqualToString:@"代理品种"]) {
+        
+        vcName = @"AgentVarietyViewController";
+    }
+    else if ([text isEqualToString:@"处方数"]) {
+        
+        vcName = @"PrescriptionNumViewController";
+    }
+    else if ([text isEqualToString:@"订单金额"]) {
+        
+        
+    }
+    
+    if (vcName.length == 0) {
+        return;
+    }
+    
+    if (self.goViewControllerBlock) {
+        self.goViewControllerBlock([NSClassFromString(vcName) new]);
+    }
 }
 
 @end
