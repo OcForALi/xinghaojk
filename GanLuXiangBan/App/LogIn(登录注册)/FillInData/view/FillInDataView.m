@@ -41,6 +41,61 @@
     
 }
 
+#pragma makr - lazy
+- (CityView *)cityView {
+    
+    if (!_cityView) {
+        
+        self.cityView = [[CityView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, self.height)];
+        [self addSubview:self.cityView];
+        
+        @weakify(self);
+        [self.cityView setSelectCity:^(NSString *provinceString, NSString *cityString) {
+            
+            @strongify(self);
+            self.myTable.scrollEnabled = YES;
+//            [self reloadData];
+            
+            [self.cityView removeFromSuperview];
+            self.cityView = nil;
+        }];
+        
+        [self.cityView setSelCityModelBlock:^(CityModel *province, CityModel *city) {
+            @strongify(self);
+            FillInDataModel *model = self.dataSountArray[1][1];
+            
+            if (city.name != nil) {
+                model.messageString = [province.name stringByAppendingString:city.name];
+                model.provinceID = province.cityId;
+                model.cityID = city.cityId;
+            }else{
+                model.messageString = province.name;
+                model.provinceID = province.cityId;
+            }
+            
+            NSMutableArray *sectionArray = self.dataSountArray[1];
+            [sectionArray replaceObjectAtIndex:1 withObject:model];
+            
+            [self.dataSountArray replaceObjectAtIndex:1 withObject:sectionArray];
+            
+            [self.myTable reloadData];
+            
+        }];
+        
+        [self.cityView setRemoveBlock:^{
+            
+            @strongify(self);
+            self.myTable.scrollEnabled = YES;
+//            [self reloadData];
+            
+            [self.cityView removeFromSuperview];
+            self.cityView = nil;
+        }];
+    }
+    
+    return _cityView;
+}
+
 -(void)initData{
     
     [self.dataSountArray removeAllObjects];
@@ -215,7 +270,12 @@
             
         }];
         
-    }else{
+    }else if ([model.titleName isEqualToString:@"代理区域"]){
+        
+        self.cityView.isShowCityList = YES;
+        self.myTable.scrollEnabled = NO;
+        
+    } else{
         
         NSDictionary *dict = @{@"姓名":@"EditUserInfoViewController",@"医院":@"SelHospitalViewController",@"科室":@"SelDepartmentViewController",@"擅长":@"ModifyViewController",@"简介":@"ModifyViewController",@"身份证号":@"EditUserInfoViewController",
                                @"代理医院":@"SelHospitalViewController"

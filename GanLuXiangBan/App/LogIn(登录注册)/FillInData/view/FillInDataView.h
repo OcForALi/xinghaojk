@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CityView.h"
 
 typedef void (^FillInDataBlock)(NSMutableArray *array);
 
@@ -23,6 +24,8 @@ typedef void(^ActionSheetCompleteBlock)(NSInteger index);
 @property (nonatomic, strong) UIActionSheet *sheet;
 
 @property (nonatomic, copy) NSString *selDepartmentString;
+
+@property (nonatomic ,strong) CityView *cityView;
 
 /// 提示框回调
 @property (nonatomic, copy) ActionSheetCompleteBlock complete;

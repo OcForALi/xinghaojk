@@ -17,5 +17,9 @@
 @property (nonatomic ,copy) NSString *valueId;
 
 @property (nonatomic ,copy) NSString *placeholderString;
+//城市ID
+@property (nonatomic ,copy) NSString *cityID;
+//身份ID
+@property (nonatomic ,copy) NSString *provinceID;
 
 @end

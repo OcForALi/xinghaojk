@@ -197,11 +197,11 @@
                 
             }
             
-            if ([model.titleName isEqualToString:@"医院"]) {
+            if ([model.titleName isEqualToString:@"代理医院"]) {
                 
                 if (!model.valueId || model.valueId.length < 1 || model.messageString.length < 1) {
                     
-                    [self.view makeToast:@"请选择医院"];
+                    [self.view makeToast:@"请选择代理医院"];
                     
                     return;
                     
@@ -212,54 +212,39 @@
                 
             }
             
-            if ([model.titleName isEqualToString:@"科室"]) {
-                
+            if ([model.titleName isEqualToString:@"身份证号"]) {
                 if (model.messageString.length < 1) {
                     
-                    [self.view makeToast:@"请选择科室"];
+                    [self.view makeToast:@"请填写身份证号"];
                     
                     return;
                     
                 }else{
-
-//                    dataModel.HispitalId = self.drugModel.id;
                     
-                    dataModel.CustName = model.messageString;
+                    dataModel.IdCard = model.messageString;
                     
                 }
-                
             }
             
-            if ([model.titleName isEqualToString:@"职称"]) {
+            if ([model.titleName isEqualToString:@"代理区域"]) {
                 
-                if (model.messageString.length < 1) {
+                if (model.provinceID.length < 1) {
                     
-                    [self.view makeToast:@"请选择职称"];
+                    [self.view makeToast:@"请选择代理区域"];
                     
                     return;
                     
-                }else{
-                    dataModel.Title = model.messageString;
+                }
+                
+            }else{
+                
+                dataModel.ProvinceId = model.provinceID;
+                
+                if (model.cityID != nil) {
+                    dataModel.CityId = model.cityID;
                 }
                 
             }
-            
-            if ([model.titleName isEqualToString:@"擅长"]) {
-                
-                if (model.messageString.length > 1) {
-                    dataModel.Remark = model.messageString;
-                }
-                
-            }
-            
-            if ([model.titleName isEqualToString:@"简介"]) {
-                
-                if (model.messageString.length > 1) {
-                    dataModel.Introduction = model.messageString;
-                }
-                
-            }
-            
             
         }
 
@@ -277,16 +262,6 @@
             certificationView.title = @"资格认证";
             certificationView.type = 1;
             [weakSelf.navigationController pushViewController:certificationView animated:YES];
-            
-//            for (UIViewController *controller in self.navigationController.viewControllers) {
-//
-//                if ([controller isKindOfClass:[LogInViewController class]]) {
-//
-//                    [self.navigationController popToViewController:controller animated:YES];
-//
-//                }
-//
-//            }
             
         }else{
             
