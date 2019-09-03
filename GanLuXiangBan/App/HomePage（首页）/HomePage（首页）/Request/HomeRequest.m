@@ -54,6 +54,27 @@
     
 }
 
+- (void)getRankingLstPage:(NSString *)page size:(NSString *)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+    
+    self.urlString = [self getRequestUrl:@[@"Agent",@"RankingLst"]];
+    
+    self.urlString = [NSString stringWithFormat:@"%@?page=%@&size=%@", self.urlString,page,size];
+    [self requestNotHudWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
+        
+        if (complete) {
+            complete(genneralBackModel);
+        }
+        
+    } failure:^(NSError *error) {
+        
+        if (complete) {
+            complete(nil);
+        }
+        
+    }];
+    
+}
+
 - (void)postUpdateDrHeadUrl:(NSString *)urlString :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
     
     self.urlString = [self getRequestUrl:@[@"user", @"updateDrHead"]];

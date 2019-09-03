@@ -26,6 +26,19 @@
 - (void)getIndexInfo:(void (^)(HomeModel *model))complete;
 
 /**
+ 获取开单排行榜
+ 
+ */
+- (void)getRankingLstPage:(NSString *)page size:(NSString *)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
+
+
+/**
+ 获取医生
+ */
+- (void)getMyDoctor:(void (^)(HomeModel *model))complete;
+
+
+/**
  医生头像上传路径
  
  */

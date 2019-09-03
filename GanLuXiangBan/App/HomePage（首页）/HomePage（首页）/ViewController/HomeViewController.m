@@ -24,6 +24,8 @@
 #import "HomeAssistantController.h"
 #import "HomeArticleViewController.h"
 
+#import "AgentProductViewController.h"
+
 @interface HomeViewController ()<SDCycleScrollViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic ,retain) HomeRequest *homeRequest;
@@ -150,8 +152,8 @@
         self.timer = nil;
     }
     
-    self.timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(action) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+//    self.timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(action) userInfo:nil repeats:YES];
+//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
     if (self.bannerView) {
         [self.bannerView toggleCycleScrollViewStatus:YES];
@@ -167,6 +169,13 @@
     self.bannerModel = [BannerModel new];
     self.homeRequest = [HomeRequest new];
     WS(weakSelf)
+    
+    [self.homeRequest getRankingLstPage:@"1" size:@"10" :^(HttpGeneralBackModel *generalBackModel) {
+        
+    }];
+    
+    
+    
     [self.homeRequest getIndexInfo:^(HomeModel *model) {
         
         if (model) {
@@ -368,23 +377,23 @@
         self.homeRequest = [HomeRequest new];
         
         NSMutableArray *imageArray = [NSMutableArray arrayWithArray:@[@"banner"]];
-        
+//
         self.bannerView.localizationImageNamesGroup = imageArray;
         
-//        WS(weakSelf)
-//        [self.homeRequest getBanner:^(HttpGeneralBackModel *model) {
-//
-//            NSArray *array = model.data;
-//
-//            for (NSDictionary *dict in array) {
-//
-//                [imageArray addObject:[dict objectForKey:@"file_path"]];
-//
-//            }
-//
-//            weakSelf.bannerView.imageURLStringsGroup = imageArray;
-//
-//        }];
+        WS(weakSelf)
+        [self.homeRequest getBanner:^(HttpGeneralBackModel *model) {
+
+            NSArray *array = model.data;
+
+            for (NSDictionary *dict in array) {
+
+                [imageArray addObject:[dict objectForKey:@"file_path"]];
+
+            }
+
+            weakSelf.bannerView.imageURLStringsGroup = imageArray;
+
+        }];
         
     }
     
@@ -656,9 +665,9 @@
     }
     else if (tag == 1) {
         
-        ScheduleViewController *scheduleView = [[ScheduleViewController alloc] init];
-        scheduleView.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:scheduleView animated:YES];
+        AgentProductViewController *agentProductVC = [[AgentProductViewController alloc] init];
+        agentProductVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:agentProductVC animated:YES];
         
     }
     else if (tag == 2) {

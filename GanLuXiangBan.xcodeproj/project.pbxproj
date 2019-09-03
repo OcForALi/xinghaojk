@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A86FCA231E75900016BA78 /* AgentProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FC9231E75900016BA78 /* AgentProductViewController.m */; };
+		04A86FD0231E77CD0016BA78 /* ProductExamineFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FCF231E77CD0016BA78 /* ProductExamineFailViewController.m */; };
+		04A86FD3231E77E70016BA78 /* ProductExamineInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD2231E77E70016BA78 /* ProductExamineInViewController.m */; };
+		04A86FD6231E78010016BA78 /* ProductExamineAdoptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD5231E78010016BA78 /* ProductExamineAdoptViewController.m */; };
+		04A86FDA231E7BE70016BA78 /* AgentProductRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */; };
 		0C09EEC120A0919F00BCC937 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C09EEC020A0919F00BCC937 /* SettingView.m */; };
 		0C10669220C0E93400415398 /* HospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10669120C0E93400415398 /* HospitalModel.m */; };
 		0C10669520C0EA1600415398 /* HospitalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10669420C0EA1600415398 /* HospitalViewModel.m */; };
@@ -482,6 +487,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04A86FC8231E75900016BA78 /* AgentProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentProductViewController.h; sourceTree = "<group>"; };
+		04A86FC9231E75900016BA78 /* AgentProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentProductViewController.m; sourceTree = "<group>"; };
+		04A86FCE231E77CD0016BA78 /* ProductExamineFailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductExamineFailViewController.h; sourceTree = "<group>"; };
+		04A86FCF231E77CD0016BA78 /* ProductExamineFailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductExamineFailViewController.m; sourceTree = "<group>"; };
+		04A86FD1231E77E70016BA78 /* ProductExamineInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductExamineInViewController.h; sourceTree = "<group>"; };
+		04A86FD2231E77E70016BA78 /* ProductExamineInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductExamineInViewController.m; sourceTree = "<group>"; };
+		04A86FD4231E78010016BA78 /* ProductExamineAdoptViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductExamineAdoptViewController.h; sourceTree = "<group>"; };
+		04A86FD5231E78010016BA78 /* ProductExamineAdoptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductExamineAdoptViewController.m; sourceTree = "<group>"; };
+		04A86FD8231E7BE70016BA78 /* AgentProductRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentProductRequest.h; sourceTree = "<group>"; };
+		04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentProductRequest.m; sourceTree = "<group>"; };
 		0C09EEBF20A0919F00BCC937 /* SettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		0C09EEC020A0919F00BCC937 /* SettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		0C10669020C0E93400415398 /* HospitalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HospitalModel.h; sourceTree = "<group>"; };
@@ -1451,6 +1466,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A86FC6231E75150016BA78 /* AgentProduct(代理产品) */ = {
+			isa = PBXGroup;
+			children = (
+				04A86FD7231E7BB70016BA78 /* request */,
+				04A86FCD231E77590016BA78 /* ExamineFail(审核失败) */,
+				04A86FCC231E77560016BA78 /* ExamineIn(审核中) */,
+				04A86FCB231E770D0016BA78 /* ExamineAdopt(审核通过) */,
+				04A86FC8231E75900016BA78 /* AgentProductViewController.h */,
+				04A86FC9231E75900016BA78 /* AgentProductViewController.m */,
+			);
+			path = "AgentProduct(代理产品)";
+			sourceTree = "<group>";
+		};
+		04A86FCB231E770D0016BA78 /* ExamineAdopt(审核通过) */ = {
+			isa = PBXGroup;
+			children = (
+				04A86FD4231E78010016BA78 /* ProductExamineAdoptViewController.h */,
+				04A86FD5231E78010016BA78 /* ProductExamineAdoptViewController.m */,
+			);
+			path = "ExamineAdopt(审核通过)";
+			sourceTree = "<group>";
+		};
+		04A86FCC231E77560016BA78 /* ExamineIn(审核中) */ = {
+			isa = PBXGroup;
+			children = (
+				04A86FD1231E77E70016BA78 /* ProductExamineInViewController.h */,
+				04A86FD2231E77E70016BA78 /* ProductExamineInViewController.m */,
+			);
+			path = "ExamineIn(审核中)";
+			sourceTree = "<group>";
+		};
+		04A86FCD231E77590016BA78 /* ExamineFail(审核失败) */ = {
+			isa = PBXGroup;
+			children = (
+				04A86FCE231E77CD0016BA78 /* ProductExamineFailViewController.h */,
+				04A86FCF231E77CD0016BA78 /* ProductExamineFailViewController.m */,
+			);
+			path = "ExamineFail(审核失败)";
+			sourceTree = "<group>";
+		};
+		04A86FD7231E7BB70016BA78 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				04A86FD8231E7BE70016BA78 /* AgentProductRequest.h */,
+				04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
 		0C09EEBD20A0917C00BCC937 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1713,6 +1777,7 @@
 		0C696BBD2097117800827F12 /* HomePage（首页） */ = {
 			isa = PBXGroup;
 			children = (
+				04A86FC6231E75150016BA78 /* AgentProduct(代理产品) */,
 				F5F0737E22FC64840047E2D1 /* Circle */,
 				F562A73A22C8F8BB00D47E5A /* Article */,
 				0C696C132097117900827F12 /* HomePage（首页） */,
@@ -5297,6 +5362,7 @@
 				11E6CAC520A91C1F0084968D /* HttpGeneralBackModel.m in Sources */,
 				1146BD8C20D8A9E60034D1A4 /* SDWebImageManager.m in Sources */,
 				F5E991372308460B00AB225A /* LHPickerDateView.m in Sources */,
+				04A86FCA231E75900016BA78 /* AgentProductViewController.m in Sources */,
 				BDA2CE452274A46000ABA0C1 /* AASpline.m in Sources */,
 				BDA2CE4E2274A46000ABA0C1 /* BBHoldToSpeakButton.m in Sources */,
 				F562A75822C90BD500D47E5A /* FamousModel.m in Sources */,
@@ -5520,6 +5586,7 @@
 				11EFBDD520B7E43A004926C5 /* MyStudioViewController.m in Sources */,
 				0C999B1320D5BDFC0066146D /* SubscribeContentCell.m in Sources */,
 				F5220C9822CA419C004BD27C /* FamousDetailView.m in Sources */,
+				04A86FD0231E77CD0016BA78 /* ProductExamineFailViewController.m in Sources */,
 				11234C2520E36B7900259338 /* SaveMedicalRcdModel.m in Sources */,
 				0CAA98DF20C4474900D2B035 /* AboutModel.m in Sources */,
 				1146BD9020D8A9E60034D1A4 /* UIImage+GIF.m in Sources */,
@@ -5554,6 +5621,7 @@
 				BDC9EA00226AD4D500274DCB /* BaseCircleView.m in Sources */,
 				BD81BFEC22412FBB0094CE1C /* PrescriptionView.m in Sources */,
 				1E698F94231D17EE009D3458 /* AgentVarietyModel.m in Sources */,
+				04A86FDA231E7BE70016BA78 /* AgentProductRequest.m in Sources */,
 				0C7B0A2620CE0A1B00FC33DF /* CheckListDetailsModel.m in Sources */,
 				0C5169C120A1FF3D003DE094 /* PhoneViewController.m in Sources */,
 				0C999B0420D5AFB30066146D /* SubscribeDetailsViewModel.m in Sources */,
@@ -5615,6 +5683,7 @@
 				0C999B2F20D66C640066146D /* PrescriptionDetailsView.m in Sources */,
 				0CD94C2420C2287500BD3703 /* MyPointDetailsModel.m in Sources */,
 				0C620B4920A20B3B000E670F /* HelpWebViewController.m in Sources */,
+				04A86FD6231E78010016BA78 /* ProductExamineAdoptViewController.m in Sources */,
 				0C79920B209D43140027C4FA /* TipCell.m in Sources */,
 				11E622E420AAC2C100629079 /* BannerModel.m in Sources */,
 				BDA2CE4F2274A46000ABA0C1 /* BBVoiceRecordView.m in Sources */,
@@ -5675,6 +5744,7 @@
 				1146BD9520D8A9E60034D1A4 /* SDWebImageDownloaderOperation.m in Sources */,
 				0C5169BC20A1F013003DE094 /* CustomTextField.m in Sources */,
 				BD81BFEF2241314B0094CE1C /* PrescriptionAddViewController.m in Sources */,
+				04A86FD3231E77E70016BA78 /* ProductExamineInViewController.m in Sources */,
 				0C620B4520A20AFE000E670F /* AboutViewController.m in Sources */,
 				0C10669B20C0EE6700415398 /* DepartmentViewModel.m in Sources */,
 				BDA2CE372274A46000ABA0C1 /* AATooltip.m in Sources */,
