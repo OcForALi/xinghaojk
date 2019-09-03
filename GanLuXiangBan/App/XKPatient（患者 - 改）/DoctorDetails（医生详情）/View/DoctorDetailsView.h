@@ -1,8 +1,8 @@
 //
-//  AgentVarietyView.h
+//  DoctorDetailsView.h
 //  GanLuXiangBan
 //
-//  Created by 黄锡凯 on 2019/9/2.
+//  Created by 黄锡凯 on 2019/9/4.
 //  Copyright © 2019 CICI. All rights reserved.
 //
 
@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AgentVarietyView : BaseTableView
+@interface DoctorDetailsView : BaseTableView
+
+
 
 @end
 
