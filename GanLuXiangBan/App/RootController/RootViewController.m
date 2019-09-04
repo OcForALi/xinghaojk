@@ -147,7 +147,17 @@
     
     self.logInRequest = [LogInRequest new];
     
+    [self loginTimeExpiredToLogin];
+    
     [self.logInRequest getBearToken];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self loginTimeExpiredToLogin];
+        
+        [self.logInRequest getBearToken];
+        
+    });
     
     //上传个推clientId到服务器
     NSString *clientId = GetUserDefault(GeTuiDeviceId);
