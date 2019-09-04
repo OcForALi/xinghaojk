@@ -7,12 +7,17 @@
 //
 
 #import "DoctorPerformancViewController.h"
+#import "DoctorPerformancView.h"
 
 @interface DoctorPerformancViewController ()
+
+@property (nonatomic, strong) DoctorPerformancView *performancView;
+@property (nonatomic, strong) UIView *headerView;
 
 @end
 
 @implementation DoctorPerformancViewController
+@synthesize performancView;
 
 - (void)viewDidLoad {
 
@@ -28,8 +33,10 @@
     
     NSArray *texts = @[@"品种数量", @"处方数", @"订单金额", @"患者数"];
     NSArray *units = @[@"", @"张", @"元", @""];
-    UIView *headerView = [self setInfoWithTexts:texts units:units];
-    [self.view addSubview:headerView];
+    self.headerView = [self setInfoWithTexts:texts units:units];
+    [self.view addSubview:self.headerView];
+    
+    self.performancView.dataSources = @[@"", @"", @""];
 }
 
 - (UIView *)setInfoWithTexts:(NSArray *)texts units:(NSArray *)units {
@@ -74,6 +81,21 @@
     }
     
     return bgView;
+}
+
+
+#pragma mark - lazy
+- (DoctorPerformancView *)performancView {
+    
+    if (!performancView) {
+        
+        performancView = [[DoctorPerformancView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+        performancView.y = self.headerView.maxY;
+        performancView.height = ScreenHeight - performancView.y;
+        [self.view addSubview:performancView];
+    }
+    
+    return performancView;
 }
 
 

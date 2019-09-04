@@ -372,6 +372,7 @@
 		1E698FA2231D193D009D3458 /* PrescriptionNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698FA1231D193D009D3458 /* PrescriptionNumView.m */; };
 		1E698FA5231D1948009D3458 /* PrescriptionNumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698FA4231D1948009D3458 /* PrescriptionNumModel.m */; };
 		1E698FA8231D1951009D3458 /* PrescriptionNumViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698FA7231D1951009D3458 /* PrescriptionNumViewModel.m */; };
+		1E6C64A22320010000B25DD1 /* DrugCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C64A12320010000B25DD1 /* DrugCell.m */; };
 		271A4A95945A04C9E3E4B5AD /* libPods-GanLuXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */; };
 		BD0FA245224A830D0091EC35 /* AddDrugsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA244224A830D0091EC35 /* AddDrugsRequest.m */; };
 		BD0FA249224A832A0091EC35 /* AddDrugsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA248224A832A0091EC35 /* AddDrugsModel.m */; };
@@ -1229,6 +1230,8 @@
 		1E698FA4231D1948009D3458 /* PrescriptionNumModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrescriptionNumModel.m; sourceTree = "<group>"; };
 		1E698FA6231D1951009D3458 /* PrescriptionNumViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrescriptionNumViewModel.h; sourceTree = "<group>"; };
 		1E698FA7231D1951009D3458 /* PrescriptionNumViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrescriptionNumViewModel.m; sourceTree = "<group>"; };
+		1E6C64A02320010000B25DD1 /* DrugCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrugCell.h; sourceTree = "<group>"; };
+		1E6C64A12320010000B25DD1 /* DrugCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrugCell.m; sourceTree = "<group>"; };
 		70469BD2CC2D2B8D6759CE3D /* Pods-GanLuXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GanLuXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-GanLuXiangBan/Pods-GanLuXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GanLuXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0FA243224A830D0091EC35 /* AddDrugsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDrugsRequest.h; sourceTree = "<group>"; };
@@ -4752,6 +4755,8 @@
 		1E61DD97231ECC6700BE5842 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1E6C64A02320010000B25DD1 /* DrugCell.h */,
+				1E6C64A12320010000B25DD1 /* DrugCell.m */,
 				1E61DDA3231ED15E00BE5842 /* DoctorPerformancView.h */,
 				1E61DDA4231ED15E00BE5842 /* DoctorPerformancView.m */,
 			);
@@ -5458,6 +5463,7 @@
 				0C696DDB20971CEE00827F12 /* BaseTableView.m in Sources */,
 				1166799B20DB962400205A64 /* ContinuePrescriptionTableViewCell.m in Sources */,
 				0C799212209D4AEA0027C4FA /* HttpRequest.m in Sources */,
+				1E6C64A22320010000B25DD1 /* DrugCell.m in Sources */,
 				0C64C87A20AF06D0000C9E43 /* WithdrawalsViewController.m in Sources */,
 				BDC9E9FD226AD44500274DCB /* CheckListTableViewCell.m in Sources */,
 				11F2056920DA2F5F00078F98 /* QuickReplyTableViewCell.m in Sources */,
