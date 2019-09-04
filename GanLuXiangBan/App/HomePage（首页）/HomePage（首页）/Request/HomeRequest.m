@@ -54,6 +54,26 @@
     
 }
 
+- (void)getPersonalStatics:(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+    
+    self.urlString = [self getRequestUrl:@[@"Agent",@"PersonalStatics"]];
+    
+    [self requestNotHudWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
+        
+        if (complete) {
+            complete(genneralBackModel);
+        }
+        
+    } failure:^(NSError *error) {
+        
+        if (complete) {
+            complete(nil);
+        }
+        
+    }];
+    
+}
+
 - (void)getRankingLstPage:(NSString *)page size:(NSString *)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
     
     self.urlString = [self getRequestUrl:@[@"Agent",@"RankingLst"]];

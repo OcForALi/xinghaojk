@@ -56,6 +56,10 @@
         
     }];
     
+    [self.productExamineFailView setReconsiderBlock:^(ProductModel * _Nonnull model) {
+        
+    }];
+    
 }
 
 -(void)refresh{
@@ -89,6 +93,7 @@
             
             ProductModel *model = [ProductModel new];
             [model setValuesForKeysWithDictionary:dict];
+            model.noPassBool = YES;
             [array addObject:model];
             
         }

@@ -27,7 +27,21 @@
     
     [self.productImageView sd_setImageWithURL:[NSURL URLWithString:model.picUrl] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
     
+    self.productNameLabel.text = [NSString stringWithFormat:@"%@ + %@",model.drugNm,model.commonNm];
     
+    self.specificationsLabel.text = model.spec;
+    
+    self.manufactorLabel.text = model.producer;
+    
+    self.priceLabel.text = model.price;
+    
+    self.noPassLabel.text = model.reason;
+    
+    if (model.noPassBool == YES) {
+        self.reconsiderButton.hidden = NO;
+    }else{
+        self.reconsiderButton.hidden = NO;
+    }
     
 }
 

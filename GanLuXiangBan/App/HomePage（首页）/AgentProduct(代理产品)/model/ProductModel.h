@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,copy) NSString *initils;
 @property (nonatomic ,copy) NSString *reason;
 @property (nonatomic ,assign) NSInteger appId;
+@property (nonatomic ,assign) BOOL noPassBool;
 
 @end
 

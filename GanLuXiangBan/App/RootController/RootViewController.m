@@ -123,7 +123,7 @@
     NSArray *viewControllerNames = @[@"HomeViewController", @"PatientsViewController", @"PersonalViewController"];
     
     // 标题
-    NSArray *titles = @[@"首页", @"患者", @"个人中心"];
+    NSArray *titles = @[@"首页", @"医生", @"个人中心"];
     
     // 图标
     NSArray *imgs = @[@"tabbar_home", @"tabbar_patients", @"tabbar_me"];

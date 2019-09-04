@@ -152,8 +152,8 @@
         self.timer = nil;
     }
     
-//    self.timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(action) userInfo:nil repeats:YES];
-//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    self.timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(action) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
     if (self.bannerView) {
         [self.bannerView toggleCycleScrollViewStatus:YES];
@@ -174,42 +174,47 @@
         
     }];
     
-    
-    
-    [self.homeRequest getIndexInfo:^(HomeModel *model) {
+    [self.homeRequest getPersonalStatics:^(HttpGeneralBackModel *generalBackModel) {
         
-        if (model) {
-            weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%@）",@(model.patientNum)];
-            weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%@）",@(model.evaluateNum)];
-            weakSelf.homeModel = model;
-            
-            if (!GetUserDefault(UserHead)) {
-                weakSelf.headImageView.image = [UIImage imageNamed:@"Home_HeadDefault"];
-            }
-            else{
-                [weakSelf.headImageView sd_setImageWithURL:[NSURL URLWithString:GetUserDefault(UserHead)]];
-            }
-            
-            if (model.indexUnread > 0) {
-                UITabBarItem *firstItem = weakSelf.tabBarController.tabBar.items[model.indexUnread-1];
-                firstItem.badgeCenterOffset = CGPointMake(0, 0);
-                [firstItem showBadgeWithStyle:WBadgeStyleRedDot value:0 animationType:WBadgeAnimTypeNone];
-            }
-            else{
-                UITabBarItem *firstItem = weakSelf.tabBarController.tabBar.items[0];
-                [firstItem clearBadge];
-            }
-            
-            UIImageView *imageView = [self.view viewWithTag:101];
-            if (model.orderUnread > 0) {
-                [imageView showBadgeWithStyle:WBadgeStyleRedDot value:0 animationType:WBadgeAnimTypeNone];
-            }
-            else{
-                [imageView clearBadge];
-            }
-        }
+        weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%@）",generalBackModel.data[@"dr_num"]];
+        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%@）",generalBackModel.data[@"order_amount"]];
         
     }];
+    
+//    [self.homeRequest getIndexInfo:^(HomeModel *model) {
+//
+//        if (model) {
+//            weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%@）",@(model.patientNum)];
+//            weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%@）",@(model.evaluateNum)];
+//            weakSelf.homeModel = model;
+//
+//            if (!GetUserDefault(UserHead)) {
+//                weakSelf.headImageView.image = [UIImage imageNamed:@"Home_HeadDefault"];
+//            }
+//            else{
+//                [weakSelf.headImageView sd_setImageWithURL:[NSURL URLWithString:GetUserDefault(UserHead)]];
+//            }
+//
+//            if (model.indexUnread > 0) {
+//                UITabBarItem *firstItem = weakSelf.tabBarController.tabBar.items[model.indexUnread-1];
+//                firstItem.badgeCenterOffset = CGPointMake(0, 0);
+//                [firstItem showBadgeWithStyle:WBadgeStyleRedDot value:0 animationType:WBadgeAnimTypeNone];
+//            }
+//            else{
+//                UITabBarItem *firstItem = weakSelf.tabBarController.tabBar.items[0];
+//                [firstItem clearBadge];
+//            }
+//
+//            UIImageView *imageView = [self.view viewWithTag:101];
+//            if (model.orderUnread > 0) {
+//                [imageView showBadgeWithStyle:WBadgeStyleRedDot value:0 animationType:WBadgeAnimTypeNone];
+//            }
+//            else{
+//                [imageView clearBadge];
+//            }
+//        }
+//
+//    }];
     
 //    [self.homeRequest getUnreadForMyPatient:^(HttpGeneralBackModel *generalBackModel) {
 //
@@ -228,74 +233,74 @@
 //
 //    }];
     
-    if (self.homeMessgeView.showType == HomeShowAssistant) {
-        [HomeRequest getAssistantList:^(HttpGeneralBackModel *generalBackModel) {
-            if (generalBackModel && generalBackModel.retcode == 0 && weakSelf.homeMessgeView.showType == HomeShowAssistant) {
-                [weakSelf.homeMessgeView.dataSource removeAllObjects];
-                
-                NSMutableArray *array = [NSMutableArray array];
-                if (generalBackModel.data) {
-                    NSArray *res = generalBackModel.data;
-                    for (NSDictionary *dic in res) {
-                        HomeAssistantModel *item = [HomeAssistantModel new];
-                        [item setValuesForKeysWithDictionary:dic];
-                        [array addObject:item];
-                    }
-                }
-                [weakSelf.homeMessgeView addData:array];
-                
-                weakSelf.homeMessgeView.NoMessageView.hidden = array.count > 0 ? YES : NO;
-                weakSelf.homeMessgeView.myTable.mj_footer.hidden = YES;
-                
-                [weakSelf.homeMessgeView.myTable.mj_header endRefreshing];
-                [weakSelf.homeMessgeView.myTable.mj_footer endRefreshing];
-            }
-        }];
-    }
-    else {
-        [self.homeRequest getMsgListLoad_type:@"reload" :^(HttpGeneralBackModel *generalBackModel) {
-            if (generalBackModel && generalBackModel.retcode == 0 && weakSelf.homeMessgeView.showType == HomeShowNormal) {
-                [weakSelf.homeMessgeView.dataSource removeAllObjects];
-                
-                NSMutableArray *array = [NSMutableArray array];
-                
-                for (NSDictionary *dict in generalBackModel.data) {
-                    
-                    HomeMessgeModel *model = [HomeMessgeModel new];
-                    [model setValuesForKeysWithDictionary:dict];
-                    [array addObject:model];
-                    
-                }
-                
-                [weakSelf.homeMessgeView addData:array];
-                
-                weakSelf.homeMessgeView.NoMessageView.hidden = array.count > 0 ? YES : NO;
-                
-                [weakSelf.homeMessgeView.myTable.mj_header endRefreshing];
-                [weakSelf.homeMessgeView.myTable.mj_footer endRefreshing];
-                weakSelf.homeMessgeView.myTable.mj_footer.hidden = NO;
-            }
-        }];
-    }
+//    if (self.homeMessgeView.showType == HomeShowAssistant) {
+//        [HomeRequest getAssistantList:^(HttpGeneralBackModel *generalBackModel) {
+//            if (generalBackModel && generalBackModel.retcode == 0 && weakSelf.homeMessgeView.showType == HomeShowAssistant) {
+//                [weakSelf.homeMessgeView.dataSource removeAllObjects];
+//
+//                NSMutableArray *array = [NSMutableArray array];
+//                if (generalBackModel.data) {
+//                    NSArray *res = generalBackModel.data;
+//                    for (NSDictionary *dic in res) {
+//                        HomeAssistantModel *item = [HomeAssistantModel new];
+//                        [item setValuesForKeysWithDictionary:dic];
+//                        [array addObject:item];
+//                    }
+//                }
+//                [weakSelf.homeMessgeView addData:array];
+//
+//                weakSelf.homeMessgeView.NoMessageView.hidden = array.count > 0 ? YES : NO;
+//                weakSelf.homeMessgeView.myTable.mj_footer.hidden = YES;
+//
+//                [weakSelf.homeMessgeView.myTable.mj_header endRefreshing];
+//                [weakSelf.homeMessgeView.myTable.mj_footer endRefreshing];
+//            }
+//        }];
+//    }
+//    else {
+//        [self.homeRequest getMsgListLoad_type:@"reload" :^(HttpGeneralBackModel *generalBackModel) {
+//            if (generalBackModel && generalBackModel.retcode == 0 && weakSelf.homeMessgeView.showType == HomeShowNormal) {
+//                [weakSelf.homeMessgeView.dataSource removeAllObjects];
+//
+//                NSMutableArray *array = [NSMutableArray array];
+//
+//                for (NSDictionary *dict in generalBackModel.data) {
+//
+//                    HomeMessgeModel *model = [HomeMessgeModel new];
+//                    [model setValuesForKeysWithDictionary:dict];
+//                    [array addObject:model];
+//
+//                }
+//
+//                [weakSelf.homeMessgeView addData:array];
+//
+//                weakSelf.homeMessgeView.NoMessageView.hidden = array.count > 0 ? YES : NO;
+//
+//                [weakSelf.homeMessgeView.myTable.mj_header endRefreshing];
+//                [weakSelf.homeMessgeView.myTable.mj_footer endRefreshing];
+//                weakSelf.homeMessgeView.myTable.mj_footer.hidden = NO;
+//            }
+//        }];
+//    }
     
-    [self.homeRequest getIsSign:^(HttpGeneralBackModel *generalBackModel) {
-        
-//        NSInteger signInteger = [generalBackModel.data integerValue];
+//    [self.homeRequest getIsSign:^(HttpGeneralBackModel *generalBackModel) {
 //
-//        if (signInteger == 0) {
-//
-//            [weakSelf Sign];
-//
-//        }else{
-//
-//        }
-//
-//
-    }];
+////        NSInteger signInteger = [generalBackModel.data integerValue];
+////
+////        if (signInteger == 0) {
+////
+////            [weakSelf Sign];
+////
+////        }else{
+////
+////        }
+////
+////
+//    }];
     
-    [[HomeRequest new] getNoticeList:^(HttpGeneralBackModel *generalBackModel) {
-
-    }];
+//    [[HomeRequest new] getNoticeList:^(HttpGeneralBackModel *generalBackModel) {
+//
+//    }];
     
 }
 
@@ -617,10 +622,11 @@
 //    [self.view addSubview:self.rightButton];
 //    self.rightButton.sd_layout.topSpaceToView(self.toolView, 0).rightSpaceToView(self.view, 0).widthRatioToView(self.leftButton, 1.0).heightRatioToView(self.leftButton, 1.0);
     
-    self.lineView = [[UIView alloc] init];
-    self.lineView.backgroundColor = kMainColor;
-    [self.view addSubview:self.lineView];
-    self.lineView.sd_layout.topSpaceToView(self.leftButton, -3).widthRatioToView(self.leftButton, 0.8).heightIs(3).centerXEqualToView(self.leftButton);
+//    self.lineView = [[UIView alloc] init];
+//    self.lineView.backgroundColor = kMainColor;
+//    [self.view addSubview:self.lineView];
+//    self.lineView.sd_layout.topSpaceToView(self.leftButton, -3).widthRatioToView(self.leftButton, 0.8).heightIs(3).centerXEqualToView(self.leftButton);
+    
 }
 
 - (UIButton *)menuButton:(NSString *)title tag:(NSInteger)tag {

@@ -98,6 +98,9 @@
     
     cell.model = self.dataSource[indexPath.row];
     
+    cell.reconsiderButton.tag = indexPath.row + 100;
+    [cell.reconsiderButton addTarget:self action:@selector(reconsiderTag:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 
@@ -108,6 +111,16 @@
     
     if (self.pushBlock) {
         self.pushBlock(model);
+    }
+    
+}
+
+- (void)reconsiderTag:(UIButton *)sender{
+    
+    ProductModel *model = self.dataSource[sender.tag - 100];
+    
+    if (self.reconsiderBlock) {
+        self.reconsiderBlock(model);
     }
     
 }

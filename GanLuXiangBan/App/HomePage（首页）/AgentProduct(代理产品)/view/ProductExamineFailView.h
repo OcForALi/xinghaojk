@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^ProductExamineFailPushBlock)(ProductModel *model);
 
+typedef void(^ReconsiderBlock)(ProductModel *model);
+
 @interface ProductExamineFailView : BaseView<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic ,strong) UITableView *myTable;
@@ -20,6 +22,8 @@ typedef void(^ProductExamineFailPushBlock)(ProductModel *model);
 @property (nonatomic ,retain) NSMutableArray *dataSource;
 
 @property (nonatomic ,copy) ProductExamineFailPushBlock pushBlock;
+
+@property (nonatomic ,copy) ReconsiderBlock reconsiderBlock;
 
 -(void)addData:(NSArray *)array;
 

@@ -217,7 +217,7 @@
     // 如果已有Cookie, 则把你的cookie符上
     NSString *cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@"Set-Cookie"];
     if (cookie != nil) {
-        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
+        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"AgCook"];
         KLog(@"设置cookie：%@", cookie);
     }
  
@@ -238,8 +238,10 @@
                 success(model);
             }
             
-            // 获取cookie方法3
+            // 获取cookie方法
             NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            
+            NSString *AgCook;
             
             NSString *ASPString;
             
@@ -247,6 +249,10 @@
             
             for(NSHTTPCookie *cookie in [cookieJar cookies])
             {
+                if ([cookie.name isEqualToString:@"AgCook"]) {
+                    AgCook = cookie.value;
+                }
+                
                 NSString *string = [NSString stringWithFormat:@"%@=%@",cookie.name,cookie.value];
                 if (cookie.isHTTPOnly == YES) {
                     ASPString = string;
@@ -255,7 +261,7 @@
                 }
             }
             
-            NSString *cookie = [NSString stringWithFormat:@"%@;%@",ASPString,MyCookString];
+            NSString *cookie = [NSString stringWithFormat:@"%@",AgCook];
             [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"Set-Cookie"];
             
             [self hideHudAnimatedWithViewController:NavController];
@@ -324,15 +330,43 @@
     // 如果已有Cookie, 则把你的cookie符上
     NSString *cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@"Set-Cookie"];
     if (cookie != nil) {
-        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
+        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"AgCook"];
         KLog(@"设置cookie：%@", cookie);
+    }else{
+        
+        // 获取cookie方法
+        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        
+        NSString *AgCook;
+        
+        NSString *ASPString;
+        
+        NSString *MyCookString;
+        
+        for(NSHTTPCookie *cookie in [cookieJar cookies])
+        {
+            if ([cookie.name isEqualToString:@"AgCook"]) {
+                AgCook = cookie.value;
+            }
+            
+            NSString *string = [NSString stringWithFormat:@"%@=%@",cookie.name,cookie.value];
+            if (cookie.isHTTPOnly == YES) {
+                ASPString = string;
+            }else{
+                MyCookString = string;
+            }
+        }
+        
+        NSString *cookie = [NSString stringWithFormat:@"%@",AgCook];
+        [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"Set-Cookie"];
+        
     }
     
     self.urlString = [self.urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     if (isGet) {
         
-        DebugLog(@"urlString = %@\n\n  %@", self.urlString,parameters);
+        DebugLog(@"GETurlString = %@\n\n  %@", self.urlString,parameters);
         
         [manager GET:self.urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
@@ -346,16 +380,6 @@
                 success(model);
             }
             
-            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-            NSDictionary *allHeaderFieldsDic = response.allHeaderFields;
-            NSString *setCookie = allHeaderFieldsDic[@"Set-Cookie"];
-            if (setCookie != nil) {
-                
-                NSString *cookie = [[setCookie componentsSeparatedByString:@";"] objectAtIndex:0];
-                [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"Set-Cookie"];
-                
-            }
-
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
             DebugLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
@@ -372,7 +396,7 @@
     }
     else {
         
-        DebugLog(@"urlString = %@\n\n  %@", self.urlString,parameters);
+        DebugLog(@"POSTurlString = %@\n\n  %@", self.urlString,parameters);
         
         [manager POST:self.urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
@@ -435,7 +459,7 @@
         // 如果已有Cookie, 则把你的cookie符上
         NSString *cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@"Set-Cookie"];
         if (cookie != nil) {
-            [request setValue:cookie forHTTPHeaderField:@"Cookie"];
+            [request setValue:cookie forHTTPHeaderField:@"AgCook"];
             KLog(@"设置cookie：%@", cookie);
         }
         NSString *jsonString = [NSString dictionaryToJSONString:self.parameters];

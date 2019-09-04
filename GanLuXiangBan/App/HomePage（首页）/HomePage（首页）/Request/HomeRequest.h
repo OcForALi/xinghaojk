@@ -26,6 +26,12 @@
 - (void)getIndexInfo:(void (^)(HomeModel *model))complete;
 
 /**
+ 获取代理个人中心统计 (首页 医生数、开单金额 使用)
+ 
+ */
+- (void)getPersonalStatics:(void (^)(HttpGeneralBackModel *generalBackModel))complete;
+
+/**
  获取开单排行榜
  
  */
