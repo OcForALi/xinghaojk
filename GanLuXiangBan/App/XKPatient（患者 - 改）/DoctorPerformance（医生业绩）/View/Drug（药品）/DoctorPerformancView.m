@@ -8,6 +8,7 @@
 
 #import "DoctorPerformancView.h"
 #import "DrugCell.h"
+#import "PrescriptionCell.h"
 
 @interface DoctorPerformancView ()
 
@@ -19,10 +20,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    DrugCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DrugCell"];
+//    DrugCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DrugCell"];
+//    if (cell == nil) {
+//        
+//        cell = [[DrugCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DrugCell"];
+//        self.cellHeight = cell.cellHeight;
+//    }
+//    
+//    return cell;
+    
+    PrescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DrugCell"];
     if (cell == nil) {
         
-        cell = [[DrugCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DrugCell"];
+        cell = [[PrescriptionCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DrugCell"];
         self.cellHeight = cell.cellHeight;
     }
     
