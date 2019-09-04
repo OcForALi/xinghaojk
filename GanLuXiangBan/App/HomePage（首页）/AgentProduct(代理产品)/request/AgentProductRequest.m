@@ -10,11 +10,11 @@
 
 @implementation AgentProductRequest
 
-- (void)getAgDrugLstStart:(NSString *)status Page:(NSString *)page size:(NSString *)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+- (void)getAgDrugLstStart:(NSInteger)status Page:(NSInteger)page size:(NSInteger)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
    
     self.urlString = [self getRequestUrl:@[@"Drug",@"AgDrugLst"]];
     
-    self.urlString = [NSString stringWithFormat:@"%@?status=%@&page=%@&size=%@", self.urlString,status,page,size];
+    self.urlString = [NSString stringWithFormat:@"%@?status=%ld&page=%ld&size=%ld", self.urlString,status,page,size];
     [self requestNotHudWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
         
         if (complete) {

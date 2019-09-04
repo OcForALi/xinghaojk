@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param size 个数
  @param complete 回调
  */
-- (void)getAgDrugLstStart:(NSString *)start Page:(NSString *)page size:(NSString *)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
+- (void)getAgDrugLstStart:(NSInteger)start Page:(NSInteger)page size:(NSInteger)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
 
 @end
 

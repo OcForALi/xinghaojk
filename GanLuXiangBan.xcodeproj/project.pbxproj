@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043B0A52231F588400216DA0 /* ProductExamineFailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0A51231F588400216DA0 /* ProductExamineFailView.m */; };
+		043B0A5C231F599600216DA0 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0A5B231F599600216DA0 /* ProductModel.m */; };
+		043B0A5F231F618C00216DA0 /* ProductExamineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0A5E231F618C00216DA0 /* ProductExamineTableViewCell.m */; };
 		04A86FCA231E75900016BA78 /* AgentProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FC9231E75900016BA78 /* AgentProductViewController.m */; };
 		04A86FD0231E77CD0016BA78 /* ProductExamineFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FCF231E77CD0016BA78 /* ProductExamineFailViewController.m */; };
 		04A86FD3231E77E70016BA78 /* ProductExamineInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD2231E77E70016BA78 /* ProductExamineInViewController.m */; };
@@ -491,6 +494,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043B0A50231F588400216DA0 /* ProductExamineFailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductExamineFailView.h; sourceTree = "<group>"; };
+		043B0A51231F588400216DA0 /* ProductExamineFailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductExamineFailView.m; sourceTree = "<group>"; };
+		043B0A5A231F599600216DA0 /* ProductModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductModel.h; sourceTree = "<group>"; };
+		043B0A5B231F599600216DA0 /* ProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductModel.m; sourceTree = "<group>"; };
+		043B0A5D231F618C00216DA0 /* ProductExamineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductExamineTableViewCell.h; sourceTree = "<group>"; };
+		043B0A5E231F618C00216DA0 /* ProductExamineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductExamineTableViewCell.m; sourceTree = "<group>"; };
 		04A86FC8231E75900016BA78 /* AgentProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentProductViewController.h; sourceTree = "<group>"; };
 		04A86FC9231E75900016BA78 /* AgentProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentProductViewController.m; sourceTree = "<group>"; };
 		04A86FCE231E77CD0016BA78 /* ProductExamineFailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductExamineFailViewController.h; sourceTree = "<group>"; };
@@ -1478,10 +1487,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043B0A46231F567500216DA0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				043B0A50231F588400216DA0 /* ProductExamineFailView.h */,
+				043B0A51231F588400216DA0 /* ProductExamineFailView.m */,
+				043B0A5D231F618C00216DA0 /* ProductExamineTableViewCell.h */,
+				043B0A5E231F618C00216DA0 /* ProductExamineTableViewCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		043B0A53231F590100216DA0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				043B0A5A231F599600216DA0 /* ProductModel.h */,
+				043B0A5B231F599600216DA0 /* ProductModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		04A86FC6231E75150016BA78 /* AgentProduct(代理产品) */ = {
 			isa = PBXGroup;
 			children = (
+				043B0A53231F590100216DA0 /* model */,
 				04A86FD7231E7BB70016BA78 /* request */,
+				043B0A46231F567500216DA0 /* view */,
 				04A86FCD231E77590016BA78 /* ExamineFail(审核失败) */,
 				04A86FCC231E77560016BA78 /* ExamineIn(审核中) */,
 				04A86FCB231E770D0016BA78 /* ExamineAdopt(审核通过) */,
@@ -5675,6 +5706,7 @@
 				113EC89120D50699009EC67E /* ChatDrugsModel.m in Sources */,
 				F5F0738122FC64BB0047E2D1 /* DocCircleViewController.m in Sources */,
 				BDA2CE332274A46000ABA0C1 /* AAXAxis.m in Sources */,
+				043B0A5C231F599600216DA0 /* ProductModel.m in Sources */,
 				0C999ADF20D57C9E0066146D /* CheckTimeListView.m in Sources */,
 				BDA2CE482274A46000ABA0C1 /* AAChart.m in Sources */,
 				11D565CC20A2190D0088E9FD /* FillInDataTableViewCell.m in Sources */,
@@ -5820,6 +5852,7 @@
 				BD6153E52247613300D42597 /* MyPrescriptionController.m in Sources */,
 				117B3C3720D21B4C001315CD /* MessageModel.m in Sources */,
 				0CB7B31420C9A4BF00C5792A /* GroupEditorModel.m in Sources */,
+				043B0A5F231F618C00216DA0 /* ProductExamineTableViewCell.m in Sources */,
 				11F1E4D820C57F27000E84BD /* DiseasesRequest.m in Sources */,
 				BDCD1BB0223FE07D00A1167F /* HomeAssistantController.m in Sources */,
 				BD6153F1224761BF00D42597 /* MyGiftController.m in Sources */,
@@ -5860,6 +5893,7 @@
 				0C620B4520A20AFE000E670F /* AboutViewController.m in Sources */,
 				0C10669B20C0EE6700415398 /* DepartmentViewModel.m in Sources */,
 				BDA2CE372274A46000ABA0C1 /* AATooltip.m in Sources */,
+				043B0A52231F588400216DA0 /* ProductExamineFailView.m in Sources */,
 				0CB142AB20CCEB5B007E5E11 /* RecipientViewController.m in Sources */,
 				F5220CAA22CA62F9004BD27C /* NSObject+YYModel.m in Sources */,
 				0CDB1DB120996B9B00DCF82A /* CertificationViewController.m in Sources */,
