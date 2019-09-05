@@ -24,39 +24,22 @@
     return self;
 }
 
--(void)setModel:(HomeMessgeModel *)model{
-    
+- (void)setModel:(HomeNewModel *)model{
+ 
     _model = model;
     
     UIImage *place = [UIImage imageNamed:@"userHeader"];
-    if (model.logo) {
-        [self.headImage sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:place];
+    if (model.head) {
+        [self.headImage sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:place];
     }
     else {
         self.headImage.image = place;
     }
     
-    NSString *name = model.name;
-    if (!name || name.length == 0) {
-        name = @"    ";
-    }
     self.nameLabel.text = model.name;
     
-    //msgsource字段   0 患者端 1 商城
-    NSString *msg = [model.msg_source isEqualToString:@"1"] ? @"[商城]" : @"[专科]";
-    if (model.content) {
-        msg = [msg stringByAppendingString:model.content];
-    }
-    self.contentLabel.text = msg;
-    self.timeLabel.text = model.create_time;
-    
-    if ([model.unread integerValue] != 0) {
-        self.nameLabel.badgeCenterOffset = CGPointMake(8, 0);
-        [self.nameLabel showBadgeWithStyle:WBadgeStyleRedDot value:0 animationType:WBadgeAnimTypeNone];
-    }
-    else{
-        [self.nameLabel clearBadge];
-    }
+    //    self.contentLabel.text = msg;
+    self.timeLabel.text = [NSString stringWithFormat:@"%ld",model.amount];
     
     [self setupAutoHeightWithBottomView:self.headImage bottomMargin:10];
     
@@ -64,12 +47,26 @@
 
 -(void)setupUI{
     
+    self.serialNumberLabel = [UILabel new];
+    self.serialNumberLabel.font = [UIFont systemFontOfSize:14];
+    [self.contentView addSubview:self.serialNumberLabel];
+    
+    self.serialNumberLabel.sd_layout
+    .leftSpaceToView(self.contentView, 10)
+    .centerYEqualToView(self.contentView)
+    .heightIs(14);
+    [self.serialNumberLabel setSingleLineAutoResizeWithMaxWidth:150];
+    
     self.headImage = [UIImageView new];
     [self.headImage.layer setMasksToBounds:YES];
     [self.headImage.layer setCornerRadius:20];
     [self.contentView addSubview:self.headImage];
     
-    self.headImage.sd_layout.leftSpaceToView(self.contentView, 15).topSpaceToView(self.contentView, 10).widthIs(40).heightEqualToWidth();
+    self.headImage.sd_layout
+    .leftSpaceToView(self.serialNumberLabel, 15)
+    .topSpaceToView(self.contentView, 10)
+    .widthIs(40)
+    .heightEqualToWidth();
     
     self.nameLabel = [UILabel new];
     self.nameLabel.font = [UIFont systemFontOfSize:16];
@@ -77,7 +74,7 @@
     
     self.nameLabel.sd_layout
     .leftSpaceToView(self.headImage, 15)
-    .topSpaceToView(self.contentView, 12)
+    .centerYEqualToView(self.contentView)
     .heightIs(16);
     [self.nameLabel setSingleLineAutoResizeWithMaxWidth:200];
     
@@ -90,10 +87,10 @@
     
     self.timeLabel = [UILabel new];
     self.timeLabel.font = [UIFont systemFontOfSize:14];
-    self.timeLabel.textColor = [UIColor lightGrayColor];
+    self.timeLabel.textColor = kMainColor;
     [self.contentView addSubview:self.timeLabel];
     
-    self.timeLabel.sd_layout.rightSpaceToView(self.contentView, 15).centerYEqualToView(self.nameLabel).heightIs(14);
+    self.timeLabel.sd_layout.rightSpaceToView(self.contentView, 30).centerYEqualToView(self.nameLabel).heightIs(14);
     [self.timeLabel setSingleLineAutoResizeWithMaxWidth:150];
     
     self.sessionLabel = [UILabel new];

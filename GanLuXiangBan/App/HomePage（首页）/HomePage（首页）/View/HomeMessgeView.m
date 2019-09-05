@@ -78,12 +78,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (self.showType == HomeShowNormal) {
-        HomeMessgeModel *model = self.dataSource[indexPath.row];
+    
+    HomeNewModel *model = self.dataSource[indexPath.row];
         // 获取cell高度
-        return [self.myTable cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[HomeMessgeTableViewCell class]  contentViewWidth:[self cellContentViewWith]];
-    }
-    return 60;
+    return [self.myTable cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[HomeMessgeTableViewCell class]  contentViewWidth:[self cellContentViewWith]];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -96,23 +95,9 @@
     {
         cell = [[HomeMessgeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    
-    if (self.showType == HomeShowNormal) {
-        cell.model = self.dataSource[indexPath.row];
-    }
-    else {
-        HomeAssistantModel *item = [self.dataSource objectAtIndex:indexPath.row];
-        cell.nameLabel.text = item.clerkName;
-        cell.contentLabel.text = item.patientDescribe;
-        cell.timeLabel.text = item.msgDate;
-        UIImage *place = [UIImage imageNamed:@"userHeader"];
-        if (item.clerkPic) {
-            [cell.headImage sd_setImageWithURL:[NSURL URLWithString:item.clerkPic] placeholderImage:place];
-        }
-        else {
-            cell.headImage.image = place;
-        }
-    }
+
+    cell.model = self.dataSource[indexPath.row];
+    cell.serialNumberLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
     
     return cell;
 }
@@ -154,18 +139,7 @@
 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.showType == HomeShowAssistant) {
-        if (self.pushBlock) {
-            HomeAssistantModel *model = self.dataSource[indexPath.row];
-            self.pushBlock(nil, model);
-        }
-    }
-    else {
-        if (self.pushBlock) {
-            HomeMessgeModel *model = self.dataSource[indexPath.row];
-            self.pushBlock(model, nil);
-        }
-    }
+    
 }
 
 @end

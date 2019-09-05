@@ -26,6 +26,11 @@
 - (void)getIndexInfo:(void (^)(HomeModel *model))complete;
 
 /**
+    获取个人信息 （首页 获取头像 使用）
+ */
+- (void)getUserAgentInfo:(void (^)(HttpGeneralBackModel *generalBackModel))complete;
+
+/**
  获取代理个人中心统计 (首页 医生数、开单金额 使用)
  
  */
@@ -35,7 +40,7 @@
  获取开单排行榜
  
  */
-- (void)getRankingLstPage:(NSString *)page size:(NSString *)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
+- (void)getRankingLstPage:(NSInteger)page size:(NSInteger)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
 
 
 /**

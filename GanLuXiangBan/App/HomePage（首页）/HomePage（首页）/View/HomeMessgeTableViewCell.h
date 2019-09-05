@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeMessgeModel.h"
+#import "HomeModel.h"
 
 @interface HomeMessgeTableViewCell : UITableViewCell
 
-@property (nonatomic ,copy) HomeMessgeModel *model;
+@property (nonatomic ,copy) HomeNewModel *model;
 ///头像
 @property (nonatomic ,strong) UIImageView *headImage;
 ///名字
@@ -22,5 +22,7 @@
 @property (nonatomic ,strong) UILabel *timeLabel;
 ///会话状态
 @property (nonatomic ,strong) UILabel *sessionLabel;
+///序号
+@property (nonatomic ,strong) UILabel *serialNumberLabel;
 
 @end

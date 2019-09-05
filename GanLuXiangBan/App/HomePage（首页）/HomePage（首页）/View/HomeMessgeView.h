@@ -7,14 +7,12 @@
 //
 
 #import "BaseView.h"
-#import "HomeMessgeModel.h"
+#import "HomeModel.h"
 
 typedef NS_ENUM(NSInteger, HomeShowList) {
     HomeShowNormal,
     HomeShowAssistant
 };
-
-typedef void(^HomeMessagePushBlock)(HomeMessgeModel *model, HomeAssistantModel *assistantModel);
 
 @interface HomeMessgeView : BaseView<UITableViewDelegate,UITableViewDataSource>
 
@@ -25,8 +23,6 @@ typedef void(^HomeMessagePushBlock)(HomeMessgeModel *model, HomeAssistantModel *
 @property (nonatomic, assign) HomeShowList showType;
 
 //@property (nonatomic, strong) UIView *headerView;
-
-@property (nonatomic ,copy) HomeMessagePushBlock pushBlock;
 
 -(void)addData:(NSArray *)array;
 

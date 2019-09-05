@@ -15,6 +15,7 @@
 		04A86FD3231E77E70016BA78 /* ProductExamineInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD2231E77E70016BA78 /* ProductExamineInViewController.m */; };
 		04A86FD6231E78010016BA78 /* ProductExamineAdoptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD5231E78010016BA78 /* ProductExamineAdoptViewController.m */; };
 		04A86FDA231E7BE70016BA78 /* AgentProductRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */; };
+		04E378C82321028300DABEBC /* AddProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E378C72321028300DABEBC /* AddProductViewController.m */; };
 		0C09EEC120A0919F00BCC937 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C09EEC020A0919F00BCC937 /* SettingView.m */; };
 		0C10669220C0E93400415398 /* HospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10669120C0E93400415398 /* HospitalModel.m */; };
 		0C10669520C0EA1600415398 /* HospitalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10669420C0EA1600415398 /* HospitalViewModel.m */; };
@@ -512,6 +513,8 @@
 		04A86FD5231E78010016BA78 /* ProductExamineAdoptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductExamineAdoptViewController.m; sourceTree = "<group>"; };
 		04A86FD8231E7BE70016BA78 /* AgentProductRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentProductRequest.h; sourceTree = "<group>"; };
 		04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentProductRequest.m; sourceTree = "<group>"; };
+		04E378C62321028300DABEBC /* AddProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddProductViewController.h; path = "GanLuXiangBan/App/HomePage（首页）/AgentProduct(代理产品)/view/AddProductViewController.h"; sourceTree = SOURCE_ROOT; };
+		04E378C72321028300DABEBC /* AddProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddProductViewController.m; path = "GanLuXiangBan/App/HomePage（首页）/AgentProduct(代理产品)/view/AddProductViewController.m"; sourceTree = SOURCE_ROOT; };
 		0C09EEBF20A0919F00BCC937 /* SettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		0C09EEC020A0919F00BCC937 /* SettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		0C10669020C0E93400415398 /* HospitalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HospitalModel.h; sourceTree = "<group>"; };
@@ -1516,6 +1519,7 @@
 		04A86FC6231E75150016BA78 /* AgentProduct(代理产品) */ = {
 			isa = PBXGroup;
 			children = (
+				04E378C52321024800DABEBC /* AddProduct(添加产品) */,
 				043B0A53231F590100216DA0 /* model */,
 				04A86FD7231E7BB70016BA78 /* request */,
 				043B0A46231F567500216DA0 /* view */,
@@ -1562,6 +1566,15 @@
 				04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */,
 			);
 			path = request;
+			sourceTree = "<group>";
+		};
+		04E378C52321024800DABEBC /* AddProduct(添加产品) */ = {
+			isa = PBXGroup;
+			children = (
+				04E378C62321028300DABEBC /* AddProductViewController.h */,
+				04E378C72321028300DABEBC /* AddProductViewController.m */,
+			);
+			path = "AddProduct(添加产品)";
 			sourceTree = "<group>";
 		};
 		0C09EEBD20A0917C00BCC937 /* View */ = {
@@ -5623,6 +5636,7 @@
 				BDA2CE432274A46000ABA0C1 /* AALegend.m in Sources */,
 				0CDE510620D8BEF4008C8984 /* UIView+SDExtension.m in Sources */,
 				114A93DA20C8C8EA0057BCCD /* ScheduleViewController.m in Sources */,
+				04E378C82321028300DABEBC /* AddProductViewController.m in Sources */,
 				0C999AF320D5990C0066146D /* SubscribeModel.m in Sources */,
 				11F2056620DA2A6A00078F98 /* SignViewController.m in Sources */,
 				11329B3220CF9A1B00138256 /* HomeMessgeModel.m in Sources */,

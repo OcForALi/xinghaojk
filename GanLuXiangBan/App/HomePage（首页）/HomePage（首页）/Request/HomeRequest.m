@@ -54,6 +54,26 @@
     
 }
 
+- (void)getUserAgentInfo:(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+    
+    self.urlString = [self getRequestUrl:@[@"user",@"AgentInfo"]];
+    self.urlString = [NSString stringWithFormat:@"%@?id=%@",self.urlString,GetUserDefault(UserID)];
+    [self requestNotHudWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
+        
+        if (complete) {
+            complete(genneralBackModel);
+        }
+        
+    } failure:^(NSError *error) {
+        
+        if (complete) {
+            complete(nil);
+        }
+        
+    }];
+    
+}
+
 - (void)getPersonalStatics:(void (^)(HttpGeneralBackModel *generalBackModel))complete{
     
     self.urlString = [self getRequestUrl:@[@"Agent",@"PersonalStatics"]];
@@ -74,11 +94,11 @@
     
 }
 
-- (void)getRankingLstPage:(NSString *)page size:(NSString *)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+- (void)getRankingLstPage:(NSInteger)page size:(NSInteger)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
     
     self.urlString = [self getRequestUrl:@[@"Agent",@"RankingLst"]];
     
-    self.urlString = [NSString stringWithFormat:@"%@?page=%@&size=%@", self.urlString,page,size];
+    self.urlString = [NSString stringWithFormat:@"%@?page=%ld&size=%ld", self.urlString,page,size];
     [self requestNotHudWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
         
         if (complete) {

@@ -23,8 +23,10 @@
     }
     else if ([value isKindOfClass:[NSNull class]]) {
         value = @"";
+    }else if (value == nil){
+        return;
     }
-
+    
     [super setValue:value forKey:key];
 }
 

@@ -58,6 +58,8 @@
 
 @property (nonatomic, strong) UIView *lineView;
 
+@property (nonatomic ,assign) NSInteger page;
+
 @end
 
 @implementation HomeViewController
@@ -70,6 +72,8 @@
     
     self.title = @"首页";
     
+    self.page = 1;
+    
     self.homeModel = [HomeModel new];
     
     [self request];
@@ -77,6 +81,8 @@
     [self initUI];
 
     [self refresh];
+    
+    [self requestList];
     
     [self block];
     
@@ -160,6 +166,35 @@
     }
 }
 
+- (void)requestList{
+    
+    WS(weakSelf)
+    
+    [self.homeRequest getRankingLstPage:1 size:self.page*10 :^(HttpGeneralBackModel *generalBackModel) {
+        
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSDictionary *dict in generalBackModel.data) {
+            
+            HomeNewModel *model = [HomeNewModel new];
+            [model setValuesForKeysWithDictionary:dict];
+            [array addObject:model];
+            
+        }
+        
+        if (array.count > 0) {
+            [weakSelf.homeMessgeView.dataSource removeAllObjects];
+        }
+        
+        [weakSelf.homeMessgeView addData:array];
+        weakSelf.homeMessgeView.NoMessageView.hidden = array.count > 0 ? YES : NO;
+        
+        [weakSelf.homeMessgeView.myTable.mj_header endRefreshing];
+        [weakSelf.homeMessgeView.myTable.mj_footer endRefreshing];
+        
+    }];
+    
+}
+
 - (void)request {
     BOOL logined = GLAppDelegate.isLogined;
     if (!logined) {
@@ -170,7 +205,11 @@
     self.homeRequest = [HomeRequest new];
     WS(weakSelf)
     
-    [self.homeRequest getRankingLstPage:@"1" size:@"10" :^(HttpGeneralBackModel *generalBackModel) {
+    [self.homeRequest getUserAgentInfo:^(HttpGeneralBackModel *generalBackModel) {
+       
+        if (generalBackModel.data[@"head"] != nil && [generalBackModel.data[@"head"] rangeOfString:@"http"].location !=NSNotFound) {
+            SetUserDefault(UserHead, generalBackModel.data[@"head"]);
+        }
         
     }];
     
@@ -181,6 +220,12 @@
         
     }];
     
+    if (!GetUserDefault(UserHead)) {
+        weakSelf.headImageView.image = [UIImage imageNamed:@"Home_HeadDefault"];
+    }
+    else{
+        [weakSelf.headImageView sd_setImageWithURL:[NSURL URLWithString:GetUserDefault(UserHead)]];
+    }
 //    [self.homeRequest getIndexInfo:^(HomeModel *model) {
 //
 //        if (model) {
@@ -308,44 +353,44 @@
     
     WS(weakSelf)
     self.homeMessgeView.myTable.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-
-        [weakSelf.homeMessgeView.dataSource removeAllObjects];
-        [weakSelf request];
+        
+        self.page = 1;
+        [weakSelf requestList];
         
     }];
     
     self.homeMessgeView.myTable.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-
-        [weakSelf request];
+        self.page++;
+        [weakSelf requestList];
         
     }];
 }
 
 -(void)block{
     
-    WS(weakSelf);
-    self.homeMessgeView.pushBlock = ^(HomeMessgeModel *model, HomeAssistantModel *assistantModel) {
-        
-        if (model) {
-            [[HomeRequest new] getZeroPushNum:model.mid :^(HttpGeneralBackModel *generalBackModel) {
-                
-            }];
-            
-            MessageViewController *messageView = [[MessageViewController alloc] init];
-            messageView.mid = [NSString stringWithFormat:@"%@",model.mid];
-            messageView.msg_source = [NSString stringWithFormat:@"%@",model.msg_source];
-            messageView.patientName = model.name;
-            messageView.msg_flag = model.msg_source;
-            messageView.msgId = [NSString stringWithFormat:@"%@", model.msg_id];
-            messageView.title = model.name;
-            messageView.hidesBottomBarWhenPushed = YES;
-            [weakSelf.navigationController pushViewController:messageView animated:YES];
-        }
-        else if (assistantModel) {
-            [weakSelf showAssistant:assistantModel];
-        }
-        
-    };
+//    WS(weakSelf);
+//    self.homeMessgeView.pushBlock = ^(HomeMessgeModel *model, HomeAssistantModel *assistantModel) {
+//        
+//        if (model) {
+//            [[HomeRequest new] getZeroPushNum:model.mid :^(HttpGeneralBackModel *generalBackModel) {
+//                
+//            }];
+//            
+//            MessageViewController *messageView = [[MessageViewController alloc] init];
+//            messageView.mid = [NSString stringWithFormat:@"%@",model.mid];
+//            messageView.msg_source = [NSString stringWithFormat:@"%@",model.msg_source];
+//            messageView.patientName = model.name;
+//            messageView.msg_flag = model.msg_source;
+//            messageView.msgId = [NSString stringWithFormat:@"%@", model.msg_id];
+//            messageView.title = model.name;
+//            messageView.hidesBottomBarWhenPushed = YES;
+//            [weakSelf.navigationController pushViewController:messageView animated:YES];
+//        }
+//        else if (assistantModel) {
+//            [weakSelf showAssistant:assistantModel];
+//        }
+//        
+//    };
     
 }
 

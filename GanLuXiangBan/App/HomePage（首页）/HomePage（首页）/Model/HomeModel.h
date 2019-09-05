@@ -28,3 +28,17 @@
 
 
 @end
+
+@interface HomeNewModel : BaseModel
+
+@property (nonatomic ,assign) NSInteger amount;
+
+@property (nonatomic ,copy) NSString *drid;
+
+@property (nonatomic ,copy) NSString *head;
+
+@property (nonatomic ,copy) NSString *name;
+
+@property (nonatomic ,assign) NSInteger num;
+
+@end

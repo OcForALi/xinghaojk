@@ -10,6 +10,7 @@
 #import "AgentProductRequest.h"
 #import "ProductExamineFailView.h"
 #import "ProductModel.h"
+#import "AddProductViewController.h"
 
 @interface ProductExamineInViewController ()
 
@@ -46,7 +47,28 @@
     .leftSpaceToView(self.view, 0)
     .rightSpaceToView(self.view, 0)
     .topSpaceToView(self.view, 0)
-    .bottomSpaceToView(self.view, 0);
+    .bottomSpaceToView(self.view, kTabbarSafeBottomMargin + NavHeight);
+    
+    UIButton *button = [UIButton new];
+    button.backgroundColor = kMainColor;
+    [button setTitle:@"添加代理产品" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(addProduct:) forControlEvents:UIControlEventTouchUpInside];
+    [self.productExamineFailView addSubview:button];
+    
+    button.sd_layout
+    .leftSpaceToView(self.productExamineFailView, 0)
+    .rightSpaceToView(self.productExamineFailView, 0)
+    .bottomSpaceToView(self.productExamineFailView, 0)
+    .heightIs(40);
+    
+}
+
+- (void)addProduct:(UIButton *)sender{
+    
+    AddProductViewController *addVC = [AddProductViewController new];
+    
+    [self.navigationController pushViewController:addVC animated:YES];
     
 }
 

@@ -370,6 +370,10 @@
         
         [manager GET:self.urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
+            if (responseObject == nil) {
+                return ;
+            }
+            
             HttpGeneralBackModel *model = [HttpGeneralBackModel new];
             [model setValuesForKeysWithDictionary:responseObject];
             model.responseObject = responseObject;
