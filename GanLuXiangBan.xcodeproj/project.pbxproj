@@ -16,6 +16,7 @@
 		04A86FD6231E78010016BA78 /* ProductExamineAdoptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD5231E78010016BA78 /* ProductExamineAdoptViewController.m */; };
 		04A86FDA231E7BE70016BA78 /* AgentProductRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */; };
 		04E378C82321028300DABEBC /* AddProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E378C72321028300DABEBC /* AddProductViewController.m */; };
+		04E378CC23210A1900DABEBC /* CheckAchievementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E378CB23210A1900DABEBC /* CheckAchievementViewController.m */; };
 		0C09EEC120A0919F00BCC937 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C09EEC020A0919F00BCC937 /* SettingView.m */; };
 		0C10669220C0E93400415398 /* HospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10669120C0E93400415398 /* HospitalModel.m */; };
 		0C10669520C0EA1600415398 /* HospitalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10669420C0EA1600415398 /* HospitalViewModel.m */; };
@@ -515,6 +516,8 @@
 		04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgentProductRequest.m; sourceTree = "<group>"; };
 		04E378C62321028300DABEBC /* AddProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddProductViewController.h; path = "GanLuXiangBan/App/HomePage（首页）/AgentProduct(代理产品)/view/AddProductViewController.h"; sourceTree = SOURCE_ROOT; };
 		04E378C72321028300DABEBC /* AddProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddProductViewController.m; path = "GanLuXiangBan/App/HomePage（首页）/AgentProduct(代理产品)/view/AddProductViewController.m"; sourceTree = SOURCE_ROOT; };
+		04E378CA23210A1900DABEBC /* CheckAchievementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckAchievementViewController.h; sourceTree = "<group>"; };
+		04E378CB23210A1900DABEBC /* CheckAchievementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckAchievementViewController.m; sourceTree = "<group>"; };
 		0C09EEBF20A0919F00BCC937 /* SettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		0C09EEC020A0919F00BCC937 /* SettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		0C10669020C0E93400415398 /* HospitalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HospitalModel.h; sourceTree = "<group>"; };
@@ -1577,6 +1580,15 @@
 			path = "AddProduct(添加产品)";
 			sourceTree = "<group>";
 		};
+		04E378C9232109B400DABEBC /* CheckAchievement(查看业绩) */ = {
+			isa = PBXGroup;
+			children = (
+				04E378CA23210A1900DABEBC /* CheckAchievementViewController.h */,
+				04E378CB23210A1900DABEBC /* CheckAchievementViewController.m */,
+			);
+			path = "CheckAchievement(查看业绩)";
+			sourceTree = "<group>";
+		};
 		0C09EEBD20A0917C00BCC937 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1840,6 +1852,7 @@
 		0C696BBD2097117800827F12 /* HomePage（首页） */ = {
 			isa = PBXGroup;
 			children = (
+				04E378C9232109B400DABEBC /* CheckAchievement(查看业绩) */,
 				04A86FC6231E75150016BA78 /* AgentProduct(代理产品) */,
 				F5F0737E22FC64840047E2D1 /* Circle */,
 				F562A73A22C8F8BB00D47E5A /* Article */,
@@ -5654,6 +5667,7 @@
 				BDA2CE522274A46000ABA0C1 /* BBVoiceRecordPowerAnimationView.m in Sources */,
 				F562A75422C90A0400D47E5A /* FamousRequest.m in Sources */,
 				F503E3682306F8B400EAC2AD /* IntegralDetailInfoViewController.m in Sources */,
+				04E378CC23210A1900DABEBC /* CheckAchievementViewController.m in Sources */,
 				0CB7B2F520C995B400C5792A /* NewPatientView.m in Sources */,
 				0C999AD920D54B540066146D /* CheckListDetailsCell.m in Sources */,
 				F562A75022C905D100D47E5A /* FamousTableViewCell.m in Sources */,

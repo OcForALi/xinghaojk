@@ -25,6 +25,7 @@
 #import "HomeArticleViewController.h"
 
 #import "AgentProductViewController.h"
+#import "CheckAchievementViewController.h"
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -647,9 +648,9 @@
         titleLabel.text = titleArray[i];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.font = [UIFont systemFontOfSize:12];
-        if (i == imageArray.count - 1) {
-            titleLabel.textColor = [UIColor lightGrayColor];
-        }
+//        if (i == imageArray.count - 1) {
+//            titleLabel.textColor = [UIColor lightGrayColor];
+//        }
         [self.toolView addSubview:titleLabel];
         
         titleLabel.sd_layout
@@ -723,9 +724,9 @@
     }
     else if (tag == 2) {
         
-        MyStudioViewController *mySudioView = [[MyStudioViewController alloc] init];
-        mySudioView.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:mySudioView animated:YES];
+        CheckAchievementViewController *checkAchievementVC = [[CheckAchievementViewController alloc] init];
+        checkAchievementVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:checkAchievementVC animated:YES];
         
     }
     else if (tag == 3) {
