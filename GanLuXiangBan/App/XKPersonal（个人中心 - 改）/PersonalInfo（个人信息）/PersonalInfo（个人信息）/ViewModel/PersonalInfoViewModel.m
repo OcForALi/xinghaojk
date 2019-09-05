@@ -32,7 +32,7 @@
 // 获取医生个人信息
 - (void)getDoctorInfoWithId:(NSString *)idString complete:(void (^)(PersonalInfoModel *))complete {
 
-    self.urlString = [self getRequestUrl:@[@"user", @"DoctorInfo"]];
+    self.urlString = [self getRequestUrl:@[@"user", @"AgentInfo"]];
     self.urlString = [NSString stringWithFormat:@"%@?id=%@", self.urlString, idString];
     
     [self requestNotHudWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {

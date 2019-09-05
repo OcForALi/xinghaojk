@@ -74,12 +74,13 @@
     [self.viewModel getDoctorInfoWithId:GetUserDefault(UserID) complete:^(PersonalInfoModel *model) {
         
         @strongify(self);
-        if (model.Pkid != nil) {
-            if (!model.Title) {
-                model.Title = @"";
-            }
-            self.personalInfoView.model = model;
+        if (model.pkid != nil) {
             
+            if (!model.title) {
+                model.title = @"";
+            }
+            
+            self.personalInfoView.model = model;
         }
         else {
             
@@ -111,32 +112,15 @@
     [viewController setCompleteBlock:^(id object) {
         
         if ([weakVC isKindOfClass:[NSClassFromString(@"EditUserInfoViewController") class]]) {
-            self.personalInfoView.model.Name = object;
-        }
-        else if ([weakVC isKindOfClass:[NSClassFromString(@"SelHospitalViewController") class]]) {
-            self.personalInfoView.model.HospitalName = object;
-        }
-        else if ([weakVC isKindOfClass:[NSClassFromString(@"SelDepartmentViewController") class]]) {
-            
-            DrugModel *model = object;
-            self.personalInfoView.model.CustName = model.name;
-        }
-        else if ([weakVC isKindOfClass:[NSClassFromString(@"ModifyViewController") class]]) {
-            
-            if ([weakVC.title isEqualToString:@"擅长"]) {
-                self.personalInfoView.model.Remark = object;
-            }
-            else {
-                self.personalInfoView.model.Introduction = object;
-            }
+            self.personalInfoView.model.name = object;
         }
         else if ([weakVC isKindOfClass:[NSClassFromString(@"CertificationViewController") class]]) {
             
             if ([weakVC.title isEqualToString:@"身份认证"]) {
-                self.personalInfoView.model.idt_auth_status = object;
+                self.personalInfoView.model.auth_status = object;
             }
             else {
-                self.personalInfoView.model.Auth_Status = object;
+                self.personalInfoView.model.certification_status = object;
             }
         }
         

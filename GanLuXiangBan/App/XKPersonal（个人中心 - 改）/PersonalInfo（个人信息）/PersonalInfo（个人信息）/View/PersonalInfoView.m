@@ -91,10 +91,10 @@
         
         NSString *detailText = @"";
         if ([text containsString:@"姓名"]) {
-            detailText = self.model.Name;
+            detailText = self.model.name;
         }
         else if ([text containsString:@"性别"]) {
-            detailText = self.model.Gender;
+            detailText = self.model.gender;
         }
         else if ([text containsString:@"身份证号"]) {
             
@@ -108,7 +108,7 @@
     else {
         
         
-        NSString *status = indexPath.row == 0 ? self.model.idt_auth_status : self.model.Auth_Status;
+        NSString *status = indexPath.row == 0 ? self.model.certification_status : self.model.auth_status;
         NSString *auth = @"未认证";
         if ([status intValue] == 1) {
             auth = @"认证中";
@@ -144,7 +144,7 @@
             
             NSArray *titles = @[@"男", @"女"];
             [self actionSheetWithTitle:@"请选择性别" titles:titles isCan:NO completeBlock:^(NSInteger index) {
-                self.model.Gender = titles[index];
+                self.model.gender = titles[index];
                 [self reloadData];
             }];
         }

@@ -94,7 +94,7 @@
         maxy = nameLabel.maxY + nameLabel.height;
     }
     
-    self.cellHeight = maxy + 30;
+    self.cellHeight = bgView.height = maxy + 15;
 }
 
 @end

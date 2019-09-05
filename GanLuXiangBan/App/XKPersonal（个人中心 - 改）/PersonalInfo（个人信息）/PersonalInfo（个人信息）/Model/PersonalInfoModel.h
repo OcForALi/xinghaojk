@@ -10,41 +10,42 @@
 
 @interface PersonalInfoModel : BaseModel
 
-/// 医生主键ID
-@property (nonatomic, strong) NSString *Pkid;
-/// 医生姓名
-@property (nonatomic, strong) NSString *Name;
-/// 职称
-@property (nonatomic, strong) NSString *Title;
-/// 所属门诊
-@property (nonatomic, strong) NSString *HospitalName;
-/// 所属医院ID
-@property (nonatomic, strong) NSString *HispitalId;
-/// 性别
-@property (nonatomic, strong) NSString *Gender;
-/// 科室
-@property (nonatomic, strong) NSString *CustName;
-/// 擅长
-@property (nonatomic, strong) NSString *Remark;
-/// 简介
-@property (nonatomic, strong) NSString *Introduction;
-/// 头像
-@property (nonatomic, strong) NSString *Head;
-/// 资格认证状态 0 未认证 1 已认证 2 认证失败
-@property (nonatomic, strong) NSString *Auth_Status;
-/// 二维码路径
-@property (nonatomic, strong) NSString *qrcode;
-/// APP二维码
-@property (nonatomic, strong) NSString *qrcode2;
-/// 邀请码
+/** 代理id */
+@property (nonatomic, strong) NSString *pkid;
+// 名称
+@property (nonatomic, strong) NSString *name;
+// 头像
+@property (nonatomic, strong) NSString *head;
+// 性别 男/女
+@property (nonatomic, strong) NSString *gender;
+// 身份证号
+@property (nonatomic, strong) NSString *idcard;
+// 代理省份id
+@property (nonatomic, strong) NSString *province_id;
+// 代理市区id
+@property (nonatomic, strong) NSString *city_id;
+// 资格认证状态 0 未认证 1 认证中 2 已认证(通过) 3 认证不通过
+@property (nonatomic, strong) NSString *certification_status;
+// 资格认证备注(一般用于记录不通过原因)
+@property (nonatomic, strong) NSString *certification_remark;
+// 身份认证状态 未认证 = 0, 认证中 = 1, 已认证 = 2, 认证失败 = 3
+@property (nonatomic, strong) NSString *auth_status;
+// 邀请医生二维码
+@property (nonatomic, strong) NSString *invite_dr_qrcode;
+// 邀请同行二维码
+@property (nonatomic, strong) NSString *invite_sample_qrcode;
+// 邀请码
 @property (nonatomic, strong) NSString *invite_code;
-/// 身份认证状态 0 未认证 1 已认证 2 认证失败
-@property (nonatomic, strong) NSString *idt_auth_status;
-
-/**
- *  城市
- */
+// 资质认证附件
+@property (nonatomic, strong) NSString *certification_items;
+// 身份认证附件
+@property (nonatomic, strong) NSString *auth_items;
+// 代理医院集合
+@property (nonatomic, strong) NSString *hospital_items;
+/** 城市 */
 @property (nonatomic, strong) NSString *city;
+
+@property (nonatomic, strong) NSString *title;
 
 @end
 

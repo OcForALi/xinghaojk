@@ -45,9 +45,9 @@
     
     _model = model;
     
-    self.userNameLabel.text = model.Name;
+    self.userNameLabel.text = model.name;
     
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:model.Head] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
     [self reloadData];
 }
 
