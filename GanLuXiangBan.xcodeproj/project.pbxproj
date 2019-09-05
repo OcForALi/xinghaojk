@@ -1976,7 +1976,6 @@
 				0CDB1DB62099949200DCF82A /* PaidConsulting（付费咨询） */,
 				0C999AE320D598D80066146D /* Subscribe（我的预约） */,
 				0C999AFD20D5ADE40066146D /* SubscribeDetails（预约详情） */,
-				0CDB1DB52099942600DCF82A /* MyCard（我的银行卡） */,
 				0CDB1DB42099932400DCF82A /* MyPoints（我的积分） */,
 				0C696CE72097155B00827F12 /* Assistant（医生助理） */,
 				0CDB1DB2209991C200DCF82A /* Setting（设置） */,
@@ -2211,9 +2210,9 @@
 		0C696D1E2097155B00827F12 /* MyCard（我的银行卡） */ = {
 			isa = PBXGroup;
 			children = (
+				0C5DD9B320BC377600A6E3B7 /* ViewModel */,
 				0C5DD9B420BC377700A6E3B7 /* Model */,
 				0C5DD9B220BC377600A6E3B7 /* View */,
-				0C5DD9B320BC377600A6E3B7 /* ViewModel */,
 				0C696D222097155B00827F12 /* ViewController */,
 			);
 			path = "MyCard（我的银行卡）";
@@ -4819,6 +4818,7 @@
 			children = (
 				1E698F98231D18B2009D3458 /* Prescription（处方数量） */,
 				1E698F86231D1361009D3458 /* AgentVariety（代理品种） */,
+				0CDB1DB52099942600DCF82A /* MyCard（我的银行卡） */,
 				0C696DD120971AE100827F12 /* Personal（个人中心） */,
 				0CDB1DA2209969DF00DCF82A /* PersonalInfo（个人信息） */,
 			);

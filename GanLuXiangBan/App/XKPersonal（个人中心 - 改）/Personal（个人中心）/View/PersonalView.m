@@ -182,7 +182,7 @@
         NSString *vcname = @"";
         NSString *text = self.dataSources[indexPath.row];
         if ([text containsString:@"银行卡"]) {
-            vcname = @"DoctorDetailsViewController";
+            vcname = @"MyCardViewController";
         }
         else if ([text containsString:@"设置"]) {
             vcname = @"SettingViewController";

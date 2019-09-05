@@ -13,7 +13,7 @@
 
 - (void)getAllBankComplete:(void (^)(id))complete {
     
-    self.urlString = [self getRequestUrl:@[@"MasterData", @"banklist"]];
+    self.urlString = [self getRequestUrl:@[@"Agent", @"Banklist"]];
     [self requestWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
         
         NSMutableArray *arr = [NSMutableArray array];
@@ -30,7 +30,7 @@
 
 - (void)getUserBankListComplete:(void (^)(id))complete {
     
-    self.urlString = [self getRequestUrl:@[@"Doctor", @"Banklist"]];
+    self.urlString = [self getRequestUrl:@[@"Agent", @"Banklist"]];
     [self requestWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
         
         NSMutableArray *arr = [NSMutableArray array];
@@ -58,7 +58,7 @@
 
     NSString *str = [ids componentsJoinedByString:@","];
     
-    self.urlString = [self getRequestUrl:@[@"Doctor", @"DelBank"]];
+    self.urlString = [self getRequestUrl:@[@"Agent", @"DelBank"]];
     self.parameters = str;
     [self requestWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
         
@@ -81,7 +81,7 @@
                    cardNumber:(NSString *)cardNumber
                      complete:(void (^)(id object))complete
 {
-    self.urlString = [self getRequestUrl:@[@"Doctor", @"AddBank"]];
+    self.urlString = [self getRequestUrl:@[@"Agent", @"AddBank"]];
     self.parameters = @{ @"card_person" : cardperson,
                          @"bank" : bank,
                          @"card_no" : cardNumber };
@@ -101,7 +101,7 @@
 
 - (void)setDefaultWithId:(NSString *)idString Complete:(void (^)(id))complete {
     
-    self.urlString = [self getRequestUrl:@[@"Doctor", @"SetDefault"]];
+    self.urlString = [self getRequestUrl:@[@"Agent", @"SetDefault"]];
 //    self.parameters = @{ @"id" : [NSNumber numberWithInteger:[idString integerValue]] };
     self.parameters = idString;
     [self requestWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
