@@ -48,7 +48,7 @@
         @strongify(self);
         
         if (self.searchConfirm) {
-            self.searchConfirm(textField.text);
+            self.searchConfirm(self.textField.text);
         }
         
         [self.textField resignFirstResponder];
@@ -84,6 +84,7 @@
     textField.font = [UIFont systemFontOfSize:14];
     textField.placeholder = @"搜索关键词";
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.keyboardType = UIKeyboardTypeDefault;
     [searchBgView addSubview:textField];
     [textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(iconImgView.mas_right).equalTo(@10);
@@ -92,10 +93,21 @@
     }];
     
     [[textField rac_textSignal] subscribeNext:^(NSString * _Nullable x) {
+        
         self.searchTextString = x;
         if (self.searchBlock) {
             self.searchBlock(self.searchTextString);
         }
+    }];
+    
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = kLineColor;
+    [self addSubview:lineView];
+    
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.right.bottom.equalTo(self);
+        make.height.equalTo(@(0.5));
     }];
 }
 

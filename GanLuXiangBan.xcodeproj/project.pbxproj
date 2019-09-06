@@ -376,6 +376,12 @@
 		1E698FA8231D1951009D3458 /* PrescriptionNumViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E698FA7231D1951009D3458 /* PrescriptionNumViewModel.m */; };
 		1E6C64A22320010000B25DD1 /* DrugCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C64A12320010000B25DD1 /* DrugCell.m */; };
 		1E6C64A723200ABF00B25DD1 /* PrescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C64A623200ABF00B25DD1 /* PrescriptionCell.m */; };
+		1E6F9A802322B8B30080637F /* DoctorsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A7F2322B8B30080637F /* DoctorsListViewController.m */; };
+		1E6F9A832322B8EC0080637F /* DoctorsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A822322B8EC0080637F /* DoctorsListViewModel.m */; };
+		1E6F9A862322B95D0080637F /* DoctorsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A852322B95D0080637F /* DoctorsListModel.m */; };
+		1E6F9A892322B9BD0080637F /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A872322B9BD0080637F /* NSObject+Category.m */; };
+		1E6F9A8C2322BDA10080637F /* DoctorsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A8B2322BDA10080637F /* DoctorsListView.m */; };
+		1E6F9A8F2322C2690080637F /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A8E2322C2690080637F /* UIImage+Category.m */; };
 		271A4A95945A04C9E3E4B5AD /* libPods-GanLuXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */; };
 		BD0FA245224A830D0091EC35 /* AddDrugsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA244224A830D0091EC35 /* AddDrugsRequest.m */; };
 		BD0FA249224A832A0091EC35 /* AddDrugsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA248224A832A0091EC35 /* AddDrugsModel.m */; };
@@ -1241,6 +1247,18 @@
 		1E6C64A12320010000B25DD1 /* DrugCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrugCell.m; sourceTree = "<group>"; };
 		1E6C64A523200ABF00B25DD1 /* PrescriptionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrescriptionCell.h; sourceTree = "<group>"; };
 		1E6C64A623200ABF00B25DD1 /* PrescriptionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrescriptionCell.m; sourceTree = "<group>"; };
+		1E6F9A7E2322B8B30080637F /* DoctorsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoctorsListViewController.h; sourceTree = "<group>"; };
+		1E6F9A7F2322B8B30080637F /* DoctorsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorsListViewController.m; sourceTree = "<group>"; };
+		1E6F9A812322B8EC0080637F /* DoctorsListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoctorsListViewModel.h; sourceTree = "<group>"; };
+		1E6F9A822322B8EC0080637F /* DoctorsListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorsListViewModel.m; sourceTree = "<group>"; };
+		1E6F9A842322B95D0080637F /* DoctorsListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoctorsListModel.h; sourceTree = "<group>"; };
+		1E6F9A852322B95D0080637F /* DoctorsListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorsListModel.m; sourceTree = "<group>"; };
+		1E6F9A872322B9BD0080637F /* NSObject+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Category.m"; sourceTree = "<group>"; };
+		1E6F9A882322B9BD0080637F /* NSObject+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Category.h"; sourceTree = "<group>"; };
+		1E6F9A8A2322BDA10080637F /* DoctorsListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoctorsListView.h; sourceTree = "<group>"; };
+		1E6F9A8B2322BDA10080637F /* DoctorsListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorsListView.m; sourceTree = "<group>"; };
+		1E6F9A8D2322C2690080637F /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
+		1E6F9A8E2322C2690080637F /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
 		70469BD2CC2D2B8D6759CE3D /* Pods-GanLuXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GanLuXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-GanLuXiangBan/Pods-GanLuXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GanLuXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0FA243224A830D0091EC35 /* AddDrugsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDrugsRequest.h; sourceTree = "<group>"; };
@@ -1827,7 +1845,7 @@
 		0C696B582097117800827F12 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				1E61DD8F231ECBA700BE5842 /* XKPatient（患者 - 改） */,
+				1E61DD8F231ECBA700BE5842 /* XKDoctors（医生 - 改） */,
 				1E698F85231D12C5009D3458 /* XKPersonal（个人中心 - 改） */,
 				0C696BBA2097117800827F12 /* AppDelegate */,
 				0C696CA32097126400827F12 /* RootController */,
@@ -1944,6 +1962,10 @@
 		0C696C9C2097117900827F12 /* Category（类别） */ = {
 			isa = PBXGroup;
 			children = (
+				1E6F9A8D2322C2690080637F /* UIImage+Category.h */,
+				1E6F9A8E2322C2690080637F /* UIImage+Category.m */,
+				1E6F9A882322B9BD0080637F /* NSObject+Category.h */,
+				1E6F9A872322B9BD0080637F /* NSObject+Category.m */,
 				0C696C9E2097117900827F12 /* Toast+UIView.h */,
 				0C696C9D2097117900827F12 /* Toast+UIView.m */,
 				0C86F74520971F3F002A0052 /* UIColor+category.h */,
@@ -2282,9 +2304,9 @@
 		0C696D66209717C500827F12 /* Patients（我的患者） */ = {
 			isa = PBXGroup;
 			children = (
+				0CA1947C20C566B70063ABFB /* ViewModel */,
 				0CA1947E20C566B70063ABFB /* Model */,
 				0CA1947D20C566B70063ABFB /* View */,
-				0CA1947C20C566B70063ABFB /* ViewModel */,
 				0C696D6A209717C500827F12 /* ViewController */,
 			);
 			path = "Patients（我的患者）";
@@ -4706,13 +4728,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1E61DD8F231ECBA700BE5842 /* XKPatient（患者 - 改） */ = {
+		1E61DD8F231ECBA700BE5842 /* XKDoctors（医生 - 改） */ = {
 			isa = PBXGroup;
 			children = (
+				1E6F9A792322B85D0080637F /* DoctorsList（医生列表） */,
 				1E61DD95231ECC5900BE5842 /* DoctorPerformance（医生业绩） */,
 				1E61DD90231ECBC100BE5842 /* DoctorDetails（医生详情） */,
 			);
-			path = "XKPatient（患者 - 改）";
+			path = "XKDoctors（医生 - 改）";
 			sourceTree = "<group>";
 		};
 		1E61DD90231ECBC100BE5842 /* DoctorDetails（医生详情） */ = {
@@ -4937,6 +4960,53 @@
 				1E6C64A623200ABF00B25DD1 /* PrescriptionCell.m */,
 			);
 			path = "Prescription（药方信息）";
+			sourceTree = "<group>";
+		};
+		1E6F9A792322B85D0080637F /* DoctorsList（医生列表） */ = {
+			isa = PBXGroup;
+			children = (
+				1E6F9A7D2322B88A0080637F /* ViewModel */,
+				1E6F9A7C2322B8830080637F /* Model */,
+				1E6F9A7B2322B8800080637F /* View */,
+				1E6F9A7A2322B87D0080637F /* ViewController */,
+			);
+			path = "DoctorsList（医生列表）";
+			sourceTree = "<group>";
+		};
+		1E6F9A7A2322B87D0080637F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E6F9A7E2322B8B30080637F /* DoctorsListViewController.h */,
+				1E6F9A7F2322B8B30080637F /* DoctorsListViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1E6F9A7B2322B8800080637F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E6F9A8A2322BDA10080637F /* DoctorsListView.h */,
+				1E6F9A8B2322BDA10080637F /* DoctorsListView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E6F9A7C2322B8830080637F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E6F9A842322B95D0080637F /* DoctorsListModel.h */,
+				1E6F9A852322B95D0080637F /* DoctorsListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E6F9A7D2322B88A0080637F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1E6F9A812322B8EC0080637F /* DoctorsListViewModel.h */,
+				1E6F9A822322B8EC0080637F /* DoctorsListViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6076BB683D90A446E959FB8B /* Frameworks */ = {
@@ -5600,6 +5670,7 @@
 				11D855E3209DC06400283B81 /* LogInViewController.m in Sources */,
 				0CB7B30920C99FA200C5792A /* GroupAddModel.m in Sources */,
 				0CDB1DBC209996FE00DCF82A /* PaidConsultingViewController.m in Sources */,
+				1E6F9A8C2322BDA10080637F /* DoctorsListView.m in Sources */,
 				BDA2CE342274A46000ABA0C1 /* AAPlotOptions.m in Sources */,
 				0CAFD02520DA403F006D4D0E /* TrendViewModel.m in Sources */,
 				0CA1948420C567370063ABFB /* PatientsView.m in Sources */,
@@ -5657,6 +5728,7 @@
 				11E7CD4020BF87D30017AE37 /* HomeModel.m in Sources */,
 				F519D35022CCE31F00026E04 /* HomeArticleSaveModel.m in Sources */,
 				0CBC977620CD669E00EA6E60 /* PatientInfoViewModel.m in Sources */,
+				1E6F9A8F2322C2690080637F /* UIImage+Category.m in Sources */,
 				0CB142CE20CD1FEB007E5E11 /* PatientsInfoCell.m in Sources */,
 				0CAFD03420DA4182006D4D0E /* TrendTypeView.m in Sources */,
 				1146BD9820D8A9E60034D1A4 /* UIView+WebCacheOperation.m in Sources */,
@@ -5699,6 +5771,7 @@
 				BDA2CE312274A46000ABA0C1 /* AALabels.m in Sources */,
 				0CAFD03120DA4077006D4D0E /* ScreeningModel.m in Sources */,
 				11D855DF209DC05700283B81 /* BaseTextField.m in Sources */,
+				1E6F9A832322B8EC0080637F /* DoctorsListViewModel.m in Sources */,
 				0C86F74920972064002A0052 /* PersonalView.m in Sources */,
 				11092BC420CBA29700385B3C /* AddCountView.m in Sources */,
 				11E6CAC220A916F30084968D /* FillInDataRequestModel.m in Sources */,
@@ -5812,6 +5885,7 @@
 				116EE51220BBFAE00022D460 /* InvitationNewPhoneViewController.m in Sources */,
 				0C3D872320EA6509006ED8E6 /* CerImgModel.m in Sources */,
 				1E698F8E231D17C5009D3458 /* AgentVarietyViewController.m in Sources */,
+				1E6F9A802322B8B30080637F /* DoctorsListViewController.m in Sources */,
 				BDA2CE492274A46000ABA0C1 /* AAChartView.m in Sources */,
 				0CDB1DC82099995900DCF82A /* AssistantViewController.m in Sources */,
 				11DC58D820C8262B008D47EB /* ContinuePrescriptionViewController.m in Sources */,
@@ -5874,6 +5948,7 @@
 				1146BD9920D8A9E60034D1A4 /* UIButton+WebCache.m in Sources */,
 				0C735F10209D83D3000928A3 /* SelectCityView.m in Sources */,
 				110D604920C03402006E2185 /* DrugListModel.m in Sources */,
+				1E6F9A892322B9BD0080637F /* NSObject+Category.m in Sources */,
 				0CDB1DB9209996DB00DCF82A /* VisitDetailsViewController.m in Sources */,
 				0C10669220C0E93400415398 /* HospitalModel.m in Sources */,
 				11FFCCEA20C6D278003F3710 /* RecDrugsRequest.m in Sources */,
@@ -5937,6 +6012,7 @@
 				0CA4BFFD20C27BF000C89687 /* VisitDetailsViewModel.m in Sources */,
 				0C22735A20BD43960085F744 /* DrugRightCell.m in Sources */,
 				F5220CAB22CA62F9004BD27C /* YYClassInfo.m in Sources */,
+				1E6F9A862322B95D0080637F /* DoctorsListModel.m in Sources */,
 				0CA1948120C5671C0063ABFB /* PatientsViewModel.m in Sources */,
 				113EC89420D51826009EC67E /* ChatRemindTableViewCell.m in Sources */,
 				110D605420C0DD16006E2185 /* DrugListTableViewCell.m in Sources */,

@@ -34,9 +34,6 @@
         }];
         
         UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
-//        imgView.frame = CGRectMake(0, 0, 0, 0);
-//        imgView.size = img.size;
-//        imgView.centerX = self.width / 2;
         [_defaultImgView addSubview:imgView];
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);

@@ -109,7 +109,7 @@
     }
     else if ([text isEqualToString:@"医生"]) {
         
-        vcName = @"PatientsViewController";
+        vcName = @"DoctorsListViewController";
     }
     else if ([text isEqualToString:@"代理品种"]) {
         

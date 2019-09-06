@@ -29,7 +29,7 @@
 
     [super viewDidLoad];
 
-    self.title = @"我的患者";
+    self.title = @"我的医生";
     
     [self initNav];
     [self setupSubviews];
@@ -62,7 +62,7 @@
 - (void)setupSubviews {
     
     [self initSearchView];
-    [self initHeaderImgView];
+//    [self initHeaderImgView];
     [self initPatientsView];
 }
 
@@ -171,8 +171,9 @@
 
 - (void)initPatientsView {
     
-    patientsView = [[PatientsView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headerImgView.frame) + 1, ScreenWidth, 0) style:UITableViewStyleGrouped];
-    patientsView.height = ScreenHeight - patientsView.y - self.navHeight - self.tabBarHeight;
+    patientsView = [[PatientsView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    patientsView.y = 55;
+    patientsView.height -= patientsView.y;
     [self.view addSubview:patientsView];
     
     @weakify(self);

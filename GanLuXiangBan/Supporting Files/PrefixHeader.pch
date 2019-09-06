@@ -20,6 +20,8 @@
 // Controller
 #import "PersonalInfoViewController.h"
 // Category
+#import "NSObject+Category.h"
+#import "UIImage+Category.h"
 #import "UIView+Category.h"
 #import "UILabel+Category.h"
 #import "UIColor+category.h"

@@ -120,7 +120,7 @@
     NSMutableArray *viewControllers = [[NSMutableArray alloc] init];
 
     // 控制器名字
-    NSArray *viewControllerNames = @[@"HomeViewController", @"PatientsViewController", @"PersonalViewController"];
+    NSArray *viewControllerNames = @[@"HomeViewController", @"DoctorsListViewController", @"PersonalViewController"];
     
     // 标题
     NSArray *titles = @[@"首页", @"医生", @"个人中心"];
