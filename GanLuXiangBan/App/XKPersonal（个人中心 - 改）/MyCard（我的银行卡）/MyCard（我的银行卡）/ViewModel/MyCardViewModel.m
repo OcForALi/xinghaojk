@@ -13,7 +13,7 @@
 
 - (void)getAllBankComplete:(void (^)(id))complete {
     
-    self.urlString = [self getRequestUrl:@[@"Agent", @"Banklist"]];
+    self.urlString = [self getRequestUrl:@[@"MasterData", @"banklist"]];
     [self requestWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
         
         NSMutableArray *arr = [NSMutableArray array];
