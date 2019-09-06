@@ -3641,7 +3641,6 @@
 			isa = PBXGroup;
 			children = (
 				0C696D0A2097155B00827F12 /* MyPoints（我的积分） */,
-				0CD66D8B20A9CE6700AFD4F0 /* IntegralDetails（积分详情） */,
 				0C64C87320AF06C2000C9E43 /* Withdrawals（申请提现） */,
 			);
 			path = "MyPoints（我的积分）";
@@ -4815,6 +4814,7 @@
 		1E698F85231D12C5009D3458 /* XKPersonal（个人中心 - 改） */ = {
 			isa = PBXGroup;
 			children = (
+				0CD66D8B20A9CE6700AFD4F0 /* IntegralDetails（积分详情） */,
 				0CDB1DB2209991C200DCF82A /* Setting（设置） */,
 				1E698F98231D18B2009D3458 /* Prescription（处方数量） */,
 				1E698F86231D1361009D3458 /* AgentVariety（代理品种） */,

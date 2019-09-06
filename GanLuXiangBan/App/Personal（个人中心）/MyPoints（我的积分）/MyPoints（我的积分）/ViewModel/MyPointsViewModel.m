@@ -22,11 +22,10 @@
     if (!detailType) {
         detailType = @"all";
     }
-    self.urlString = [self getRequestUrl:@[@"Doctor", @"myPoints"]];
+    self.urlString = [self getRequestUrl:@[@"Agent", @"PointInfo"]];
     self.parameters = @{ @"pageindex" : [NSNumber numberWithInteger:page],
-                         @"pagesize": @10,
+                         @"pagesize": @(10),
                          @"record_type" : recordType,
-                         @"detailType": detailType,
                          @"point_date" : pointDate };
 
     [self requestWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
