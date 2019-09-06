@@ -13,7 +13,7 @@
 // 获取验证码
 - (void)getMobileCodeWithPhone:(NSString *)phone complete:(void (^)(HttpGeneralBackModel *))complete {
     
-    NSString *url = [NSString stringWithFormat:@"MasterData/GetMobileCode?mobileno=%@&type=3", phone];
+    NSString *url = [NSString stringWithFormat:@"MasterData/GetMobileCode?mobileno=%@&type=7", phone];
     self.urlString = [self getRequestUrl:@[url]];
 //    self.parameters = @{ @"mobileno" : phone, @"type" : [NSNumber numberWithInteger:3] };
     [self requestWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {

@@ -1978,7 +1978,6 @@
 				0C999AFD20D5ADE40066146D /* SubscribeDetails（预约详情） */,
 				0CDB1DB42099932400DCF82A /* MyPoints（我的积分） */,
 				0C696CE72097155B00827F12 /* Assistant（医生助理） */,
-				0CDB1DB2209991C200DCF82A /* Setting（设置） */,
 			);
 			path = "Personal（个人中心）";
 			sourceTree = "<group>";
@@ -4816,6 +4815,7 @@
 		1E698F85231D12C5009D3458 /* XKPersonal（个人中心 - 改） */ = {
 			isa = PBXGroup;
 			children = (
+				0CDB1DB2209991C200DCF82A /* Setting（设置） */,
 				1E698F98231D18B2009D3458 /* Prescription（处方数量） */,
 				1E698F86231D1361009D3458 /* AgentVariety（代理品种） */,
 				0CDB1DB52099942600DCF82A /* MyCard（我的银行卡） */,
