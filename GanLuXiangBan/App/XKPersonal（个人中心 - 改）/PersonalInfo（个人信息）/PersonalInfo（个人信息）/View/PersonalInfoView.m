@@ -97,7 +97,7 @@
             detailText = self.model.gender;
         }
         else if ([text containsString:@"身份证号"]) {
-            
+            detailText = self.model.idcard;
         }
         else if ([text containsString:@"代理区域"]) {
             detailText = self.model.city;
