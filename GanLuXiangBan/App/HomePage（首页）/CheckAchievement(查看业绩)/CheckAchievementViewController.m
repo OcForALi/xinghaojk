@@ -7,6 +7,7 @@
 //
 
 #import "CheckAchievementViewController.h"
+#import "ToApplyWithdrawalsViewController.h"
 
 @interface CheckAchievementViewController ()
 
@@ -173,7 +174,9 @@
 
 - (void)withdrawal:(UIButton *)sender{
     
+    ToApplyWithdrawalsViewController *toApplyWithdrawalsVC = [[ToApplyWithdrawalsViewController alloc] init];
     
+    [self.navigationController pushViewController:toApplyWithdrawalsVC animated:YES];
     
 }
 
