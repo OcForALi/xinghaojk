@@ -604,9 +604,9 @@
         
     }else{
         
-        EvaluationViewController *evaluationView = [[EvaluationViewController alloc] init];
-        evaluationView.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:evaluationView animated:YES];
+//        EvaluationViewController *evaluationView = [[EvaluationViewController alloc] init];
+//        evaluationView.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:evaluationView animated:YES];
         
     }
     

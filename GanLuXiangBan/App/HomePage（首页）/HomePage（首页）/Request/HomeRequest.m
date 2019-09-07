@@ -117,7 +117,7 @@
 
 - (void)postUpdateDrHeadUrl:(NSString *)urlString :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
     
-    self.urlString = [self getRequestUrl:@[@"user", @"updateDrHead"]];
+    self.urlString = [self getRequestUrl:@[@"user", @"updateAgentHead"]];
     self.parameters = urlString;
     [self requestWithIsGet:NO success:^(HttpGeneralBackModel *generalBackModel) {
         

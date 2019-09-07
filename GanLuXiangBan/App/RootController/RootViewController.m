@@ -286,11 +286,11 @@
 
     self.timer = [NSTimer timerWithTimeInterval:120 target:self selector:@selector(loginAction) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-    self.noreplyTimer = [NSTimer timerWithTimeInterval:300 target:self selector:@selector(requestNoReplyAlert) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.noreplyTimer forMode:NSRunLoopCommonModes];
+//    self.noreplyTimer = [NSTimer timerWithTimeInterval:300 target:self selector:@selector(requestNoReplyAlert) userInfo:nil repeats:YES];
+//    [[NSRunLoop mainRunLoop] addTimer:self.noreplyTimer forMode:NSRunLoopCommonModes];
 
     [self loginAction];
-    [self performSelector:@selector(requestNoReplyAlert) withObject:nil afterDelay:3];
+//    [self performSelector:@selector(requestNoReplyAlert) withObject:nil afterDelay:3];
 }
 
 - (BOOL)chatWithMid {
@@ -299,7 +299,7 @@
 
 -(void)loginAction {
     
-    [self requestPharmacyApplyAlert];
+//    [self requestPharmacyApplyAlert];
     return;
     
     [[LogInRequest new] getClientInfoComplete:^(HttpGeneralBackModel *generalBackModel) {
