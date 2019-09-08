@@ -7,6 +7,7 @@
 //
 
 #import "DoctorPerformancView.h"
+#import "PerformanceModel.h"
 #import "DrugCell.h"
 #import "PrescriptionCell.h"
 
@@ -18,24 +19,48 @@
 
 @implementation DoctorPerformancView
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)setModel:(PerformanceModel *)model {
     
-//    DrugCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DrugCell"];
-//    if (cell == nil) {
-//        
-//        cell = [[DrugCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DrugCell"];
-//        self.cellHeight = cell.cellHeight;
-//    }
-//    
-//    return cell;
+    _model = model;
     
-    PrescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DrugCell"];
-    if (cell == nil) {
-        
-        cell = [[PrescriptionCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DrugCell"];
-        self.cellHeight = cell.cellHeight;
+    [self reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (self.model.drugModels.count > 0) {
+        return self.model.drugModels.count;
     }
     
+    return self.model.recipeModels.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.model.drugModels.count > 0) {
+        
+        DrugCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DrugCell"];
+        if (cell == nil) {
+            
+            cell = [[DrugCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DrugCell"];
+        }
+
+        cell.model = self.model.drugModels[indexPath.row];
+        self.cellHeight = cell.cellHeight;
+        return cell;
+    }
+
+    PrescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrescriptionCell"];
+    if (cell == nil) {
+
+        cell = [[PrescriptionCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"PrescriptionCell"];
+    }
+    
+    self.cellHeight = cell.cellHeight;
     return cell;
 }
 

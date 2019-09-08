@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PerformanceModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DrugCell : UITableViewCell
 
+@property (nonatomic, strong) PerformanceDrugsModel *model;
 @property (nonatomic, assign) float cellHeight;
 
 @end

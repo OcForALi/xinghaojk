@@ -8,6 +8,12 @@
 
 #import "DrugCell.h"
 
+@interface DrugCell ()
+
+@property (nonatomic, strong) UILabel *numberLabel;
+
+@end
+
 @implementation DrugCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -27,6 +33,7 @@
     for (int i = 0; i < 3; i++) {
         
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, 0, 15)];
+        titleLabel.tag = i + 10;
         titleLabel.y += 25 * i;
         titleLabel.width = ScreenWidth - (titleLabel.x) * 2;
         titleLabel.text = texts[i];
@@ -42,9 +49,22 @@
     numberLbel.font = [UIFont systemFontOfSize:14];
     numberLbel.textColor = kMainColor;
     numberLbel.textAlignment = NSTextAlignmentRight;
+    self.numberLabel = numberLbel;
     self.accessoryView = numberLbel;
     
     self.cellHeight = maxy + 20;
+}
+
+- (void)setModel:(PerformanceDrugsModel *)model {
+    
+    NSArray *value = @[model.drug_nm, model.spec, model.producer];
+    for (int i = 0; i < 3; i++) {
+     
+        UILabel *titleLabel = [self viewWithTag:i + 10];
+        titleLabel.text = value[i];
+    }
+    
+    self.numberLabel.text = model.num;
 }
 
 @end
