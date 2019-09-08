@@ -36,4 +36,28 @@
     
 }
 
+- (void)postPointExchangeBank_id:(NSInteger)ID  point_num:(NSInteger)point :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+    
+    self.urlString = [self getRequestUrl:@[@"Agent",@"pointExchange"]];
+    
+    self.parameters = @{@"bank_id":@(ID),
+                        @"point_num":@(point)
+                        };
+    
+    [self requestNotHudWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
+        
+        if (complete) {
+            complete(genneralBackModel);
+        }
+        
+    } failure:^(NSError *error) {
+        
+        if (complete) {
+            complete(nil);
+        }
+        
+    }];
+    
+}
+
 @end
