@@ -68,9 +68,10 @@
         
         if (generalBackModel.data != nil) {
             NSString *string = generalBackModel.data[@"presentIntegral"];
-            weakSelf.convertiblePointsLabel.text = [NSString stringWithFormat:@"最多可兑换%@",string];
-            weakSelf.totalScoreLabel.text = generalBackModel.data[@"integralBalancep"];
-            weakSelf.convertiblePointsIneteger = [string integerValue];
+            NSString *string1 = generalBackModel.data[@"integralBalancep"];
+            weakSelf.convertiblePointsLabel.text = [NSString stringWithFormat:@"最多可兑换%@",string1];
+            weakSelf.totalScoreLabel.text = [NSString stringWithFormat:@"%ld",[string integerValue] + [string1 integerValue]];
+            weakSelf.convertiblePointsIneteger = [string1 integerValue];
         }
         
     }];
