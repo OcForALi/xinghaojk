@@ -7,11 +7,13 @@
 //
 
 #import "AgentVarietyViewController.h"
+#import "AgentVarietyViewModel.h"
 #import "AgentVarietyView.h"
 
 @interface AgentVarietyViewController ()
 
 @property (nonatomic, strong) AgentVarietyView *agentVarietyView;
+@property (nonatomic, assign) int page;
 
 @end
 
@@ -22,14 +24,10 @@
 
     [super viewDidLoad];
     
-    [self setTitle:@"代理品种"];
-    [self initialization];
-}
-
-// 初始化
-- (void)initialization {
+    self.page = 1;
     
-    self.agentVarietyView.dataSources = @[@[@"药品名（通用名)", @"规格：", @"厂家："], @[@"药品名（通用名)", @"规格：", @"厂家："]];
+    [self setTitle:@"代理品种"];
+    [self getList];
 }
 
 #pragma mark - lazy
@@ -38,12 +36,23 @@
     if (!agentVarietyView) {
         
         agentVarietyView = [[AgentVarietyView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+        agentVarietyView.y = 0;
         agentVarietyView.height = ScreenHeight - self.navHeight;
         agentVarietyView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:agentVarietyView];
     }
     
     return agentVarietyView;
+}
+
+
+#pragma mark - request
+- (void)getList {
+    
+    AgentVarietyViewModel *viewModel = [AgentVarietyViewModel new];
+    [viewModel getListWithPage:self.page complete:^(NSArray * _Nonnull list) {
+        self.agentVarietyView.dataSources = list;
+    }];
 }
 
 @end

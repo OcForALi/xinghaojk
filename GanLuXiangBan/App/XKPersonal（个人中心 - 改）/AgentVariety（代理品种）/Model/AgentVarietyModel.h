@@ -12,6 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AgentVarietyModel : NSObject
 
+/** 药品ID */
+@property (nonatomic, strong) NSString *drug_id;
+/** 药品名 */
+@property (nonatomic, strong) NSString *drug_name;
+/** 规格 */
+@property (nonatomic, strong) NSString *spec;
+/** 厂家 */
+@property (nonatomic, strong) NSString *producer;
+/** 数量 */
+@property (nonatomic, strong) NSString *num;
+
 @end
 
 NS_ASSUME_NONNULL_END
