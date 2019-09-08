@@ -8,6 +8,7 @@
 
 // ViewController
 #import "DoctorsListViewController.h"
+#import "DoctorDetailsViewController.h"
 // ViewModel
 #import "DoctorsListViewModel.h"
 // View
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) DoctorsListView *listView;
 @property (nonatomic, strong) SearchView *searchView;
 @property (nonatomic, strong) NSDictionary *dataDict;
+@property (nonatomic, strong) NSString *keyStr;
 @property (nonatomic, assign) int page;
 
 @end
@@ -32,7 +34,8 @@
     [super viewDidLoad];
     
     self.title = @"我的医生";
-    self.page = 1;
+    self.keyStr = @"";
+    self.page = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,6 +55,16 @@
         listView.y = self.searchView.maxY;
         listView.height = ScreenHeight - listView.y - self.tabBarHeight;
         [self.view addSubview:listView];
+        
+        @weakify(self);
+        [self.listView setDidSelectBlock:^(DoctorsListModel * _Nonnull model) {
+           
+            @strongify(self);
+            DoctorDetailsViewController *vc = [DoctorDetailsViewController new];
+            vc.idStr = model.drid;
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
     }
     
     return listView;
@@ -66,28 +79,20 @@
         [self.view addSubview:searchView];
         
         @weakify(self);
+        [self.searchView setSearchConfirm:^(NSString *key) {
+            
+            @strongify(self);
+            self.keyStr = key;
+            [self getList];
+        }];
+        
         [self.searchView setSearchBlock:^(NSString *text) {
             
             @strongify(self);
-            NSMutableArray *arr = [NSMutableArray array];
-            if (text.length > 0) {
+            if (text.length == 0) {
                 
-                for (NSString *key in self.dataDict.allKeys) {
-                    
-                    for (DoctorsListModel *model in self.dataDict[key]) {
-                        
-                        if ([model.drname containsString:text]) {
-                            [arr addObject:model];
-                        }
-                    }
-                }
-                
-                NSDictionary *dict = @{ @"搜索" : arr };
-                self.listView.dataDict = dict;
-            }
-            else {
-                
-                self.listView.dataDict = self.dataDict;
+                self.keyStr = @"";
+                [self getList];
             }
         }];
     }
@@ -100,7 +105,7 @@
 - (void)getList {
     
     DoctorsListViewModel *viewModel = [DoctorsListViewModel new];
-    [viewModel getDataSourceWithKey:@"" page:self.page complete:^(NSDictionary *dataSource) {
+    [viewModel getDataSourceWithKey:self.keyStr page:self.page complete:^(NSDictionary *dataSource) {
         self.listView.dataDict = dataSource;
         self.dataDict = dataSource;
     }];

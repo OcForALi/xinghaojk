@@ -6,8 +6,12 @@
 //  Copyright © 2019 CICI. All rights reserved.
 //
 
+// ViewController
 #import "DoctorDetailsViewController.h"
 #import "DoctorPerformancViewController.h"
+// ViewModel
+#import "DoctorDetailsViewModel.h"
+// View
 #import "DoctorDetailsView.h"
 
 @interface DoctorDetailsViewController ()
@@ -25,6 +29,7 @@
     
     [self setRight];
     [self initialization];
+    [self getDataSource];
 }
 
 - (void)setRight {
@@ -58,6 +63,21 @@
     }
     
     return detailsView;
+}
+
+
+#pragma mark - request
+- (void)getDataSource {
+    
+    [self showHudAnimated:YES];
+    
+    DoctorDetailsViewModel *viewModel = [DoctorDetailsViewModel new];
+    [viewModel getDetailsWithIdStr:self.idStr complete:^(DoctorDetailsModel *model) {
+    
+        [self hideHudAnimated];
+        
+        self.detailsView.model = model;
+    }];
 }
 
 @end

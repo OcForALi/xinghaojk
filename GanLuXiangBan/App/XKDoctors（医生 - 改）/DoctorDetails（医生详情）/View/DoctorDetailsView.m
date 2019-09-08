@@ -10,6 +10,53 @@
 
 @implementation DoctorDetailsView
 
+- (void)setModel:(DoctorDetailsModel *)model {
+    
+    _model = model;
+    [self reloadData];
+}
+
+- (NSString *)setTitle:(NSString *)title {
+    
+    NSString *value = @"";
+
+    if (self.model == nil) {
+        return @"";
+    }
+    
+    title = [title stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([title containsString:@"推荐人"]) {
+        return self.model.refenence_person;
+    }
+    else if ([title containsString:@"跟进人"]) {
+        return self.model.follow_up_person;
+    }
+    else if ([title containsString:@"医生姓名"]) {
+        return self.model.drname;
+    }
+    else if ([title containsString:@"职称"]) {
+        return self.model.title;
+    }
+    else if ([title containsString:@"医院名称"]) {
+        return self.model.hospital_name;
+    }
+    else if ([title containsString:@"科室"]) {
+        return self.model.cust_name;
+    }
+    else if ([title containsString:@"加入时间"]) {
+        return self.model.join_date;
+    }
+    else if ([title containsString:@"联系电话"]) {
+        return self.model.mobile;
+    }
+    
+    if (value.length == 0) {
+        value = @"无";
+    }
+    
+    return value;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     
     if (self = [super initWithFrame:frame style:style]) {
@@ -43,12 +90,15 @@
     else {
         
         cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.detailTextLabel.text = [self setTitle:text];
     }
     
     cell.textLabel.textColor = kMainTextColor;
     cell.textLabel.text = text;
     cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-    cell.detailTextLabel.textColor = [UIColor redColor];
+    cell.detailTextLabel.textColor = kMainTextColor;
+    
+    
     return cell;
 }
 

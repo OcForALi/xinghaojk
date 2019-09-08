@@ -7,12 +7,13 @@
 //
 
 #import "BaseTableView.h"
+#import "DoctorDetailsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DoctorDetailsView : BaseTableView
 
-
+@property (nonatomic, strong) DoctorDetailsModel *model;
 
 @end
 
