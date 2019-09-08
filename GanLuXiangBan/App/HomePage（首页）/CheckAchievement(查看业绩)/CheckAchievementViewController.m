@@ -8,6 +8,8 @@
 
 #import "CheckAchievementViewController.h"
 #import "ToApplyWithdrawalsViewController.h"
+#import "CheckAchievementRequest.h"
+#import "IntegralDetailsViewController.h"
 
 @interface CheckAchievementViewController ()
 
@@ -110,6 +112,8 @@
                        @[@"已提现积分",@"0"]
                        ];
     
+    NSInteger integer = 0;
+    
     for (int i = 0; i < array.count; i++) {
         
         NSArray *itemArray = array[i];
@@ -118,7 +122,7 @@
             
             UILabel *label = [UILabel new];
             label.text = itemArray[j];
-            label.tag = j + 1000;
+            label.tag = j + 1000 + integer;
             switch (j) {
                 case 0:
                     label.font = [UIFont systemFontOfSize:14];
@@ -157,18 +161,35 @@
             }
             [label setSingleLineAutoResizeWithMaxWidth:200];
         }
-        
+        integer = integer + itemArray.count;
     }
     
 }
 
 - (void)request{
     
+    CheckAchievementRequest *request = [CheckAchievementRequest new];
+    
+    [request postPointInfoRecord_type:0 Page:1 size:10 Point_date:@"" :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+        
+        UILabel *label = [self.view viewWithTag:1001];
+        
+        UILabel *label1 = [self.view viewWithTag:1004];
+        
+        if (generalBackModel.data != nil) {
+            
+            label.text = generalBackModel.data[@"integralBalancep"];
+            label1.text = generalBackModel.data[@"presentIntegral"];
+        }
+        
+    }];
+    
 }
 
 - (void)leftTap:(UITapGestureRecognizer *)sender{
     
-    
+    IntegralDetailsViewController *integralDetailsVC = [IntegralDetailsViewController new];
+    [self.navigationController pushViewController:integralDetailsVC animated:YES];
     
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "ToApplyWithdrawalsViewController.h"
+#import "CheckAchievementRequest.h"
 
 @interface ToApplyWithdrawalsViewController ()
 
@@ -30,6 +31,24 @@
     self.title = @"申请提现";
     
     [self initUI];
+    
+    [self request];
+    
+}
+
+- (void)request{
+    
+    CheckAchievementRequest *request = [CheckAchievementRequest new];
+    [request postPointInfoRecord_type:0 Page:1 size:10 Point_date:@"" :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+        
+        if (generalBackModel.data != nil) {
+            
+            self.convertiblePointsLabel.text = [NSString stringWithFormat:@"最多可兑换%@",generalBackModel.data[@"presentIntegral"]];
+            self.totalScoreLabel.text = generalBackModel.data[@"integralBalancep"];
+            
+        }
+        
+    }];
     
 }
 

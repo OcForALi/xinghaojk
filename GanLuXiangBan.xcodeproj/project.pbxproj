@@ -384,6 +384,7 @@
 		1E6F9A8F2322C2690080637F /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A8E2322C2690080637F /* UIImage+Category.m */; };
 		271A4A95945A04C9E3E4B5AD /* libPods-GanLuXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */; };
 		418A35682324321200F60DF4 /* ToApplyWithdrawalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418A35672324321200F60DF4 /* ToApplyWithdrawalsViewController.m */; };
+		418A356C2324E3FA00F60DF4 /* CheckAchievementRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 418A356B2324E3FA00F60DF4 /* CheckAchievementRequest.m */; };
 		BD0FA245224A830D0091EC35 /* AddDrugsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA244224A830D0091EC35 /* AddDrugsRequest.m */; };
 		BD0FA249224A832A0091EC35 /* AddDrugsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0FA248224A832A0091EC35 /* AddDrugsModel.m */; };
 		BD19D551224792E000793F33 /* DiseasesView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD19D550224792E000793F33 /* DiseasesView.m */; };
@@ -1262,6 +1263,8 @@
 		1E6F9A8E2322C2690080637F /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
 		418A35662324321200F60DF4 /* ToApplyWithdrawalsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToApplyWithdrawalsViewController.h; sourceTree = "<group>"; };
 		418A35672324321200F60DF4 /* ToApplyWithdrawalsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToApplyWithdrawalsViewController.m; sourceTree = "<group>"; };
+		418A356A2324E3FA00F60DF4 /* CheckAchievementRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckAchievementRequest.h; sourceTree = "<group>"; };
+		418A356B2324E3FA00F60DF4 /* CheckAchievementRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckAchievementRequest.m; sourceTree = "<group>"; };
 		70469BD2CC2D2B8D6759CE3D /* Pods-GanLuXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GanLuXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-GanLuXiangBan/Pods-GanLuXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GanLuXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0FA243224A830D0091EC35 /* AddDrugsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDrugsRequest.h; sourceTree = "<group>"; };
@@ -1604,6 +1607,7 @@
 		04E378C9232109B400DABEBC /* CheckAchievement(查看业绩) */ = {
 			isa = PBXGroup;
 			children = (
+				418A35692324E3B800F60DF4 /* request */,
 				418A3565232431A500F60DF4 /* ToApplyWithdrawals（申请提现） */,
 				04E378CA23210A1900DABEBC /* CheckAchievementViewController.h */,
 				04E378CB23210A1900DABEBC /* CheckAchievementViewController.m */,
@@ -5022,6 +5026,15 @@
 			path = "ToApplyWithdrawals（申请提现）";
 			sourceTree = "<group>";
 		};
+		418A35692324E3B800F60DF4 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				418A356A2324E3FA00F60DF4 /* CheckAchievementRequest.h */,
+				418A356B2324E3FA00F60DF4 /* CheckAchievementRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
 		6076BB683D90A446E959FB8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -5761,6 +5774,7 @@
 				11EFBDC220B7AE8B004926C5 /* QRDoctorViewController.m in Sources */,
 				11FFCCF220C6D4FC003F3710 /* RecDrugsModel.m in Sources */,
 				0CDA4B0220B5DB3A001D041D /* VisitDetailsModel.m in Sources */,
+				418A356C2324E3FA00F60DF4 /* CheckAchievementRequest.m in Sources */,
 				BD656B5E224657C80030CF79 /* PrescriptionModel.m in Sources */,
 				0CD94C1E20C2272700BD3703 /* MyPointsViewModel.m in Sources */,
 				BD6153F4224761CB00D42597 /* MyGiftModel.m in Sources */,
