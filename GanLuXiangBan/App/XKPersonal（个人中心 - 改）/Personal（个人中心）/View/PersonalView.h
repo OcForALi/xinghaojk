@@ -7,13 +7,11 @@
 //
 
 #import "BaseTableView.h"
-#import "PersonalInfoModel.h"
+#import "PersonalModel.h"
 
 @interface PersonalView : BaseTableView
 
 @property (nonatomic, strong) void (^goViewControllerBlock)(UIViewController *viewController);
-@property (nonatomic, strong) PersonalInfoModel *model;
-
-@property (nonatomic, strong) PersonalStaticModel *dataModel;
+@property (nonatomic, strong) PersonalModel *model;
 
 @end

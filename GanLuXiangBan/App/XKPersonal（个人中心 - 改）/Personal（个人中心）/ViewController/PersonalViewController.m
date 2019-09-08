@@ -7,6 +7,7 @@
 //
 
 #import "PersonalViewController.h"
+#import "PersonalViewModel.h"
 #import "PersonalView.h"
 
 @interface PersonalViewController ()
@@ -26,11 +27,13 @@
     self.title = @"个人中心";
     
     [self setupSubviews];
+    [self getDataSource];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    [self getDataSource];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
@@ -55,6 +58,22 @@
     
     viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+
+#pragma mark - request
+- (void)getDataSource {
+    
+    PersonalViewModel *viewModel = [PersonalViewModel new];
+    [viewModel getDataSource:^(PersonalModel * model) {
+        
+        if (model) {
+            
+            [model log];
+        
+            self.personalView.model = model;
+        }
+    }];
 }
 
 @end

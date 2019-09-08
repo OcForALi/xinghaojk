@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersonalModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PersonalInfoCell : UITableViewCell
+
+@property (nonatomic, strong) PersonalModel *model;
 
 @property (nonatomic, assign) float cellHeight;
 

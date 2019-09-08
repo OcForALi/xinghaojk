@@ -41,13 +41,11 @@
     return self;
 }
 
-- (void)setModel:(PersonalInfoModel *)model {
+
+- (void)setModel:(PersonalModel *)model {
     
     _model = model;
     
-    self.userNameLabel.text = model.name;
-    
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
     [self reloadData];
 }
 
@@ -101,7 +99,6 @@
         self.userNameLabel.textAlignment = NSTextAlignmentCenter;
         self.userNameLabel.textColor = [UIColor whiteColor];
         self.userNameLabel.text = GetUserDefault(UserName);
-        self.userNameLabel.text = @"用户昵称";
         [self.headBgView addSubview:self.userNameLabel];
         [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.headBgView);
@@ -155,6 +152,7 @@
     if (indexPath.section == 0) {
         
         PersonalInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalInfoCell"];
+        cell.model = self.model;
         self.cellHeight = cell.cellHeight;
         
         // 前往控制器

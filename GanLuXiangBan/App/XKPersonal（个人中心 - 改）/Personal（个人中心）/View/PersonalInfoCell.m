@@ -65,7 +65,7 @@
         // 积分
         UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, bgButton.width, 18)];
         numberLabel.tag = i + 100;
-        numberLabel.text = [NSString stringWithFormat:@"100%@", units[i]];
+        numberLabel.text = [NSString stringWithFormat:@"0%@", units[i]];
         numberLabel.font = [UIFont boldSystemFontOfSize:16];
         numberLabel.textColor = [UIColor colorWithHexString:@"0x333333"];
         numberLabel.textAlignment = NSTextAlignmentCenter;
@@ -130,6 +130,44 @@
     
     if (self.goViewControllerBlock) {
         self.goViewControllerBlock([NSClassFromString(vcName) new]);
+    }
+}
+
+- (void)setModel:(PersonalModel *)model {
+    
+    _model = model;
+    
+    if (model) {
+        
+        for (int i = 0; i < 2; i++) {
+            
+            NSArray *units = @[@"人", @"个", @"张", @"元"];
+            NSArray *texts = @[model.dr_num, model.drug_num, model.recipe_num, model.order_amount];
+            UIView *subview = self.userInfoView;
+            
+            if (i == 1) {
+                
+                units = @[@"", @""];
+                texts = @[model.totalIntegral, model.integral];
+                subview = self.integralView;
+            }
+            
+            for (UIButton *button in subview.subviews) {
+                
+                if ([button isKindOfClass:[UIButton class]]) {
+                    
+                    for (UILabel *label in button.subviews) {
+                        
+                        if (label.tag >= 100) {
+                            
+                            NSInteger index = label.tag - 100;
+                            label.text = [NSString stringWithFormat:@"%@%@", texts[index], units[index]];
+                        }
+                    }
+                }
+            }
+
+        }
     }
 }
 
