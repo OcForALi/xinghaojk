@@ -382,6 +382,10 @@
 		1E6F9A892322B9BD0080637F /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A872322B9BD0080637F /* NSObject+Category.m */; };
 		1E6F9A8C2322BDA10080637F /* DoctorsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A8B2322BDA10080637F /* DoctorsListView.m */; };
 		1E6F9A8F2322C2690080637F /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F9A8E2322C2690080637F /* UIImage+Category.m */; };
+		1E7399602324DDFD008D8093 /* PerformanceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E73995F2324DDFD008D8093 /* PerformanceViewModel.m */; };
+		1E7399632324DE35008D8093 /* PerformanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7399622324DE35008D8093 /* PerformanceModel.m */; };
+		1E7399662324E04C008D8093 /* DoctorDetailsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7399652324E04C008D8093 /* DoctorDetailsViewModel.m */; };
+		1E7399692324E08F008D8093 /* DoctorDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7399682324E08F008D8093 /* DoctorDetailsModel.m */; };
 		271A4A95945A04C9E3E4B5AD /* libPods-GanLuXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03FD3250E6A33BEBB0B88F /* libPods-GanLuXiangBan.a */; };
 		418A35682324321200F60DF4 /* ToApplyWithdrawalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418A35672324321200F60DF4 /* ToApplyWithdrawalsViewController.m */; };
 		418A356C2324E3FA00F60DF4 /* CheckAchievementRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 418A356B2324E3FA00F60DF4 /* CheckAchievementRequest.m */; };
@@ -1261,6 +1265,14 @@
 		1E6F9A8B2322BDA10080637F /* DoctorsListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorsListView.m; sourceTree = "<group>"; };
 		1E6F9A8D2322C2690080637F /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		1E6F9A8E2322C2690080637F /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		1E73995E2324DDFD008D8093 /* PerformanceViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceViewModel.h; sourceTree = "<group>"; };
+		1E73995F2324DDFD008D8093 /* PerformanceViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceViewModel.m; sourceTree = "<group>"; };
+		1E7399612324DE35008D8093 /* PerformanceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceModel.h; sourceTree = "<group>"; };
+		1E7399622324DE35008D8093 /* PerformanceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceModel.m; sourceTree = "<group>"; };
+		1E7399642324E04C008D8093 /* DoctorDetailsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoctorDetailsViewModel.h; sourceTree = "<group>"; };
+		1E7399652324E04C008D8093 /* DoctorDetailsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailsViewModel.m; sourceTree = "<group>"; };
+		1E7399672324E08F008D8093 /* DoctorDetailsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoctorDetailsModel.h; sourceTree = "<group>"; };
+		1E7399682324E08F008D8093 /* DoctorDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailsModel.m; sourceTree = "<group>"; };
 		418A35662324321200F60DF4 /* ToApplyWithdrawalsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToApplyWithdrawalsViewController.h; sourceTree = "<group>"; };
 		418A35672324321200F60DF4 /* ToApplyWithdrawalsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToApplyWithdrawalsViewController.m; sourceTree = "<group>"; };
 		418A356A2324E3FA00F60DF4 /* CheckAchievementRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckAchievementRequest.h; sourceTree = "<group>"; };
@@ -4740,8 +4752,8 @@
 			isa = PBXGroup;
 			children = (
 				1E6F9A792322B85D0080637F /* DoctorsList（医生列表） */,
-				1E61DD95231ECC5900BE5842 /* DoctorPerformance（医生业绩） */,
 				1E61DD90231ECBC100BE5842 /* DoctorDetails（医生详情） */,
+				1E61DD95231ECC5900BE5842 /* DoctorPerformance（医生业绩） */,
 			);
 			path = "XKDoctors（医生 - 改）";
 			sourceTree = "<group>";
@@ -4778,6 +4790,8 @@
 		1E61DD93231ECBEE00BE5842 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E7399672324E08F008D8093 /* DoctorDetailsModel.h */,
+				1E7399682324E08F008D8093 /* DoctorDetailsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4785,6 +4799,8 @@
 		1E61DD94231ECBF100BE5842 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1E7399642324E04C008D8093 /* DoctorDetailsViewModel.h */,
+				1E7399652324E04C008D8093 /* DoctorDetailsViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -4821,6 +4837,8 @@
 		1E61DD98231ECC6B00BE5842 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E7399612324DE35008D8093 /* PerformanceModel.h */,
+				1E7399622324DE35008D8093 /* PerformanceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4828,6 +4846,8 @@
 		1E61DD99231ECC6E00BE5842 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1E73995E2324DDFD008D8093 /* PerformanceViewModel.h */,
+				1E73995F2324DDFD008D8093 /* PerformanceViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -5901,6 +5921,7 @@
 				0CB1428A20CC1B24007E5E11 /* GroupOfMessageViewModel.m in Sources */,
 				0C999B3B20D7A9E20066146D /* DruguseCell.m in Sources */,
 				BDA2CE412274A46000ABA0C1 /* AAArea.m in Sources */,
+				1E7399602324DDFD008D8093 /* PerformanceViewModel.m in Sources */,
 				11E2E36920C419F600C772AC /* MedicationDetailsView.m in Sources */,
 				BDA2CE402274A46000ABA0C1 /* AATitle.m in Sources */,
 				F5220CA322CA601E004BD27C /* HomeArticleRequest.m in Sources */,
@@ -5975,6 +5996,7 @@
 				0C22736020BD484B0085F744 /* XmlDrugRequest.m in Sources */,
 				1146BD9920D8A9E60034D1A4 /* UIButton+WebCache.m in Sources */,
 				0C735F10209D83D3000928A3 /* SelectCityView.m in Sources */,
+				1E7399662324E04C008D8093 /* DoctorDetailsViewModel.m in Sources */,
 				110D604920C03402006E2185 /* DrugListModel.m in Sources */,
 				1E6F9A892322B9BD0080637F /* NSObject+Category.m in Sources */,
 				0CDB1DB9209996DB00DCF82A /* VisitDetailsViewController.m in Sources */,
@@ -6027,12 +6049,14 @@
 				0CE80E3320C3C10600B47E86 /* AddCardView.m in Sources */,
 				110BA57B20BABCDC00846A58 /* DrugDetailsViewController.m in Sources */,
 				11FFCCEE20C6D495003F3710 /* RecDrugsView.m in Sources */,
+				1E7399692324E08F008D8093 /* DoctorDetailsModel.m in Sources */,
 				BDB9969D224DEAF6006A48C7 /* AddDrugsCustomController.m in Sources */,
 				11CE8DD320D6E04E0094AF41 /* QuickReplyView.m in Sources */,
 				116EE4FE20BB92FE0022D460 /* InvitationContactViewController.m in Sources */,
 				11EFBDC620B7BD08004926C5 /* DrugViewController.m in Sources */,
 				BD81BFF222413CE40094CE1C /* PrescriptionRequest.m in Sources */,
 				0CAFD02E20DA4069006D4D0E /* ScreeningViewModel.m in Sources */,
+				1E7399632324DE35008D8093 /* PerformanceModel.m in Sources */,
 				BDA2CE472274A46000ABA0C1 /* AAPie.m in Sources */,
 				110D604D20C039B9006E2185 /* SortView.m in Sources */,
 				117B3C4120D24353001315CD /* ChatTableViewCell.m in Sources */,

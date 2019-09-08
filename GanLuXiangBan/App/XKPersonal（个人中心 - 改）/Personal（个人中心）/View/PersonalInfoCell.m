@@ -105,7 +105,7 @@
     }
     else if ([text isEqualToString:@"可用积分"]) {
         
-        vcName = @"IntegralDetailsViewController";
+        vcName = @"CheckAchievementViewController";
     }
     else if ([text isEqualToString:@"医生"]) {
         
