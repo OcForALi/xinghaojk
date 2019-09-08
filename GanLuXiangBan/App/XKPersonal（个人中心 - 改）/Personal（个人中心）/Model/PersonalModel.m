@@ -10,4 +10,16 @@
 
 @implementation PersonalModel
 
+- (instancetype)init {
+    
+    if (self = [super init]) {
+        
+        for (NSString *key in [self getKeys]) {
+            [self setValue:@"" forKey:key];
+        }
+    }
+    
+    return self;
+}
+
 @end

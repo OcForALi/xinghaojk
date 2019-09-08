@@ -7,22 +7,13 @@
 //
 
 #import "PrescriptionNumView.h"
+#import "PrescriptionNumModel.h"
 
 @implementation PrescriptionNumView
 
-- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
-    
-    if (self = [super initWithFrame:frame style:style]) {
-        
-        self.separatorStyle = UITableViewCellSeparatorStyleNone;
-    }
-    
-    return self;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *text = self.dataSources[indexPath.row];
+    PrescriptionNumModel *model = self.dataSources[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
@@ -30,8 +21,8 @@
     
     cell.textLabel.font = [UIFont systemFontOfSize:14];
     cell.textLabel.textColor = kMainTextColor;
-    cell.textLabel.text = text;
-    cell.detailTextLabel.text = @"10张";
+    cell.textLabel.text = [NSString stringWithFormat:@"%@(%@)", model.dr_name, model.hospital_name];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@张", model.num];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
     cell.detailTextLabel.textColor = [UIColor redColor];
     return cell;

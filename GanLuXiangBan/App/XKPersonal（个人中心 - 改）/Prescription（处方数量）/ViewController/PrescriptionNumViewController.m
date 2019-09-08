@@ -7,11 +7,13 @@
 //
 
 #import "PrescriptionNumViewController.h"
+#import "PrescriptionNumViewModel.h"
 #import "PrescriptionNumView.h"
 
 @interface PrescriptionNumViewController ()
 
 @property (nonatomic, strong) PrescriptionNumView *numberView;
+@property (nonatomic, assign) int page;
 
 @end
 
@@ -22,15 +24,12 @@
 
     [super viewDidLoad];
     
-    [self initialization];
+    self.page = 1;
+    
     [self setTitle:@"医生处方"];
+    [self getList];
 }
 
-// 初始化
-- (void)initialization {
-    
-    self.numberView.dataSources = @[@"医生姓名（医院名称）", @"医生姓名（医院名称）", @"医生姓名（医院名称）", @"医生姓名（医院名称）"];
-}
 
 #pragma mark - lazy
 - (PrescriptionNumView *)numberView {
@@ -38,12 +37,22 @@
     if (!numberView) {
         
         numberView = [[PrescriptionNumView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+        numberView.y = 0;
         numberView.height = ScreenHeight - self.navHeight;
-        numberView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:numberView];
     }
     
     return numberView;
+}
+
+
+#pragma mark - request
+- (void)getList {
+    
+    PrescriptionNumViewModel *viewModel = [PrescriptionNumViewModel new];
+    [viewModel getListWithPage:self.page complete:^(NSArray * _Nonnull list) {
+        self.numberView.dataSources = list;
+    }];
 }
 
 @end

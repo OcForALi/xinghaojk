@@ -12,6 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PrescriptionNumModel : NSObject
 
+/** 医生名 */
+@property (nonatomic, strong) NSString *dr_name;
+/** 医院名 */
+@property (nonatomic, strong) NSString *hospital_name;
+/** 数量 */
+@property (nonatomic, strong) NSString *num;
+
 @end
 
 NS_ASSUME_NONNULL_END
