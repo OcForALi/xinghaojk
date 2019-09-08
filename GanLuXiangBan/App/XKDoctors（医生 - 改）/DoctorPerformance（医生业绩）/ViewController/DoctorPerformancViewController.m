@@ -7,12 +7,16 @@
 //
 
 #import "DoctorPerformancViewController.h"
+#import "PerformanceViewModel.h"
 #import "DoctorPerformancView.h"
 
 @interface DoctorPerformancViewController ()
 
 @property (nonatomic, strong) DoctorPerformancView *performancView;
 @property (nonatomic, strong) UIView *headerView;
+
+@property (nonatomic, assign) int page;
+@property (nonatomic, assign) int type;
 
 @end
 
@@ -25,6 +29,7 @@
 
     [self setTitle:@"医生姓名业绩"];
     [self setHeaderView];
+    [self getDataSource];
 }
 
 
@@ -35,8 +40,6 @@
     NSArray *units = @[@"", @"张", @"元", @""];
     self.headerView = [self setInfoWithTexts:texts units:units];
     [self.view addSubview:self.headerView];
-    
-    self.performancView.dataSources = @[@"", @"", @""];
 }
 
 - (UIView *)setInfoWithTexts:(NSArray *)texts units:(NSArray *)units {
@@ -48,6 +51,8 @@
         UIButton *bgButton = [UIButton buttonWithType:UIButtonTypeCustom];
         bgButton.frame = CGRectMake(ScreenWidth / texts.count * i, 0, ScreenWidth / texts.count, 0);
         bgButton.backgroundColor = [UIColor whiteColor];
+        bgButton.tag = i + 10;
+        [bgButton addTarget:self action:@selector(clickType:) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:bgButton];
         
         // 积分
@@ -83,6 +88,14 @@
     return bgView;
 }
 
+- (void)clickType:(UIButton *)button {
+    
+    if (button.tag - 10 < 2) {
+        
+        self.type = button.tag - 10;
+        [self getDataSource];
+    }
+}
 
 #pragma mark - lazy
 - (DoctorPerformancView *)performancView {
@@ -91,12 +104,21 @@
         
         performancView = [[DoctorPerformancView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
         performancView.y = self.headerView.maxY;
-        performancView.height = ScreenHeight - performancView.y;
+        performancView.height = ScreenHeight - performancView.y - self.navHeight;
         [self.view addSubview:performancView];
     }
     
     return performancView;
 }
 
+
+#pragma mark - request
+- (void)getDataSource {
+    
+    PerformanceViewModel *viewModel = [PerformanceViewModel new];
+    [viewModel getPerformanceWithId:self.drid page:self.page type:self.type complete:^(PerformanceModel * _Nonnull model) {
+        self.performancView.model = model;
+    }];
+}
 
 @end

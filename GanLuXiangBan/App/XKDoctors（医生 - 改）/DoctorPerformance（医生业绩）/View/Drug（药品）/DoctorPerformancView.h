@@ -7,10 +7,13 @@
 //
 
 #import "BaseTableView.h"
+#import "PerformanceModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DoctorPerformancView : BaseTableView
+
+@property (nonatomic, strong) PerformanceModel *model;
 
 @end
 

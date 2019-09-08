@@ -40,6 +40,7 @@
         @strongify(self);
         
         DoctorPerformancViewController *vc = [DoctorPerformancViewController new];
+        vc.drid = self.idStr;
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }

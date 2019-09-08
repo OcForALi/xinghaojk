@@ -27,7 +27,12 @@
     self.urlString = [self getRequestUrl:@[urlStr]];;
     [self requestWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
         
+        PerformanceModel *model = [PerformanceModel new];
+        [model jsonParsingWithDict:genneralBackModel.data];
         
+        if (complete) {
+            complete(model);
+        }
         
     } failure:nil];
 }
