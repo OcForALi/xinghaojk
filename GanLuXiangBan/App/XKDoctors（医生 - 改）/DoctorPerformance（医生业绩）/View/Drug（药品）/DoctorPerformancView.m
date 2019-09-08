@@ -27,6 +27,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    if (self.model.recipeModels.count > 0) {
+        return self.model.recipeModels.count;
+    }
+    
     return 1;
 }
 
@@ -36,7 +41,8 @@
         return self.model.drugModels.count;
     }
     
-    return self.model.recipeModels.count;
+    PerformanceRecipesModel *model = self.model.recipeModels[section];
+    return model.drugModels.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -54,17 +60,51 @@
         return cell;
     }
 
-    PrescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrescriptionCell"];
-    if (cell == nil) {
-
-        cell = [[PrescriptionCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"PrescriptionCell"];
+    if (indexPath.row == 0) {
+        
+        PrescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrescriptionCell"];
+        if (cell == nil) {
+            
+            cell = [[PrescriptionCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"PrescriptionCell"];
+        }
+        
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, ScreenWidth);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.model = self.model.recipeModels[indexPath.section];
+        self.cellHeight = cell.cellHeight;
+        return cell;
     }
     
-    self.cellHeight = cell.cellHeight;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.textColor = kMainTextColor;
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+        cell.detailTextLabel.textColor = kMainTextColor;
+    }
+    
+    PerformanceRecipesModel *model = self.model.recipeModels[indexPath.section];
+    PerformanceDrugsModel *drugsModel = model.drugModels[indexPath.row - 1];
+    cell.textLabel.text = drugsModel.drug_name;
+    cell.detailTextLabel.text = [@"X " stringByAppendingString:drugsModel.num];
+    cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, ScreenWidth);
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.model.recipeModels.count > 0) {
+        
+        if (indexPath.row == 0) {
+            return self.cellHeight;
+        }
+        
+        return 45;
+    }
+    
     return self.cellHeight;
 }
 

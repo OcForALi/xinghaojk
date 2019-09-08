@@ -11,7 +11,7 @@
 
 @implementation PerformanceViewModel
 
-- (void)getPerformanceWithId:(NSString *)idStr page:(int)page type:(int)type complete:(void (^)(PerformanceModel *model))complete {
+- (void)getPerformanceWithId:(NSString *)idStr page:(int)page type:(int)type complete:(void (^ _Nullable)(PerformanceModel *model))complete {
     
     NSMutableString *urlStr = [NSMutableString string];
     [urlStr appendString:@"Agent/DrStatistics?"];
@@ -34,7 +34,12 @@
             complete(model);
         }
         
-    } failure:nil];
+    } failure:^(NSError *error) {
+        
+        if (complete) {
+            complete(nil);
+        }
+    }];
 }
 
 @end

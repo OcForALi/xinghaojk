@@ -55,7 +55,7 @@
         [bgButton addTarget:self action:@selector(clickType:) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:bgButton];
         
-        // 积分
+        // 数量
         UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, bgButton.width, 18)];
         numberLabel.tag = i + 100;
         numberLabel.text = [NSString stringWithFormat:@"100%@", units[i]];
@@ -65,14 +65,14 @@
         [bgButton addSubview:numberLabel];
         
         // 可用积分
-        UILabel *integralTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, numberLabel.maxY + 10, bgButton.width, 15)];
-        integralTitleLabel.text = texts[i];
-        integralTitleLabel.font = [UIFont systemFontOfSize:13];
-        integralTitleLabel.textColor = kMainColor;
-        integralTitleLabel.textAlignment = NSTextAlignmentCenter;
-        [bgButton addSubview:integralTitleLabel];
+        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, numberLabel.maxY + 10, bgButton.width, 15)];
+        nameLabel.text = texts[i];
+        nameLabel.font = [UIFont systemFontOfSize:13];
+        nameLabel.textColor = kMainColor;
+        nameLabel.textAlignment = NSTextAlignmentCenter;
+        [bgButton addSubview:nameLabel];
         
-        bgView.height = bgButton.height = integralTitleLabel.maxY + numberLabel.y;
+        bgView.height = bgButton.height = nameLabel.maxY + numberLabel.y;
         [[bgButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
             
         }];
@@ -88,11 +88,20 @@
     return bgView;
 }
 
+- (void)setUnits:(NSArray *)units {
+    
+    for (int i = 0; i < units.count; i++) {
+        
+        UILabel *numberLabel = [self.view viewWithTag:i + 100];
+        numberLabel.text = units[i];
+    }
+}
+
 - (void)clickType:(UIButton *)button {
     
     if (button.tag - 10 < 2) {
         
-        self.type = button.tag - 10;
+        self.type = (int)button.tag - 10;
         [self getDataSource];
     }
 }
@@ -117,7 +126,18 @@
     
     PerformanceViewModel *viewModel = [PerformanceViewModel new];
     [viewModel getPerformanceWithId:self.drid page:self.page type:self.type complete:^(PerformanceModel * _Nonnull model) {
-        self.performancView.model = model;
+        
+        if (model) {
+            
+            NSArray *units = @[model.drug_num,
+                               [model.recipe_num stringByAppendingString:@"张"],
+                               [model.order_amount stringByAppendingString:@"元"],
+                               model.patient_num];
+            
+            [self setUnits:units];
+            
+            self.performancView.model = model;
+        }
     }];
 }
 
