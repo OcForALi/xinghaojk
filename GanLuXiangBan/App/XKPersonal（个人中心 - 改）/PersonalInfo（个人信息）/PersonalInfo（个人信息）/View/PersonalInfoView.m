@@ -43,6 +43,7 @@
            
             @strongify(self);
             self.model.city = [NSString stringWithFormat:@"%@%@", province.name, city.name];
+            self.model.city_id = city.cityId.length != 0 ? city.cityId : province.cityId;
             [self reloadData];
         }];
         

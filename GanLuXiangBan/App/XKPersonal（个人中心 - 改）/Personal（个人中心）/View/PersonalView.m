@@ -121,6 +121,12 @@
     return headBgView;
 }
 
+- (void)updateUserInfo {
+    
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:GetUserDefault(UserHead)] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
+    [self.userNameLabel setText:GetUserDefault(UserName)];
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     

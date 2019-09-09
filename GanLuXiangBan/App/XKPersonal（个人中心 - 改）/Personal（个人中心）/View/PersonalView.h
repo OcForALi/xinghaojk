@@ -14,4 +14,9 @@
 @property (nonatomic, strong) void (^goViewControllerBlock)(UIViewController *viewController);
 @property (nonatomic, strong) PersonalModel *model;
 
+/**
+ *  更新用户信息
+ */
+- (void)updateUserInfo;
+
 @end

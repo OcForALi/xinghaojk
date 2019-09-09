@@ -12,8 +12,8 @@
 
 // 上传用户信息
 - (void)uploadUserInfoWithModel:(PersonalInfoModel *)model complete:(void (^)(id))complete {
-    
-    self.urlString = [self getRequestUrl:@[@"user", @"updateDoctor"]];
+
+    self.urlString = [self getRequestUrl:@[@"user", @"updateAgent"]];
     self.parameters = [self getParametersWithClass:model];
     [self requestSystemWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
         
