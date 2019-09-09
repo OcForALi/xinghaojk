@@ -25,7 +25,7 @@
     self.title = @"业绩查看";
     
     [self initUI];
-    
+    	
     [self request];
     
 }
