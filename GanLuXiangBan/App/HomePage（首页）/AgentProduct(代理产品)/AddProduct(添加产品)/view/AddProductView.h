@@ -12,13 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^AddProductPushBlock)(DrugListModel *model);
 
+typedef void(^DurgPushBlock)(DrugListModel *model);
+
 @interface AddProductView : BaseView <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic ,strong) UITableView *myTable;
 
 @property (nonatomic ,retain) NSMutableArray *dataSource;
 
-@property (nonatomic ,copy) AddProductPushBlock pushBlock;
+@property (nonatomic ,copy) AddProductPushBlock addPushBlock;
+
+@property (nonatomic ,copy) DurgPushBlock durgPushBlock;
 
 -(void)addData:(NSArray *)array;
 

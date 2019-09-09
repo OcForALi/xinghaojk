@@ -14,6 +14,7 @@
 #import "AddProductView.h"
 #import "DrugListModel.h"
 #import "ReApplicationViewController.h"
+#import "DrugDetailsViewController.h"
 
 @interface AddProductViewController ()
 
@@ -75,11 +76,19 @@
         [weakSelf request];
     }];
     
-    [self.addProductView setPushBlock:^(DrugListModel * _Nonnull model) {
+    [self.addProductView setAddPushBlock:^(DrugListModel * _Nonnull model) {
        
         ReApplicationViewController *reApplicationVC = [[ReApplicationViewController alloc] init];
         reApplicationVC.addModel = model;
         [weakSelf.navigationController pushViewController:reApplicationVC animated:YES];
+        
+    }];
+    
+    [self.addProductView setDurgPushBlock:^(DrugListModel * _Nonnull model) {
+        
+        DrugDetailsViewController *drugDetailsVC = [[DrugDetailsViewController alloc] init];
+        drugDetailsVC.drugID = model.drug_id;
+        [weakSelf.navigationController pushViewController:drugDetailsVC animated:YES];
         
     }];
     

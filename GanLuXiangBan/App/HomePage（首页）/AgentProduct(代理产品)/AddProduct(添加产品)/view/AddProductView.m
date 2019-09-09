@@ -105,7 +105,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DrugListModel *model = self.dataSource[indexPath.row];
     
+    if (self.durgPushBlock) {
+        self.durgPushBlock(model);
+    }
     
 }
 
@@ -113,8 +117,8 @@
     
     DrugListModel *model = self.dataSource[sender.tag - 100];
     
-    if (self.pushBlock) {
-        self.pushBlock(model);
+    if (self.addPushBlock) {
+        self.addPushBlock(model);
     }
     
 }
