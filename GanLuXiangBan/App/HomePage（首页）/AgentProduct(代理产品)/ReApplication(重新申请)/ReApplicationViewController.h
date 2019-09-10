@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "DrugListModel.h"
+#import "ProductModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,assign) NSInteger type;
 
 @property (nonatomic ,copy) DrugListModel *addModel;
+
+@property (nonatomic ,copy) ProductModel *noPassModel;
 
 @property (nonatomic ,assign) NSInteger appID;
 

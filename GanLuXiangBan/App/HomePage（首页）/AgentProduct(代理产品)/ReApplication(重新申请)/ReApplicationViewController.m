@@ -43,9 +43,19 @@
 }
 
 - (void)request{
-    
+    WS(weakSelf)
     AgentProductRequest *request = [AgentProductRequest new];
     [request getAgDrugAppDetailAppID:self.appID :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+        
+        if (generalBackModel.data != nil) {
+            
+            ProductModel *model = [ProductModel new];
+            [model setValuesForKeysWithDictionary:generalBackModel.data];
+            
+            [weakSelf.picArray addObjectsFromArray:model.certs];
+            weakSelf.noPassLabel.text = model.unreason;
+            
+        }
         
     }];
     
@@ -58,6 +68,16 @@
     NSString *drugName = [NSString stringWithFormat:@"%@(%@)",addModel.drug_name,addModel.common_name];
     
     self.drugArray = @[drugName,addModel.standard,addModel.producer];
+    
+}
+
+- (void)setNoPassModel:(ProductModel *)noPassModel{
+    
+    _noPassModel = noPassModel;
+    
+    NSString *drugName = [NSString stringWithFormat:@"%@(%@)",noPassModel.drugNm,noPassModel.commonNm];
+    
+    self.drugArray = @[drugName,noPassModel.spec,noPassModel.producer];
     
 }
 
@@ -307,9 +327,7 @@
             [weakSelf pic];
             
         }];
-        
-        
-        
+
     });
 }
 
@@ -336,7 +354,9 @@
         
     }else if (self.type == 1){
         
-        
+        [request postReAppDrugAgentAppId:self.noPassModel.appId Drug_id:self.noPassModel.drugId Drug_name:self.noPassModel.drugNm Commonname:self.noPassModel.commonNm Producer:self.noPassModel.producer Spec:self.noPassModel.spec Form:@"" Unit:@"" Approval:@"" Certs:self.picArray :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+            
+        }];
         
     }
     

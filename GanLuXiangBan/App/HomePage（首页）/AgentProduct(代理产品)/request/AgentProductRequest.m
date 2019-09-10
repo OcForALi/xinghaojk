@@ -84,4 +84,36 @@
     
 }
 
+- (void)postReAppDrugAgentAppId:(NSInteger)ID Drug_id:(NSString *)drug_id Drug_name:(NSString *)drug_name Commonname:(NSString *)commonname Producer:(NSString *)producer Spec:(NSString *)spec Form:(NSString *)form Unit:(NSString *)unit Approval:(NSString *)approval Certs:(NSArray *)certs :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+    
+    self.urlString = [self getRequestUrl:@[@"Drug",@"ReAppDrugAgent"]];
+    self.parameters = @{
+                        @"appId":@(ID),
+                        @"drug_id":drug_id,
+                        @"drug_name":drug_name,
+                        @"commonname":commonname,
+                        @"producer":producer,
+                        @"spec":spec,
+                        @"form":form,
+                        @"unit":unit,
+                        @"approval":approval,
+                        @"certs":certs
+                        };
+    
+    [self requestNotHudWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
+        
+        if (complete) {
+            complete(genneralBackModel);
+        }
+        
+    } failure:^(NSError *error) {
+        
+        if (complete) {
+            complete(nil);
+        }
+        
+    }];
+    
+}
+
 @end
