@@ -10,6 +10,7 @@
 #import "SearchView.h"
 #import "HospitalView.h"
 #import "HospitalViewModel.h"
+#import "HospitalModel.h"
 
 @interface SelHospitalViewController ()
 
@@ -44,6 +45,22 @@
     
     if (self.hospitalListBlock) {
         self.hospitalListBlock(self.hospitalView.cityArray);
+        NSLog(@"%@",self.hospitalView.cityArray);
+    }
+    
+    NSString *string = @"";
+    for (int i = 0; i < self.hospitalView.cityArray.count; i++) {
+        HospitalModel *model = self.hospitalView.cityArray[i];
+        if (i == 0) {
+            string = model.name;
+        }else{
+            string = [NSString stringWithFormat:@"%@,%@",string,model.name];
+        }
+        
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HospitalHList" object:self.hospitalView.cityArray];
+    if (self.completeBlock) {
+        self.completeBlock(string);
     }
     
     [self.navigationController popViewControllerAnimated:YES];

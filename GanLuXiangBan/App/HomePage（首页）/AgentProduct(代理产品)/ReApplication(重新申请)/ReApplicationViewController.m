@@ -356,6 +356,11 @@
         
         [request postReAppDrugAgentAppId:self.noPassModel.appId Drug_id:self.noPassModel.drugId Drug_name:self.noPassModel.drugNm Commonname:self.noPassModel.commonNm Producer:self.noPassModel.producer Spec:self.noPassModel.spec Form:@"" Unit:@"" Approval:@"" Certs:self.picArray :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
             
+            [weakSelf.view makeToast:generalBackModel.retmsg];
+            if (generalBackModel.retcode == 0) {
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+            
         }];
         
     }

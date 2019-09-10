@@ -49,19 +49,25 @@
     rightBarBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = rightBarBtn;
     
+    [self initUI];
+    
+    [self block];
+
+    [self refresh];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
     self.page = 1;
     
     self.keywordString = @"";
     
     self.drugClassID = @"";
     
-    [self initUI];
-    
-    [self block];
-    
     [self request];
-    
-    [self refresh];
     
 }
 
@@ -74,6 +80,7 @@
         weakSelf.drugClassID = @"";
         [weakSelf.addProductView.dataSource removeAllObjects];
         [weakSelf request];
+        
     }];
     
     [self.addProductView setAddPushBlock:^(DrugListModel * _Nonnull model) {
