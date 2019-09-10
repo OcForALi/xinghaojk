@@ -35,4 +35,6 @@
 
 @property (nonatomic ,assign) BOOL isAdded;
 
+@property (nonatomic ,assign) NSInteger app_id;
+
 @end

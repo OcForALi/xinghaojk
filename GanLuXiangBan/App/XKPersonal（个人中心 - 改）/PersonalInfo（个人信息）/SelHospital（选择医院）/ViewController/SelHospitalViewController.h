@@ -10,4 +10,9 @@
 
 @interface SelHospitalViewController : BaseViewController
 
+/**
+ *  完成，返回包含 HospitalModel 数组
+ */
+@property (nonatomic, strong) void (^hospitalListBlock)(NSArray *list);
+
 @end

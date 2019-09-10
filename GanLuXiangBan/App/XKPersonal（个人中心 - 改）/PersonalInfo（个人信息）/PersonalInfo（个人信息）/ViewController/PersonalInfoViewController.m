@@ -99,7 +99,10 @@
             [self.view makeToast:@"修改用户信息失败"];
         }
         else {
-            [self.view makeToast:@"保存用户信息成功"];
+            
+            [[UIApplication sharedApplication].keyWindow makeToast:@"保存用户信息成功"];
+            
+            SetUserDefault(UserName, self.personalInfoView.model.name);
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
@@ -112,7 +115,13 @@
     [viewController setCompleteBlock:^(id object) {
         
         if ([weakVC isKindOfClass:[NSClassFromString(@"EditUserInfoViewController") class]]) {
-            self.personalInfoView.model.name = object;
+            
+            if ([weakVC.title isEqualToString:@"身份证号"]) {
+                self.personalInfoView.model.idcard = object;
+            }
+            else {
+                self.personalInfoView.model.name = object;
+            }
         }
         else if ([weakVC isKindOfClass:[NSClassFromString(@"CertificationViewController") class]]) {
             

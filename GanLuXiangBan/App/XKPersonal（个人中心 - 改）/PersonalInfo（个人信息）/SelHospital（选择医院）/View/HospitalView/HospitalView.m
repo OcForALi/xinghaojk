@@ -13,6 +13,7 @@
 @interface HospitalView ()
 
 @property (nonatomic, strong) CityView *cityView;
+@property (nonatomic, strong) NSMutableArray *indexs;
 
 @end
 
@@ -34,6 +35,8 @@
             self.scrollEnabled = YES;
             self.provinceString = provinceString;
             self.cityString = cityString;
+            [self.indexs removeAllObjects];
+            [self.cityArray removeAllObjects];
             [self reloadData];
             
 //            if (self.didSelectedCity) {
@@ -44,6 +47,18 @@
     }
     
     return cityView;
+}
+
+
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    
+    if (self =  [super initWithFrame:frame style:style]) {
+        
+        self.cityArray = [NSMutableArray array];
+        self.indexs = [NSMutableArray array];
+    }
+    
+    return self;
 }
 
 #pragma mark - UITableViewDataSource
@@ -67,6 +82,11 @@
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
         cell.textLabel.font = [UIFont systemFontOfSize:14];
+        
+        UIImageView *selImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 18, 14)];
+        selImgView.image = [UIImage imageNamed:@"pirce_select"];
+        cell.accessoryView = selImgView;
+        cell.accessoryView.hidden = YES;
     }
     
     if (indexPath.section == 0) {
@@ -84,6 +104,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else {
+        
         cell.imageView.image = nil;
         cell.accessoryType = UITableViewCellAccessoryNone;
         
@@ -92,6 +113,14 @@
             HospitalModel *model = self.dataSources[indexPath.row];
             cell.textLabel.text = model.name;
         }
+    }
+    
+    if (indexPath.section != 0) {
+        
+        if ([self.indexs containsObject:@(indexPath.row)]) {
+            cell.accessoryView.hidden = NO;
+        }
+        else cell.accessoryView.hidden = YES;
     }
     
     return cell;
@@ -111,10 +140,32 @@
 //        self.scrollEnabled = !self.cityView.isShowCityList;
         self.scrollEnabled = NO;
     }
-    else if (self.didSelectBlock) {
+    else {
         
-        HospitalModel *model = self.dataSources[indexPath.row];
-        self.didSelectBlock(model.pkid, model.name);
+        if ([self.indexs containsObject:@(indexPath.row)]) {
+            
+            for (int i = 0; i < self.indexs.count; i++) {
+                
+                NSNumber *number = self.indexs[i];
+                if ([number integerValue] == indexPath.row) {
+                    
+                    [self.indexs removeObjectAtIndex:i];
+                    [self.cityArray removeObjectAtIndex:i];
+                    [self reloadData];
+                    return;
+                }
+            }
+        }
+        else {
+
+            HospitalModel *model = self.dataSources[indexPath.row];
+            [self.cityArray addObject:model];
+            [self.indexs addObject:@(indexPath.row)];
+        }
+        
+        [self reloadData];
+        
+//        self.didSelectBlock(model.pkid, model.name);
     }
 }
 

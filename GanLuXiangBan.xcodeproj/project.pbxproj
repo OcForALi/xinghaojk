@@ -17,6 +17,9 @@
 		04A86FDA231E7BE70016BA78 /* AgentProductRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A86FD9231E7BE70016BA78 /* AgentProductRequest.m */; };
 		04E378C82321028300DABEBC /* AddProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E378C72321028300DABEBC /* AddProductViewController.m */; };
 		04E378CC23210A1900DABEBC /* CheckAchievementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E378CB23210A1900DABEBC /* CheckAchievementViewController.m */; };
+		04EEEC242326473300A63DD9 /* AddProductView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEEC232326473300A63DD9 /* AddProductView.m */; };
+		04EEEC2823264A2300A63DD9 /* AddProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEEC2723264A2300A63DD9 /* AddProductTableViewCell.m */; };
+		04EEEC2C232650E800A63DD9 /* ReApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEEC2B232650E800A63DD9 /* ReApplicationViewController.m */; };
 		0C09EEC120A0919F00BCC937 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C09EEC020A0919F00BCC937 /* SettingView.m */; };
 		0C10669220C0E93400415398 /* HospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10669120C0E93400415398 /* HospitalModel.m */; };
 		0C10669520C0EA1600415398 /* HospitalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10669420C0EA1600415398 /* HospitalViewModel.m */; };
@@ -532,6 +535,12 @@
 		04E378C72321028300DABEBC /* AddProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddProductViewController.m; path = "GanLuXiangBan/App/HomePage（首页）/AgentProduct(代理产品)/view/AddProductViewController.m"; sourceTree = SOURCE_ROOT; };
 		04E378CA23210A1900DABEBC /* CheckAchievementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckAchievementViewController.h; sourceTree = "<group>"; };
 		04E378CB23210A1900DABEBC /* CheckAchievementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckAchievementViewController.m; sourceTree = "<group>"; };
+		04EEEC222326473300A63DD9 /* AddProductView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddProductView.h; sourceTree = "<group>"; };
+		04EEEC232326473300A63DD9 /* AddProductView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddProductView.m; sourceTree = "<group>"; };
+		04EEEC2623264A2300A63DD9 /* AddProductTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddProductTableViewCell.h; sourceTree = "<group>"; };
+		04EEEC2723264A2300A63DD9 /* AddProductTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddProductTableViewCell.m; sourceTree = "<group>"; };
+		04EEEC2A232650E800A63DD9 /* ReApplicationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReApplicationViewController.h; sourceTree = "<group>"; };
+		04EEEC2B232650E800A63DD9 /* ReApplicationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReApplicationViewController.m; sourceTree = "<group>"; };
 		0C09EEBF20A0919F00BCC937 /* SettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		0C09EEC020A0919F00BCC937 /* SettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		0C10669020C0E93400415398 /* HospitalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HospitalModel.h; sourceTree = "<group>"; };
@@ -1564,6 +1573,7 @@
 		04A86FC6231E75150016BA78 /* AgentProduct(代理产品) */ = {
 			isa = PBXGroup;
 			children = (
+				04EEEC29232650A700A63DD9 /* ReApplication(重新申请) */,
 				04E378C52321024800DABEBC /* AddProduct(添加产品) */,
 				043B0A53231F590100216DA0 /* model */,
 				04A86FD7231E7BB70016BA78 /* request */,
@@ -1616,6 +1626,7 @@
 		04E378C52321024800DABEBC /* AddProduct(添加产品) */ = {
 			isa = PBXGroup;
 			children = (
+				04EEEC25232649FB00A63DD9 /* view */,
 				04E378C62321028300DABEBC /* AddProductViewController.h */,
 				04E378C72321028300DABEBC /* AddProductViewController.m */,
 			);
@@ -1631,6 +1642,26 @@
 				04E378CB23210A1900DABEBC /* CheckAchievementViewController.m */,
 			);
 			path = "CheckAchievement(查看业绩)";
+			sourceTree = "<group>";
+		};
+		04EEEC25232649FB00A63DD9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				04EEEC222326473300A63DD9 /* AddProductView.h */,
+				04EEEC232326473300A63DD9 /* AddProductView.m */,
+				04EEEC2623264A2300A63DD9 /* AddProductTableViewCell.h */,
+				04EEEC2723264A2300A63DD9 /* AddProductTableViewCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		04EEEC29232650A700A63DD9 /* ReApplication(重新申请) */ = {
+			isa = PBXGroup;
+			children = (
+				04EEEC2A232650E800A63DD9 /* ReApplicationViewController.h */,
+				04EEEC2B232650E800A63DD9 /* ReApplicationViewController.m */,
+			);
+			path = "ReApplication(重新申请)";
 			sourceTree = "<group>";
 		};
 		0C09EEBD20A0917C00BCC937 /* View */ = {
@@ -5853,6 +5884,7 @@
 				11E6CAC220A916F30084968D /* FillInDataRequestModel.m in Sources */,
 				0CB142C220CD1BED007E5E11 /* PatientsDetailsViewController.m in Sources */,
 				11143E2A20E4ED5500F4B10D /* NSString+ToJSON.m in Sources */,
+				04EEEC242326473300A63DD9 /* AddProductView.m in Sources */,
 				BD31C0A82247DD640026745F /* CommonPrescriptionController.m in Sources */,
 				0CA4BFFA20C26FFB00C89687 /* SortingAreaModel.m in Sources */,
 				1146BD9F20D8FE850034D1A4 /* ChatStateModel.m in Sources */,
@@ -5863,6 +5895,7 @@
 				0C999ACD20D5343E0066146D /* CheckListView.m in Sources */,
 				0CB142C820CD1C01007E5E11 /* PatientsDetailsModel.m in Sources */,
 				0CDE510B20D8BEF5008C8984 /* TAAbstractDotView.m in Sources */,
+				04EEEC2823264A2300A63DD9 /* AddProductTableViewCell.m in Sources */,
 				0CB7B30320C99F8E00C5792A /* GroupAddView.m in Sources */,
 				11E7CD4320BF89990017AE37 /* DrInfoModel.m in Sources */,
 				11E2E36120C412BC00C772AC /* MedicationDetailsViewController.m in Sources */,
@@ -5945,6 +5978,7 @@
 				11092BE820CE57C200385B3C /* EvaluationViewController.m in Sources */,
 				0C999AD620D536D20066146D /* CheckListModel.m in Sources */,
 				11F1E4DC20C58900000E84BD /* DiseaseLibraryViewController.m in Sources */,
+				04EEEC2C232650E800A63DD9 /* ReApplicationViewController.m in Sources */,
 				1166799820DB945D00205A64 /* ContinuePrescriptionView.m in Sources */,
 				0CB1428A20CC1B24007E5E11 /* GroupOfMessageViewModel.m in Sources */,
 				0C999B3B20D7A9E20066146D /* DruguseCell.m in Sources */,

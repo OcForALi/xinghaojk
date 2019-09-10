@@ -32,6 +32,21 @@
     [self createSearchView];
     self.pageNo = 1;
     [self getList];
+    
+    @weakify(self);
+    [self addNavRightTitle:@"确定" complete:^{
+        @strongify(self);
+        [self backList];
+    }];
+}
+
+- (void)backList {
+    
+    if (self.hospitalListBlock) {
+        self.hospitalListBlock(self.hospitalView.cityArray);
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 // 创建搜索框

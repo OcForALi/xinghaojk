@@ -17,6 +17,9 @@
 /// 城市字段
 @property (nonatomic, strong) NSString *cityString;
 
+// 城市列表
+@property (nonatomic, strong) NSMutableArray *cityArray;
+
 //@property (nonatomic, strong) void (^didSelectedCity)(NSString *province, NSString *city);
 
 @property (nonatomic, strong) void (^didSelectBlock)(NSString *hid, NSString *string);

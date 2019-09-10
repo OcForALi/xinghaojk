@@ -34,6 +34,7 @@
     
     [super viewWillAppear:animated];
     [self getDataSource];
+    [self.personalView updateUserInfo];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 

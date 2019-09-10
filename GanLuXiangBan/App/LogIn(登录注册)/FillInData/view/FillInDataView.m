@@ -277,9 +277,13 @@
         
     } else{
         
-        NSDictionary *dict = @{@"姓名":@"EditUserInfoViewController",@"医院":@"SelHospitalViewController",@"科室":@"SelDepartmentViewController",@"擅长":@"ModifyViewController",@"简介":@"ModifyViewController",@"身份证号":@"EditUserInfoViewController",
-                               @"代理医院":@"SelHospitalViewController"
-                               };
+        NSDictionary *dict = @{ @"姓名" : @"EditUserInfoViewController",
+                                @"医院" : @"SelHospitalViewController",
+                                @"科室" : @"SelDepartmentViewController",
+                                @"擅长" : @"ModifyViewController",
+                                @"简介" : @"ModifyViewController",
+                                @"身份证号" : @"EditUserInfoViewController",
+                                @"代理医院" : @"SelHospitalViewController" };
         
         NSArray *allKeys = [dict allKeys];
         

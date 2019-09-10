@@ -23,6 +23,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getAgDrugLstStart:(NSInteger)start Page:(NSInteger)page size:(NSInteger)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
 
+
+- (void)postAgentDrugAppAppId:(NSInteger)ID Drug_id:(NSString *)drug_id Drug_name:(NSString *)drug_name Commonname:(NSString *)commonname Producer:(NSString *)producer Spec:(NSString *)spec Form:(NSString *)form Unit:(NSString *)unit Approval:(NSString *)approval Certs:(NSArray *)certs :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
+
+/**
+ 获取代理产品申请详情
+
+ @param appId 申请ID?
+ @param complete 回调
+ */
+- (void)getAgDrugAppDetailAppID:(NSInteger)appId :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
+
+
+- (void)postReAppDrugAgentAppId:(NSInteger)ID Drug_id:(NSString *)drug_id Drug_name:(NSString *)drug_name Commonname:(NSString *)commonname Producer:(NSString *)producer Spec:(NSString *)spec Form:(NSString *)form Unit:(NSString *)unit Approval:(NSString *)approval Certs:(NSArray *)certs :(void (^)(HttpGeneralBackModel *generalBackModel))complete;
+
 @end
 
 NS_ASSUME_NONNULL_END

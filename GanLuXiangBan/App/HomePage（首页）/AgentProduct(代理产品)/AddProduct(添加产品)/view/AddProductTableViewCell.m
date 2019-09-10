@@ -1,14 +1,14 @@
 //
-//  ProductExamineTableViewCell.m
+//  AddProductTableViewCell.m
 //  GanLuXiangBan
 //
-//  Created by Mac on 2019/9/4.
+//  Created by Mac on 2019/9/9.
 //  Copyright © 2019 CICI. All rights reserved.
 //
 
-#import "ProductExamineTableViewCell.h"
+#import "AddProductTableViewCell.h"
 
-@implementation ProductExamineTableViewCell
+@implementation AddProductTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
@@ -21,26 +21,26 @@
     return self;
 }
 
--(void)setModel:(ProductModel *)model{
+- (void)setModel:(DrugListModel *)model{
     
-    _model = model;
+    [self.productImageView sd_setImageWithURL:[NSURL URLWithString:model.pic_path] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
     
-    [self.productImageView sd_setImageWithURL:[NSURL URLWithString:model.picUrl] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
+    self.productNameLabel.text = [NSString stringWithFormat:@"%@ + %@",model.drug_name,model.common_name];
     
-    self.productNameLabel.text = [NSString stringWithFormat:@"%@(%@)",model.drugNm,model.commonNm];
-    
-    self.specificationsLabel.text = model.spec;
+    self.specificationsLabel.text = model.standard;
     
     self.manufactorLabel.text = model.producer;
     
     self.priceLabel.text = model.price;
     
-    self.noPassLabel.text = model.reason;
-    
-    if (model.noPassBool == YES) {
-        self.reconsiderButton.hidden = NO;
+    if (model.app_id == 0) {
+        [self.addButton setTitle:@"添加" forState:UIControlStateNormal];
+        [self.addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.addButton.backgroundColor = kMainColor;
     }else{
-        self.reconsiderButton.hidden = YES;
+        [self.addButton setTitle:@"已添加" forState:UIControlStateNormal];
+        [self.addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.addButton.backgroundColor = [UIColor grayColor];
     }
     
 }
@@ -102,35 +102,23 @@
     .heightIs(10);
     [self.priceLabel setSingleLineAutoResizeWithMaxWidth:200];
     
+    self.addButton = [UIButton new];
+    self.addButton.backgroundColor = kMainColor;
+    self.addButton.layer.cornerRadius = 5;
+    self.addButton.titleLabel.font = [UIFont systemFontOfSize: 14.0];
+    [self.addButton setTitle:@"添加" forState:UIControlStateNormal];
+    [self.addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    self.noPassLabel = [UILabel new];
-    self.noPassLabel.font = [UIFont systemFontOfSize: 10];
-    self.noPassLabel.textColor = [UIColor redColor];
-    [self.contentView addSubview:self.noPassLabel];
+    [self.contentView addSubview:self.addButton];
     
-    self.noPassLabel.sd_layout
-    .leftSpaceToView(self.productImageView, 10)
-    .topSpaceToView(self.priceLabel, 5)
-    .heightIs(10);
-    [self.noPassLabel setSingleLineAutoResizeWithMaxWidth:200];
-    
-    
-    self.reconsiderButton = [UIButton new];
-    self.reconsiderButton.backgroundColor = kMainColor;
-    self.reconsiderButton.layer.cornerRadius = 5;
-    self.reconsiderButton.titleLabel.font = [UIFont systemFontOfSize: 14.0];
-    [self.reconsiderButton setTitle:@"重新申请" forState:UIControlStateNormal];
-    [self.reconsiderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    [self.contentView addSubview:self.reconsiderButton];
-    
-    self.reconsiderButton.sd_layout
+    self.addButton.sd_layout
     .rightSpaceToView(self.contentView, 10)
-    .centerYEqualToView(self.contentView)
-    .widthIs(80)
-    .heightIs(40);
+    .topSpaceToView(self.productImageView, 0)
+    .widthIs(70)
+    .heightIs(25);
     
-    [self setupAutoHeightWithBottomView:self.productImageView bottomMargin:10];
+    [self setupAutoHeightWithBottomView:self.addButton bottomMargin:10];
+    
     
 }
 

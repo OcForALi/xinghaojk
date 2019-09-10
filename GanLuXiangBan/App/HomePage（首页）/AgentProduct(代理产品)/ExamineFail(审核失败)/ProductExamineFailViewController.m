@@ -10,6 +10,7 @@
 #import "AgentProductRequest.h"
 #import "ProductExamineFailView.h"
 #import "ProductModel.h"
+#import "ReApplicationViewController.h"
 
 @interface ProductExamineFailViewController ()
 
@@ -51,12 +52,18 @@
 }
 
 - (void)block{
-    
+    WS(weakSelf)
     [self.productExamineFailView setPushBlock:^(ProductModel * _Nonnull model) {
         
     }];
     
     [self.productExamineFailView setReconsiderBlock:^(ProductModel * _Nonnull model) {
+        
+        ReApplicationViewController *reApplicationVC = [[ReApplicationViewController alloc] init];
+        reApplicationVC.appID = model.appId;
+        reApplicationVC.type = 1;
+        reApplicationVC.noPassModel = model;
+        [weakSelf.navigationController pushViewController:reApplicationVC animated:YES];
         
     }];
     

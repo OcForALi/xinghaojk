@@ -81,10 +81,10 @@
         
         // 用户头像
         self.headImgView = [UIImageView new];
-        self.headImgView.image = [UIImage imageNamed:@"Home_HeadDefault"];
         self.headImgView.layer.cornerRadius = 40;
         self.headImgView.layer.masksToBounds = YES;
         self.headImgView.userInteractionEnabled = NO;
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:GetUserDefault(UserHead)] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
         [self.headBgView addSubview:self.headImgView];
         [self.headImgView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.headBgView);
@@ -119,6 +119,12 @@
     }
     
     return headBgView;
+}
+
+- (void)updateUserInfo {
+    
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:GetUserDefault(UserHead)] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
+    [self.userNameLabel setText:GetUserDefault(UserName)];
 }
 
 #pragma mark - UIScrollViewDelegate
