@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic ,copy) DrugListModel *addModel;
 
+@property (nonatomic ,assign) NSInteger appID;
+
 //@property (nonatomic ,copy)
 
 @end

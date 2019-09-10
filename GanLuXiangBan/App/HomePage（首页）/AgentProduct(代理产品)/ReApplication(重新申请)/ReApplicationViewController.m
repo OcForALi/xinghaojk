@@ -7,8 +7,10 @@
 //
 
 #import "ReApplicationViewController.h"
+#import "CertificationViewModel.h"
+#import "AgentProductRequest.h"
 
-@interface ReApplicationViewController ()
+@interface ReApplicationViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic ,strong) UILabel *noPassLabel;
 
@@ -31,6 +33,7 @@
         self.title = @"上传授权证明";
     }else if (self.type == 1){
         self.title = @"重新提交";
+        [self request];
     }
     
     self.picArray = [NSMutableArray array];
@@ -39,7 +42,17 @@
     
 }
 
+- (void)request{
+    
+    AgentProductRequest *request = [AgentProductRequest new];
+    [request getAgDrugAppDetailAppID:self.appID :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+        
+    }];
+    
+}
+
 - (void)setAddModel:(DrugListModel *)addModel{
+    
     _addModel = addModel;
     
     NSString *drugName = [NSString stringWithFormat:@"%@(%@)",addModel.drug_name,addModel.common_name];
@@ -161,9 +174,9 @@
         [self.picView addSubview:imageView];
         
         imageView.sd_layout
-        .leftSpaceToView(self.picView, 20)
-        .topSpaceToView(self.picView, 20)
-        .widthIs(80)
+        .leftSpaceToView(self.picView, ScreenWidth * 0.14)
+        .topSpaceToView(self.picView, ScreenHeight * 0.053)
+        .widthIs(ScreenWidth*0.145)
         .heightEqualToWidth();
         
     }else{
@@ -192,6 +205,27 @@
             .widthIs(size.width)
             .heightIs(size.height);
             
+            if (i == self.picArray.count - 1) {
+                
+                if (countInteger + 1 == 3) {
+                    integer++;
+                }
+                
+                UIImageView *imageView = [UIImageView new];
+                imageView.image = [UIImage imageNamed:@"Keyboard_Image"];
+                imageView.userInteractionEnabled = YES;
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addPic:)];
+                [imageView addGestureRecognizer:tap];
+                [self.picView addSubview:imageView];
+                
+                imageView.sd_layout
+                .leftSpaceToView(self.picView, ScreenWidth * 0.14 + ((i + 1)%3) * size.width + (( i + 1)%3) * ScreenWidth * 0.145)
+                .topSpaceToView(self.picView, ScreenHeight * 0.053 + integer * size.height + integer * ScreenHeight * 0.086)
+                .widthIs(size.width)
+                .heightEqualToWidth();
+                
+            }
+            
         }
         
     }
@@ -200,9 +234,111 @@
 
 - (void)addPic:(UITapGestureRecognizer *)sender{
     
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *takePhotos = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            
+            imagePickerController.delegate = self;
+            imagePickerController.allowsEditing = YES;
+            //拍照
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            
+        }
+        [self.navigationController presentViewController:imagePickerController animated:YES completion:nil];
+        
+    }];
+    
+    //解释2: handler是一个block,当点击ok这个按钮的时候,就会调用handler里面的代码.
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"从相册选取一张照片" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            
+            imagePickerController.delegate = self;
+            imagePickerController.allowsEditing = YES;
+            //相册
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            
+        }
+        [self.navigationController presentViewController:imagePickerController animated:YES completion:nil];
+        
+    }];
+    
+    //解释2: handler是一个block,当点击ok这个按钮的时候,就会调用handler里面的代码.
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }];
+    
+    [cancel setValue:[UIColor redColor] forKey:@"titleTextColor"];
+    
+    [alert addAction:takePhotos];
+    
+    [alert addAction:ok];//添加确认按钮
+    
+    [alert addAction:cancel];//添加取消按钮
+    
+    //以modal的形式
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+        if (!image) {
+            image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        }
+        
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.3);
+        WS(weakSelf)
+        [[CertificationViewModel new] uploadImageWithImgs:imageData complete:^(id object) {
+            
+            [weakSelf.picArray addObject:object];
+            
+            [weakSelf pic];
+            
+        }];
+        
+        
+        
+    });
 }
 
 - (void)submission:(UIButton *)sender{
+    
+    if (self.picArray.count == 0) {
+        [self.view makeToast:@"请提交相关资质"];
+        return;
+    }
+    
+    WS(weakSelf)
+    AgentProductRequest *request = [AgentProductRequest new];
+    
+    if (self.type == 0) {
+        
+        [request postAgentDrugAppAppId:0 Drug_id:self.addModel.drug_id Drug_name:self.addModel.drug_name Commonname:self.addModel.common_name Producer:self.addModel.producer Spec:self.addModel.standard Form:@"" Unit:@"" Approval:@"" Certs:self.picArray :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+            
+            [weakSelf.view makeToast:generalBackModel.retmsg];
+            if (generalBackModel.retcode == 0) {
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+            
+        }];
+        
+    }else if (self.type == 1){
+        
+        
+        
+    }
     
 }
 

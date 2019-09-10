@@ -33,7 +33,7 @@
     
     self.priceLabel.text = model.price;
     
-    if (model.fav_id == 0) {
+    if (model.app_id == 0) {
         [self.addButton setTitle:@"添加" forState:UIControlStateNormal];
         [self.addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.addButton.backgroundColor = kMainColor;

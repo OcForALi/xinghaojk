@@ -27,7 +27,7 @@
     
     [self.productImageView sd_setImageWithURL:[NSURL URLWithString:model.picUrl] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
     
-    self.productNameLabel.text = [NSString stringWithFormat:@"%@ + %@",model.drugNm,model.commonNm];
+    self.productNameLabel.text = [NSString stringWithFormat:@"%@(%@)",model.drugNm,model.commonNm];
     
     self.specificationsLabel.text = model.spec;
     
