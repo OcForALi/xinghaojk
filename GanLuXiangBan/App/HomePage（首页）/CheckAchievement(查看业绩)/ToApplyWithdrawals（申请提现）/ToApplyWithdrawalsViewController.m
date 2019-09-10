@@ -79,12 +79,16 @@
     MyCardViewModel *cardModel = [MyCardViewModel new];
     [cardModel getUserBankListComplete:^(id object) {
         
-        for (MyCardModel *myCardModel in object) {
-            
-            if ([myCardModel.is_default boolValue] == YES) {
+        if ([object isKindOfClass:[NSArray class]]) {
+         
+            for (MyCardModel *myCardModel in object) {
                 
-                weakSelf.cardLabel.text = [NSString stringWithFormat:@"%@(%@)",myCardModel.card_no,myCardModel.bank];
-                weakSelf.cardID = [myCardModel.pkid integerValue];
+                if ([myCardModel.is_default boolValue] == YES) {
+                    
+                    weakSelf.cardLabel.text = [NSString stringWithFormat:@"%@(%@)",myCardModel.card_no,myCardModel.bank];
+                    weakSelf.cardID = [myCardModel.pkid integerValue];
+                }
+                
             }
             
         }
