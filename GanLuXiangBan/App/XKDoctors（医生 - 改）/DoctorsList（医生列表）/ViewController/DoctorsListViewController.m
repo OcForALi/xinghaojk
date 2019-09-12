@@ -62,6 +62,7 @@
             @strongify(self);
             DoctorDetailsViewController *vc = [DoctorDetailsViewController new];
             vc.idStr = model.drid;
+            vc.name = model.drname;
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }];

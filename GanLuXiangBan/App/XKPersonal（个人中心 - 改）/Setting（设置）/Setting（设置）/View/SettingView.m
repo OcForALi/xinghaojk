@@ -70,7 +70,7 @@
         BaseViewController *viewCnotroller = [NSClassFromString(viewControllerName) new];
         viewCnotroller.title = self.dataSources[indexPath.section][indexPath.row];
         
-        if ([viewCnotroller isKindOfClass:[HelpWebViewController class]]) {
+        if ([viewCnotroller isKindOfClass:[HelpWebViewController class]]) {    
             [(HelpWebViewController *)viewCnotroller setBodyString:self.helpBodyString];
         }
         if ([viewCnotroller isKindOfClass:ForgotPasswordViewController.class]) {

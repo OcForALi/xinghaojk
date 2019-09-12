@@ -45,11 +45,12 @@
 - (void)addBankCard {
     
     NSMutableArray *arr = [NSMutableArray new];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         AddCardCell *cell = [self.addCardView cellForRowAtIndexPath:indexPath];
         if (cell.textFieldText.text.length > 0 && ![cell.textFieldText.text isEqualToString:@"请选择对应的银行"]) {
+            
             [arr addObject:cell.textFieldText.text];
         }
         else {
@@ -58,17 +59,20 @@
                 return [self.view makeToast:@"请选择银行"];
             }
             else if (i == 2) {
+                return [self.view makeToast:@"请填写银行支行名称"];
+            }
+            else if (i == 3) {
                 return [self.view makeToast:@"请填写银行卡"];
             }
         }
     }
     
-    if (![self deptNumInputShouldNumber:arr[2]]) {
+    if (![self deptNumInputShouldNumber:arr[3]]) {
         return [self.view makeToast:@"不可输入数字以外的字段"];
     }
     
     @weakify(self);
-    [[MyCardViewModel new] addBankWithCardperson:arr[0] bank:arr[1] cardNumber:arr[2] complete:^(id object) {
+    [[MyCardViewModel new] addBankWithCardperson:arr[0] bank:arr[1] cardNumber:arr[3] complete:^(id object) {
      
         @strongify(self);
         [[UIApplication sharedApplication].keyWindow makeToast:object];

@@ -30,6 +30,8 @@
     [self setRight];
     [self initialization];
     [self getDataSource];
+    
+    self.title = [NSString stringWithFormat:@"%@医生详情", self.name];
 }
 
 - (void)setRight {

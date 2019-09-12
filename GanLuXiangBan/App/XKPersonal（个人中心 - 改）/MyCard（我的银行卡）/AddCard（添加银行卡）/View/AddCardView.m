@@ -56,14 +56,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     AddCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddCardCell"];
     
-    NSArray *arr = @[@"持卡人", @"银行", @"卡号"];
+    NSArray *arr = @[@"持卡人", @"银行", @"支行", @"卡号"];
     cell.titleLabel.text = arr[indexPath.row];
     cell.textFieldText.enabled = NO;
     if (indexPath.row == 0) {
@@ -74,9 +74,16 @@
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         cell.textFieldText.text = @"请选择对应的银行";
     }
-    else {
+    else if (indexPath.row == 2) {
+        
         cell.textFieldText.enabled = YES;
-        cell.textFieldText.placeholder = @"请输入银行卡号";
+        cell.textFieldText.keyboardType = UIKeyboardTypeDefault;
+        cell.textFieldText.placeholder = @"请填写银行支行名称";
+    }
+    else {
+        
+        cell.textFieldText.enabled = YES;
+        cell.textFieldText.placeholder = @"请填写银行卡号";
     }
     
     return cell;

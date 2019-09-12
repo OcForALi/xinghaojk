@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DoctorDetailsViewController : BaseViewController
 
 @property (nonatomic, strong) NSString *idStr;
+@property (nonatomic, strong) NSString *name;
 
 @end
 
