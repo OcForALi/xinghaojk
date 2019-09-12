@@ -130,6 +130,16 @@
     .widthIs(80)
     .heightIs(40);
     
+    UIView *garyView = [UIView new];
+    garyView.backgroundColor = [UIColor lightGrayColor];
+    [self.contentView addSubview:garyView];
+    
+    garyView.sd_layout
+    .leftSpaceToView(self.productImageView, 10)
+    .rightSpaceToView(self.contentView, 0)
+    .bottomSpaceToView(self.contentView, 0)
+    .heightIs(0.5);
+    
     [self setupAutoHeightWithBottomView:self.productImageView bottomMargin:10];
     
 }

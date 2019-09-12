@@ -47,7 +47,7 @@
     .leftSpaceToView(self.view, 0)
     .rightSpaceToView(self.view, 0)
     .topSpaceToView(self.view, 0)
-    .bottomSpaceToView(self.view, kTabbarSafeBottomMargin + NavHeight);
+    .bottomSpaceToView(self.view,NavHeight + 40);
     
     UIButton *button = [UIButton new];
     button.backgroundColor = kMainColor;

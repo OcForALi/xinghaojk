@@ -87,7 +87,7 @@
     
     [self block];
     
-    [self Sign];
+//    [self Sign];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackgroundStopTimer) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterForegroundStartTimer) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -404,25 +404,15 @@
         bannerView.autoScrollTimeInterval = 5;
         bannerView.backgroundColor = [UIColor whiteColor];
         bannerView.backgroundColor = RGB(233, 233, 233);
+        bannerView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
+        bannerView.clipsToBounds = YES;
         [self.view addSubview:bannerView];
         
-        if (IS_iPhoneX) {
-            
-            bannerView.sd_layout
-            .topSpaceToView(self.view, -20)
-            .centerXEqualToView(self.view)
-            .widthIs(ScreenWidth)
-            .heightIs(ScreenWidth / 2.5);
-            
-        }else{
-            
-            bannerView.sd_layout
-            .topSpaceToView(self.view, 0)
-            .centerXEqualToView(self.view)
-            .widthIs(ScreenWidth)
-            .heightIs(ScreenWidth / 2.5);
-            
-        }
+        bannerView.sd_layout
+        .topSpaceToView(self.view, -kNavbarSafeHeight)
+        .centerXEqualToView(self.view)
+        .widthIs(ScreenWidth)
+        .heightIs(ScreenWidth / 2.5);
         
         //获取轮播图
         self.homeRequest = [HomeRequest new];
@@ -514,11 +504,11 @@
     UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(head:)];
     [self.headImageView addGestureRecognizer:headTap];
     
-    [self.doctorView addSubview:self.headImageView];
+    [self.view addSubview:self.headImageView];
     
     self.headImageView.sd_layout
-    .leftSpaceToView(self.doctorView, ScreenWidth*0.05)
-    .bottomSpaceToView(self.doctorView, 10)
+    .leftSpaceToView(self.view, ScreenWidth*0.05)
+    .topSpaceToView(self.bannerView, -10)
     .widthIs(ScreenWidth * 0.16)
     .heightEqualToWidth();
     
