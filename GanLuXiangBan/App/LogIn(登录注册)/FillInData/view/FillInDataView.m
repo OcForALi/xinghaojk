@@ -14,6 +14,7 @@
 #import "SelDepartmentViewController.h"
 
 @implementation FillInDataView
+@synthesize footerView;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -40,6 +41,19 @@
     self.myTable.frame = self.bounds;
     
 }
+
+
+#pragma mark - set
+- (void)setImgDataSource:(NSArray *)imgDataSource {
+    
+    _imgDataSource = imgDataSource;
+    
+    [self.footerView removeFromSuperview];
+    self.footerView = nil;
+    
+    self.myTable.tableFooterView = self.footerView;
+}
+
 
 #pragma makr - lazy
 - (CityView *)cityView {
@@ -95,6 +109,73 @@
     
     return _cityView;
 }
+
+- (UIView *)footerView {
+    
+    if (!footerView) {
+        
+        footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
+        footerView.backgroundColor = [UIColor whiteColor];
+        
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, footerView.width, 5)];
+        lineView.backgroundColor = self.superview.backgroundColor;
+        [footerView addSubview:lineView];
+        
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(17, 20, footerView.width, 15)];
+        titleLabel.text = @"上传相关资质";
+        titleLabel.font = [UIFont systemFontOfSize:15];
+        titleLabel.textColor = RGB(51, 51, 51);
+        titleLabel.height = [titleLabel getTextHeight];
+        [footerView addSubview:titleLabel];
+        
+        for (int i = 0; i < self.imgDataSource.count + 1; i++) {
+            
+            if (i == 6) {
+                break;
+            }
+            
+            CGSize size = CGSizeMake(ScreenWidth * 0.145, ScreenWidth * 0.145);
+            CGFloat spacing = (ScreenWidth - size.width * 3) / 4;
+            
+            UIImageView *imageView = [UIImageView new];
+            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            imageView.size = size;
+            imageView.x = spacing + (spacing + size.width) * (i % 3);
+            imageView.y = titleLabel.maxY + 20 + (size.height + 15) * (i / 3);
+            imageView.image = [UIImage imageNamed:@"Keyboard_Image"];
+
+            imageView.userInteractionEnabled = YES;
+            imageView.layer.cornerRadius = 5;
+            imageView.layer.masksToBounds = YES;
+            [footerView addSubview:imageView];
+            [footerView setHeight:imageView.maxY + 20];
+            
+            UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+            [imageView addGestureRecognizer:tap];
+            [[tap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+                
+                if (i >= self.imgDataSource.count) {
+                    
+                    if (self.imgClickBlock) {
+                        self.imgClickBlock();
+                    }
+                }
+            }];
+
+            // 设置图片
+            if (self.imgDataSource.count > i) {
+                
+                NSURL *url = [NSURL URLWithString:self.imgDataSource[i]];
+                [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Keyboard_Image"]];
+            }
+        }
+    }
+    
+    return footerView;
+}
+
+
+
 
 -(void)initData{
     
@@ -152,8 +233,9 @@
     self.myTable = [[UITableView alloc]initWithFrame:self.bounds style:UITableViewStyleGrouped];/**< 初始化_tableView*/
     self.myTable.delegate = self;
     self.myTable.dataSource = self;
-    self.myTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+//    self.myTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.myTable.separatorColor = [UIColor clearColor];
+    self.myTable.tableFooterView = self.footerView;
     
     [self addSubview:self.myTable];
     

@@ -27,6 +27,13 @@ typedef void(^ActionSheetCompleteBlock)(NSInteger index);
 
 @property (nonatomic ,strong) CityView *cityView;
 
+// 底部视图
+@property (nonatomic, strong) UIView *footerView;
+// 图片数据
+@property (nonatomic, strong) NSArray *imgDataSource;
+// 图片点击Block
+@property (nonatomic, strong) void (^imgClickBlock)(void);
+
 /// 提示框回调
 @property (nonatomic, copy) ActionSheetCompleteBlock complete;
 

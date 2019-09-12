@@ -73,6 +73,15 @@
     .topSpaceToView(self.view, 0)
     .bottomSpaceToView(self.view, 0);
     
+    @weakify(self);
+    [self.fillInView setImgClickBlock:^{
+       
+        @strongify(self);
+        [self addPic];
+    }];
+    
+    
+    
     UIButton *sendButton = [UIButton new];
     sendButton.titleLabel.font = [UIFont systemFontOfSize: 16];
     [sendButton setTitle:@"下一步" forState:UIControlStateNormal];
@@ -96,7 +105,7 @@
     .topSpaceToView(self.view, ScreenHeight * 0.6)
     .bottomSpaceToView(sendButton, 0);
     
-    [self pic];
+//    [self pic];
     
 }
 
@@ -172,7 +181,7 @@
     
 }
 
-- (void)addPic:(UITapGestureRecognizer *)sender{
+- (void)addPic {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -243,8 +252,9 @@
         [[CertificationViewModel new] uploadImageWithImgs:imageData complete:^(id object) {
             
             [weakSelf.picArray addObject:object];
+            weakSelf.fillInView.imgDataSource = weakSelf.picArray;
             
-            [weakSelf pic];
+//            [weakSelf pic];
             
         }];
         
