@@ -251,6 +251,10 @@
         WS(weakSelf)
         [[CertificationViewModel new] uploadImageWithImgs:imageData complete:^(id object) {
             
+            if (object == nil) {
+                return ;
+            }
+            
             [weakSelf.picArray addObject:object];
             weakSelf.fillInView.imgDataSource = weakSelf.picArray;
             
