@@ -96,14 +96,14 @@
     .bottomSpaceToView(self.view, 0)
     .heightIs(50);
     
-    self.picView = [UIView new];
-    [self.view addSubview:self.picView];
-    
-    self.picView.sd_layout
-    .leftSpaceToView(self.view, 0)
-    .rightSpaceToView(self.view, 0)
-    .topSpaceToView(self.view, ScreenHeight * 0.6)
-    .bottomSpaceToView(sendButton, 0);
+//    self.picView = [UIView new];
+//    [self.view addSubview:self.picView];
+//
+//    self.picView.sd_layout
+//    .leftSpaceToView(self.view, 0)
+//    .rightSpaceToView(self.view, 0)
+//    .topSpaceToView(self.view, ScreenHeight * 0.6)
+//    .bottomSpaceToView(sendButton, 0);
     
 //    [self pic];
     
