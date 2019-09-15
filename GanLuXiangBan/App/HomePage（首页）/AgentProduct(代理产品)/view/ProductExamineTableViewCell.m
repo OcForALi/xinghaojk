@@ -26,8 +26,11 @@
     _model = model;
     
     [self.productImageView sd_setImageWithURL:[NSURL URLWithString:model.picUrl] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
-    
-    self.productNameLabel.text = [NSString stringWithFormat:@"%@(%@)",model.drugNm,model.commonNm];
+    if (model.commonNm == nil || [model.commonNm isEqualToString:@""]) {
+        self.productNameLabel.text = [NSString stringWithFormat:@"%@",model.drugNm];
+    }else{
+        self.productNameLabel.text = [NSString stringWithFormat:@"%@(%@)",model.drugNm,model.commonNm];
+    }
     
     self.specificationsLabel.text = model.spec;
     

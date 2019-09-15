@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"添加产品代理";
+    self.title = @"添加代理产品";
     
     UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"分类" style:UIBarButtonItemStyleDone target:self action:@selector(rightBar:)];
     rightBarBtn.tintColor = [UIColor whiteColor];
@@ -151,6 +151,7 @@
 - (void)initUI{
     
     self.searchView = [SearchView new];
+    self.searchView.textField.placeholder = @"可输入产品名称或者厂家名称";
     [self.view addSubview:self.searchView];
     
     self.searchView.sd_layout

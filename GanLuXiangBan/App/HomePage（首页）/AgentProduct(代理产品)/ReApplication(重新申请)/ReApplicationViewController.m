@@ -184,6 +184,17 @@
     
     [self.picView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
+    UILabel *label = [UILabel new];
+    label.text = @"上传相关授权证明";
+    label.font = [UIFont systemFontOfSize:14];
+    [self.picView addSubview:label];
+    
+    label.sd_layout
+    .leftSpaceToView(self.picView, 15)
+    .heightIs(14)
+    .topSpaceToView(self.picView, 10);
+    [label setSingleLineAutoResizeWithMaxWidth:200];
+    
     if (self.picArray.count == 0) {
         
         UIImageView *imageView = [UIImageView new];
@@ -263,7 +274,7 @@
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             
             imagePickerController.delegate = self;
-            imagePickerController.allowsEditing = YES;
+            imagePickerController.allowsEditing = NO;
             //拍照
             imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
             
@@ -280,7 +291,7 @@
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             
             imagePickerController.delegate = self;
-            imagePickerController.allowsEditing = YES;
+            imagePickerController.allowsEditing = NO;
             //相册
             imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             

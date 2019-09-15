@@ -216,6 +216,10 @@
     
     [self.homeRequest getPersonalStatics:^(HttpGeneralBackModel *generalBackModel) {
         
+        if (generalBackModel == nil || generalBackModel.data == nil) {
+            return;
+        }
+        
         weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%@）",generalBackModel.data[@"dr_num"]];
         weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%@）",generalBackModel.data[@"order_amount"]];
         

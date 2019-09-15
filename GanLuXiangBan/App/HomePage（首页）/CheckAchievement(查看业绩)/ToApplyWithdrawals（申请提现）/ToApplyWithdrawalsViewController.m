@@ -170,7 +170,7 @@
     [label setSingleLineAutoResizeWithMaxWidth:200];
     
     self.cardLabel = [UILabel new];
-    self.cardLabel.text = @"尾号XXXX （XX 银行）";
+    self.cardLabel.text = @"请选择银行卡";
     self.cardLabel.font = [UIFont systemFontOfSize:14];
     [self.bankCardView addSubview:self.cardLabel];
     
@@ -196,7 +196,7 @@
     [label setSingleLineAutoResizeWithMaxWidth:200];
     
     self.convertiblePointsLabel = [UILabel new];
-    self.convertiblePointsLabel.text = @"最多可兑换XX";
+    self.convertiblePointsLabel.text = @"最多可兑换0";
     self.convertiblePointsLabel.font = [UIFont systemFontOfSize:12];
     [self.integralView addSubview:self.convertiblePointsLabel];
     

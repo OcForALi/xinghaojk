@@ -208,6 +208,17 @@
 //    [self.navigationController pushViewController:fillInVC animated:YES];
 //    return;
     
+    if(self.phoneTextField.text.length == 11){
+        
+        if ([self validateMobile:self.phoneTextField.text] == YES) {
+            
+        }else{
+            [self.view makeToast:@"请输入正确的手机号码"];
+        }
+    }else{
+        [self.view makeToast:@"请输入正确的手机号码"];
+    }
+    
     if(self.captchaTextField.text.length != 6){
         
         [self.view makeToast:@"请输入正确的验证码"];

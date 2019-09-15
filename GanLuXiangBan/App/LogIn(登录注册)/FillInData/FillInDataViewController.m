@@ -192,7 +192,7 @@
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             
             imagePickerController.delegate = self;
-            imagePickerController.allowsEditing = YES;
+            imagePickerController.allowsEditing = NO;
             //拍照
             imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
             
@@ -209,7 +209,7 @@
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             
             imagePickerController.delegate = self;
-            imagePickerController.allowsEditing = YES;
+            imagePickerController.allowsEditing = NO;
             //相册
             imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             
