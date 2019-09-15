@@ -145,8 +145,8 @@
             imageView.image = [UIImage imageNamed:@"Keyboard_Image"];
 
             imageView.userInteractionEnabled = YES;
-            imageView.layer.cornerRadius = 5;
-            imageView.layer.masksToBounds = YES;
+//            imageView.layer.cornerRadius = 5;
+//            imageView.layer.masksToBounds = YES;
             [footerView addSubview:imageView];
             [footerView setHeight:imageView.maxY + 20];
             
