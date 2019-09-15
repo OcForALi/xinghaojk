@@ -293,6 +293,32 @@
                 success(model);
             }
             
+            // 获取cookie方法
+            NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            
+            NSString *AgCook;
+            
+            NSString *ASPString;
+            
+            NSString *MyCookString;
+            
+            for(NSHTTPCookie *cookie in [cookieJar cookies])
+            {
+                if ([cookie.name isEqualToString:@"AgCook"]) {
+                    AgCook = cookie.value;
+                }
+                
+                NSString *string = [NSString stringWithFormat:@"%@=%@",cookie.name,cookie.value];
+                if (cookie.isHTTPOnly == YES) {
+                    ASPString = string;
+                }else{
+                    MyCookString = string;
+                }
+            }
+            
+            NSString *cookie = [NSString stringWithFormat:@"%@",AgCook];
+            [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"Set-Cookie"];
+            
             [self hideHudAnimatedWithViewController:NavController];
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -408,7 +434,33 @@
             [model setValuesForKeysWithDictionary:responseObject];
 
             DebugLog(@"urlString = %@\n\n  %@  retcode = %@  \n\n", self.urlString, [self printRequestData:model.data], @(model.retcode));
-
+            
+            // 获取cookie方法
+            NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            
+            NSString *AgCook;
+            
+            NSString *ASPString;
+            
+            NSString *MyCookString;
+            
+            for(NSHTTPCookie *cookie in [cookieJar cookies])
+            {
+                if ([cookie.name isEqualToString:@"AgCook"]) {
+                    AgCook = cookie.value;
+                }
+                
+                NSString *string = [NSString stringWithFormat:@"%@=%@",cookie.name,cookie.value];
+                if (cookie.isHTTPOnly == YES) {
+                    ASPString = string;
+                }else{
+                    MyCookString = string;
+                }
+            }
+            
+            NSString *cookie = [NSString stringWithFormat:@"%@",AgCook];
+            [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"Set-Cookie"];
+            
             if (success) {
                 success(model);
             }

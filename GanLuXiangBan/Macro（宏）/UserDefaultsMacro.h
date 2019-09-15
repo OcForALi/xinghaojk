@@ -45,8 +45,8 @@
 
 //#define WeiXin_AppID     @"wxa3219896d1e43fe4"
 //#define WeiXin_AppSecret @"75e10defccc74992e397dc5984d01d4e"
-#define WeiXin_AppID     @"wx19e52de797216e3a"
-#define WeiXin_AppSecret @"daf3762bd8f23b070d36b608ac207d27"
+#define WeiXin_AppID     @"wx961c6c7c91369df1"
+#define WeiXin_AppSecret @"ced61d9f301de9ee8af577a185ecc162"
 
 
 #define GeTuiDeviceId @"getuiDeviceId"

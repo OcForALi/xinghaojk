@@ -24,10 +24,10 @@
     manager.requestSerializer.timeoutInterval = 15;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    // 如果已有Cookie, 则把你的cookie符上
     NSString *cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@"Set-Cookie"];
     if (cookie != nil) {
-        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"MyCook"];
+        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"AgCook"];
+        KLog(@"设置cookie：%@", cookie);
     }
     
     
