@@ -72,8 +72,8 @@
             
         }
         
+        self.collectionButton.hidden = YES;
     }];
-    
 }
 
 -(void)initUI{
@@ -101,7 +101,7 @@
     .leftSpaceToView(self.view, 0)
     .rightSpaceToView(self.view, 0)
     .topSpaceToView(self.view, 0)
-    .bottomSpaceToView(self.collectionButton, 0);
+    .bottomSpaceToView(self.view, 0);
 }
 
 -(void)collection:(UIButton *)sender{

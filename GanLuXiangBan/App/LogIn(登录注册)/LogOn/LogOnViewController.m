@@ -238,10 +238,10 @@
         return;
     }
     
-    if (self.isLogOn == YES) {
-        
-    }else{
-     
+//    if (self.isLogOn == YES) {
+//
+//    }else{
+    
         self.logInRequest = [LogInRequest new];
         
         [self.logInRequest postLogOnWithMobileNo:self.phoneTextField.text Password:self.passwordTextField.text Code:self.captchaTextField.text complete:^(HttpGeneralBackModel *generalBackModel) {
@@ -267,7 +267,7 @@
             
         }];
         
-    }
+//    }
     
 }
 

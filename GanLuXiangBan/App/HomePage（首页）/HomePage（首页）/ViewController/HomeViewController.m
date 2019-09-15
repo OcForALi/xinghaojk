@@ -215,14 +215,29 @@
     }];
     
     [self.homeRequest getPersonalStatics:^(HttpGeneralBackModel *generalBackModel) {
-        
+
+        NSString *drNum = @"0";
+        NSString *amount = @"0";
         if (generalBackModel == nil || generalBackModel.data == nil) {
-            return;
+            
+            drNum = @"0";
+            amount = @"0";
+        }
+        else {
+            
+            drNum = generalBackModel.data[@"dr_num"];
+            if ([drNum containsString:@"null"] || drNum.length == 0) {
+                drNum = @"0";
+            }
+            
+            amount = generalBackModel.data[@"order_amount"];
+            if ([amount containsString:@"null"] || amount.length == 0) {
+                amount = @"0";
+            }
         }
         
-        weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%@）",generalBackModel.data[@"dr_num"]];
-        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%@）",generalBackModel.data[@"order_amount"]];
-        
+        weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%@）", drNum];
+        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%@）", amount];
     }];
     
     if (!GetUserDefault(UserHead)) {

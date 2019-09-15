@@ -60,8 +60,8 @@
     
     if (!_cityView) {
         
-        self.cityView = [[CityView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, self.height)];
-        [self addSubview:self.cityView];
+        self.cityView = [[CityView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        [[UIApplication sharedApplication].keyWindow addSubview:self.cityView];
         
         @weakify(self);
         [self.cityView setSelectCity:^(NSString *provinceString, NSString *cityString) {
