@@ -40,14 +40,18 @@
 - (void)initUI{
     
     self.productExamineFailView = [ProductExamineFailView new];
-    [self.view addSubview:self.productExamineFailView];
     self.productExamineFailView.backgroundColor = kPageBgColor;
+    self.productExamineFailView.NoMessageView.hidden = NO;
+    [self.view addSubview:self.productExamineFailView];
     
     self.productExamineFailView.sd_layout
     .leftSpaceToView(self.view, 0)
     .rightSpaceToView(self.view, 0)
     .topSpaceToView(self.view, 0)
     .bottomSpaceToView(self.view,NavHeight + 40);
+    
+    self.productExamineFailView.noMessageLabel.text = @"暂无数据";
+    [self.productExamineFailView bringSubviewToFront:self.productExamineFailView.NoMessageView];
     
     UIButton *button = [UIButton new];
     button.backgroundColor = kMainColor;
@@ -109,6 +113,8 @@
         
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *dict in generalBackModel.data[@"items"]) {
+            
+            weakSelf.productExamineFailView.NoMessageView.hidden = YES;
             
             ProductModel *model = [ProductModel new];
             [model setValuesForKeysWithDictionary:dict];

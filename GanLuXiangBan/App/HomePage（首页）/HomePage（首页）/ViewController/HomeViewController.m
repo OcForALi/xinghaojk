@@ -216,28 +216,20 @@
     
     [self.homeRequest getPersonalStatics:^(HttpGeneralBackModel *generalBackModel) {
 
-        NSString *drNum = @"0";
-        NSString *amount = @"0";
+        NSInteger drNum = 0;
+        NSInteger amount = 0;
         if (generalBackModel == nil || generalBackModel.data == nil) {
             
-            drNum = @"0";
-            amount = @"0";
+            drNum = 0;
+            amount = 0;
         }
         else {
-            
-            drNum = generalBackModel.data[@"dr_num"];
-            if ([drNum containsString:@"null"] || drNum.length == 0) {
-                drNum = @"0";
-            }
-            
-            amount = generalBackModel.data[@"order_amount"];
-            if ([amount containsString:@"null"] || amount.length == 0) {
-                amount = @"0";
-            }
+            drNum = [generalBackModel.data[@"dr_num"] integerValue];
+            amount = [generalBackModel.data[@"order_amount"] integerValue];
         }
         
-        weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%@）", drNum];
-        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%@）", amount];
+        weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%ld）", drNum];
+        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%ld）", amount];
     }];
     
     if (!GetUserDefault(UserHead)) {

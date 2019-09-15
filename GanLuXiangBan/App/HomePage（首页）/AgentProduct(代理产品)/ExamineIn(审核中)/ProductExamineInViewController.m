@@ -42,6 +42,8 @@
     self.productExamineFailView = [ProductExamineFailView new];
     [self.view addSubview:self.productExamineFailView];
     self.productExamineFailView.backgroundColor = kPageBgColor;
+    self.productExamineFailView.noMessageLabel.text = @"暂无数据";
+    [self.productExamineFailView bringSubviewToFront:self.productExamineFailView.NoMessageView];
     
     self.productExamineFailView.sd_layout
     .leftSpaceToView(self.view, 0)
@@ -108,6 +110,8 @@
         
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *dict in generalBackModel.data[@"items"]) {
+            
+            weakSelf.productExamineFailView.NoMessageView.hidden = YES;
             
             ProductModel *model = [ProductModel new];
             [model setValuesForKeysWithDictionary:dict];
