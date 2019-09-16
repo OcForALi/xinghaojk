@@ -32,23 +32,15 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-        if (indexPath.section == 0) {
-            
-            UILabel *phoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 45)];
-            phoneLabel.font = [UIFont systemFontOfSize:14];
-            phoneLabel.textColor = [UIColor blackColor];
-            phoneLabel.textAlignment = NSTextAlignmentRight;
-            cell.accessoryView = phoneLabel;
-        }
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
     }
     
     if (indexPath.section == 0) {
         
-        UILabel *phoneLabel = (UILabel *)cell.accessoryView;
-        phoneLabel.text = self.phoneString;
+        cell.detailTextLabel.text = self.phoneString;
     }
     
     cell.textLabel.text = self.dataSources[indexPath.section][indexPath.row];

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DoctorPerformancViewController : BaseViewController
 
 @property (nonatomic, strong) NSString *drid;
+@property (nonatomic, strong) NSString *name;
 
 @end
 

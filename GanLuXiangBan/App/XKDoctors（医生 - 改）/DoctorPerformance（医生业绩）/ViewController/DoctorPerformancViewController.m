@@ -27,7 +27,7 @@
 
     [super viewDidLoad];
 
-    [self setTitle:@"医生姓名业绩"];
+    [self setTitle:[NSString stringWithFormat:@"%@业绩", self.name]];
     [self setHeaderView];
     [self getDataSource];
 }

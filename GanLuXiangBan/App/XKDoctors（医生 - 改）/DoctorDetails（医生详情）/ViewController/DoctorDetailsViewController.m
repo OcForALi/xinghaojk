@@ -43,6 +43,7 @@
         
         DoctorPerformancViewController *vc = [DoctorPerformancViewController new];
         vc.drid = self.idStr;
+        vc.name = self.detailsView.model.drname;
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }

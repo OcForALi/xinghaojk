@@ -67,7 +67,7 @@
     [self.userImgView addSubview:titleLabel];
     
     UILabel *instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(titleLabel.frame) + 15, titleLabel.width, 0)];
-    instructionsLabel.text = @"请提供有效的工作证照片";
+    instructionsLabel.text = @"";
     instructionsLabel.font = [UIFont systemFontOfSize:14];
     instructionsLabel.textColor = [UIColor colorWithHexString:@"0x919191"];
     instructionsLabel.textAlignment = NSTextAlignmentCenter;

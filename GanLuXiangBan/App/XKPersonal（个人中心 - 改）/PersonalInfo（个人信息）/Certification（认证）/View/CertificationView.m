@@ -66,7 +66,7 @@
             cell.backgroundColor = [UIColor whiteColor];
         }
         
-        cell.tipContent = @"1、确保上传的身份证、工作证以及证书能清晰看到姓名、照片以及职业资格编号等重要的信息。 \n2、工作人员在收到您的申请后2-3个工作日内会完成验证，验证完成会发放积分奖励。 \n3、证书照片仅用于认证，患者及第三方不可见。";
+        cell.tipContent = @"1、工作人员在收到您的申请后2-3个工作日内会完成验证，请耐心等候。 \n2、证书照片仅用于认证，仅平台可见。";
         self.tipCellHeight = cell.tipCellHeight;
         return cell;
     }
@@ -80,7 +80,7 @@
             cell.backgroundColor = [UIColor whiteColor];
             
             UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 45)];
-            titleLabel.text = @"样例";
+            titleLabel.text = @"";
             titleLabel.font = [UIFont systemFontOfSize:14];
             titleLabel.textAlignment = NSTextAlignmentRight;
             titleLabel.textColor = [UIColor colorWithHexString:@"0x3c3c3c"];
@@ -166,6 +166,7 @@
         UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             
+            imagePickerController.showsCameraControls = NO;
             imagePickerController.delegate = self;
             imagePickerController.allowsEditing = YES;
             if (index == 1) {

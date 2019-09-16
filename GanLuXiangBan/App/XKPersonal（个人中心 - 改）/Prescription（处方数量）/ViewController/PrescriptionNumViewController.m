@@ -49,6 +49,8 @@
 #pragma mark - request
 - (void)getList {
     
+    self.numberView.dataSources = @[];
+    
     PrescriptionNumViewModel *viewModel = [PrescriptionNumViewModel new];
     [viewModel getListWithPage:self.page complete:^(NSArray * _Nonnull list) {
         self.numberView.dataSources = list;

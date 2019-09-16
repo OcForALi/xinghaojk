@@ -49,6 +49,8 @@
 #pragma mark - request
 - (void)getList {
     
+    self.agentVarietyView.dataSources = @[];
+    
     AgentVarietyViewModel *viewModel = [AgentVarietyViewModel new];
     [viewModel getListWithPage:self.page complete:^(NSArray * _Nonnull list) {
         self.agentVarietyView.dataSources = list;

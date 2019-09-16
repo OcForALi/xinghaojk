@@ -11,5 +11,6 @@
 @interface CertificationViewController : BaseViewController
 
 @property (nonatomic ,assign) NSInteger type;
+@property (nonatomic, assign) int state;
 
 @end

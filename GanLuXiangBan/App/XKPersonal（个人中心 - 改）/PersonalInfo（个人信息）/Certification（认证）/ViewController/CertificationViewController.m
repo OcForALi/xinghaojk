@@ -30,14 +30,7 @@
     
     self.imgArray = [NSMutableArray array];
     [self.imgArray addObjectsFromArray:@[@"", @"", @""]];
-    if ([self.title isEqualToString:@"身份认证"]) {
-        
-        [self getIdtAuthDetail];
-    }
-    else {
-        
-        [self getDoctorFiles];
-    }    
+    [self btnStateChangeWithState:self.state];
 }
 
 - (void)initErrorView {
@@ -144,7 +137,8 @@
         submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         submitBtn.frame = CGRectMake(0, CGRectGetMaxY(self.certificationView.frame), ScreenWidth, 50);
         submitBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-        [submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        submitBtn.backgroundColor = [UIColor colorWithHexString:@"0xc6c6c6"];
+        [submitBtn setTitle:@"身份验证中" forState:UIControlStateNormal];
         [self.view addSubview:submitBtn];
         
         @weakify(self);
@@ -192,7 +186,7 @@
 - (void)getDoctorFiles {
     
     @weakify(self);
-    self.certificationView.dataSources = @[@"工作证", @"执业医师资格证", @"执业医师执业证"];
+    self.certificationView.dataSources = @[@"相关授权", @"", @""];
 
     [[CertificationViewModel new] getDoctorFilesWithComplete:^(id object) {
         

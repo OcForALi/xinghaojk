@@ -9,6 +9,7 @@
 #import "PersonalInfoView.h"
 #import "PersonalInfoViewModel.h"
 #import "DrugModel.h"
+#import "CertificationViewController.h"
 
 @interface PersonalInfoViewController ()
 
@@ -126,9 +127,12 @@
         else if ([weakVC isKindOfClass:[NSClassFromString(@"CertificationViewController") class]]) {
             
             if ([weakVC.title isEqualToString:@"身份认证"]) {
+                
                 self.personalInfoView.model.auth_status = object;
             }
             else {
+                
+                
                 self.personalInfoView.model.certification_status = object;
             }
         }
@@ -136,6 +140,18 @@
         [self.personalInfoView reloadData];
     }];
     
+    if ([viewController isKindOfClass:[CertificationViewController class]]) {
+        
+        CertificationViewController *vc = (CertificationViewController *)viewController;
+        if ([vc.title isEqualToString:@"身份证号"]) {
+            
+            vc.state = [self.personalInfoView.model.auth_status intValue];
+        }
+        else {
+            
+            vc.state = [self.personalInfoView.model.certification_status intValue];
+        }
+    }
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
