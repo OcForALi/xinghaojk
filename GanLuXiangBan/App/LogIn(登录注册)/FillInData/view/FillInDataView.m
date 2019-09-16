@@ -323,7 +323,7 @@
     if ([model.titleName isEqualToString:@"性别"]) {
         
         NSArray *titles = @[@"男", @"女"];
-        [self actionSheetWithTitle:@"请选择性别" titles:titles isCan:NO completeBlock:^(NSInteger index) {
+        [self actionSheetWithTitle:@"请选择性别" titles:titles isCan:YES completeBlock:^(NSInteger index) {
             
             model.messageString = titles[index];
             
