@@ -252,6 +252,7 @@
     
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self hideHudAnimated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

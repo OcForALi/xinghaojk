@@ -325,7 +325,11 @@
         NSArray *titles = @[@"男", @"女"];
         [self actionSheetWithTitle:@"请选择性别" titles:titles isCan:YES completeBlock:^(NSInteger index) {
             
-            model.messageString = titles[index];
+            if (index == 0) {
+                return ;
+            }
+            
+            model.messageString = titles[index-1];
             
             NSMutableArray *sectionArray = self.dataSountArray[indexPath.section];
             [sectionArray replaceObjectAtIndex:indexPath.row withObject:model];

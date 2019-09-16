@@ -67,8 +67,22 @@
 
 #define IS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
+#define isIphoneX ({\
+int tmp = 0;\
+if (@available(iOS 11.0, *)) {\
+if ([UIApplication sharedApplication].delegate.window.safeAreaInsets.top > 20) {\
+tmp = 1;\
+}else{\
+tmp = 0;\
+}\
+}else{\
+tmp = 0;\
+}\
+tmp;\
+})
+
 #define  kTabbarSafeBottomMargin        (IS_iPhoneX ? 34.f : 0.f)
-#define  kNavbarSafeHeight        (IS_iPhoneX ? 24.f : 0.f)
+#define  kNavbarSafeHeight        (isIphoneX ? 24.f : 0.f)
 
 // Cell右间距
 #define kCellSpacing ScreenWidth == 320 ? 15 : 20

@@ -42,10 +42,11 @@
 @property (nonatomic ,copy) NSString *IdCard;
 ///代理区域
 @property (nonatomic ,copy) NSString *ProvinceId;
-
+///城市ID
 @property (nonatomic ,copy) NSString *CityId;
 ///代理医院IDs
 @property (nonatomic ,copy) NSArray *HospitalIds;
 ///资质图片ID
 @property (nonatomic ,copy) NSArray *FileIds;
+
 @end

@@ -419,11 +419,21 @@
         bannerView.clipsToBounds = YES;
         [self.view addSubview:bannerView];
         
-        bannerView.sd_layout
-        .topSpaceToView(self.view, -kNavbarSafeHeight)
-        .centerXEqualToView(self.view)
-        .widthIs(ScreenWidth)
-        .heightIs(ScreenWidth / 2.5);
+        
+        
+        if (isIphoneX) {
+            bannerView.sd_layout
+            .topSpaceToView(self.view, -kNavbarSafeHeight)
+            .centerXEqualToView(self.view)
+            .widthIs(ScreenWidth)
+            .heightIs(ScreenWidth / 2.5);
+        }else{
+            bannerView.sd_layout
+            .topSpaceToView(self.view, -10)
+            .centerXEqualToView(self.view)
+            .widthIs(ScreenWidth)
+            .heightIs(ScreenWidth / 2.5);
+        }
         
         //获取轮播图
         self.homeRequest = [HomeRequest new];

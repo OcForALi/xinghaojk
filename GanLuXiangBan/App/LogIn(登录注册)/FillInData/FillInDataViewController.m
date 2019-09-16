@@ -355,14 +355,14 @@
                     
                     return;
                     
-                }
-                
-            }else{
-                
-                dataModel.ProvinceId = model.provinceID;
-                
-                if (model.cityID != nil) {
-                    dataModel.CityId = model.cityID;
+                }else{
+                    
+                    dataModel.ProvinceId = model.provinceID;
+                    
+                    if (model.cityID != nil) {
+                        dataModel.CityId = model.cityID;
+                    }
+                    
                 }
                 
             }

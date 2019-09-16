@@ -132,7 +132,7 @@
 - (void)postLogOnWithMobileNo:(NSString *)MobileNo Password:(NSString *)Password Code:(NSString *)Code complete:(void (^)(HttpGeneralBackModel *generalBackModel))complete{
     
     self.urlString = [self getRequestUrl:@[@"user", @"register"]];
-    self.parameters = @{@"MobileNo":MobileNo,@"Password":Password,@"Code":Code};
+    self.parameters = @{@"MobileNo":MobileNo,@"Password":Password,@"Code":Code,@"InviteCode":@""};
     
     [self requestWithIsGet:NO success:^(HttpGeneralBackModel *generalBackModel) {
         
@@ -153,7 +153,7 @@
     
     self.urlString = [self getRequestUrl:@[@"user", @"saveBasicInfo"]];
     self.parameters = [self getParametersWithClass:model];
-    [self requestWithIsGet:NO success:^(HttpGeneralBackModel *generalBackModel) {
+    [self requestNotHudWithIsGet:NO success:^(HttpGeneralBackModel *generalBackModel) {
 
         if (complete) {
             complete(generalBackModel);
