@@ -29,6 +29,7 @@
 
     self.title = @"我的银行卡";
     
+    [self addBtn];
     [self setEditRightTitle];
 }
 
@@ -73,6 +74,40 @@
 }
 
 #pragma mark - lazy
+- (void)addBtn {
+    
+    self.addCardBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.addCardBtn.frame = CGRectMake(0, CGRectGetMaxY(self.myCardView.frame), ScreenWidth, 50);
+    self.addCardBtn.backgroundColor = kMainColor;
+    self.addCardBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [self.addCardBtn setTitle:@"添加银行卡" forState:UIControlStateNormal];
+    [self.addCardBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:self.addCardBtn];
+    
+    @weakify(self);
+    [[self.addCardBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        
+        @strongify(self);
+        NSString *titleString = self.addCardBtn.titleLabel.text;
+        if ([titleString isEqualToString:@"添加银行卡"]) {
+            
+            [self.navigationController pushViewController:[NSClassFromString(@"AddCardViewController") new] animated:YES];
+        }
+        else if (self.myCardView.selectArray.count > 0) {
+            
+            NSMutableArray *ids = [NSMutableArray array];
+            for (int i = 0; i < self.myCardView.selectArray.count; i++) {
+                
+                MyCardModel *cardModel = self.myCardView.selectArray[i];
+                [ids addObject:cardModel.pkid];
+            }
+            
+            [self deleteBackWithIds:ids];
+        }
+    }];
+
+}
+
 - (MyCardViewModel *)viewModel {
     
     if (!viewModel) {
@@ -123,35 +158,6 @@
                     }
                 }
             }];
-        }];
-        
-        self.addCardBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.addCardBtn.frame = CGRectMake(0, CGRectGetMaxY(myCardView.frame), ScreenWidth, 50);
-        self.addCardBtn.backgroundColor = kMainColor;
-        self.addCardBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-        [self.addCardBtn setTitle:@"添加银行卡" forState:UIControlStateNormal];
-        [self.addCardBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.view addSubview:self.addCardBtn];
-        
-        [[self.addCardBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            
-            @strongify(self);
-            NSString *titleString = self.addCardBtn.titleLabel.text;
-            if ([titleString isEqualToString:@"添加银行卡"]) {
-                
-                [self.navigationController pushViewController:[NSClassFromString(@"AddCardViewController") new] animated:YES];
-            }
-            else if (self.myCardView.selectArray.count > 0) {
-                
-                NSMutableArray *ids = [NSMutableArray array];
-                for (int i = 0; i < self.myCardView.selectArray.count; i++) {
-                    
-                    MyCardModel *cardModel = self.myCardView.selectArray[i];
-                    [ids addObject:cardModel.pkid];
-                }
-                
-                [self deleteBackWithIds:ids];
-            }
         }];
     }
     
