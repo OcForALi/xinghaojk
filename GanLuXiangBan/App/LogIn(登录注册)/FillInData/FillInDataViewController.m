@@ -80,7 +80,11 @@
         [self addPic];
     }];
     
-    
+    [self.fillInView setImageDeleteBlock:^(NSInteger index) {
+        @strongify(self);
+        [self.picArray removeObjectAtIndex:index];
+        self.fillInView.imgDataSource = self.picArray;
+    }];
     
     UIButton *sendButton = [UIButton new];
     sendButton.titleLabel.font = [UIFont systemFontOfSize: 16];

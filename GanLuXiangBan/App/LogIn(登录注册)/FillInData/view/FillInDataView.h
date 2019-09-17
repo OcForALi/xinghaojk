@@ -13,6 +13,8 @@ typedef void (^FillInDataBlock)(NSMutableArray *array);
 
 typedef void(^ActionSheetCompleteBlock)(NSInteger index);
 
+typedef void(^ImageDeleteBlock)(NSInteger index);
+
 @interface FillInDataView : UIView <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 
 @property (nonatomic ,retain) UITableView *myTable;
@@ -33,6 +35,8 @@ typedef void(^ActionSheetCompleteBlock)(NSInteger index);
 @property (nonatomic, strong) NSArray *imgDataSource;
 // 图片点击Block
 @property (nonatomic, strong) void (^imgClickBlock)(void);
+// 删除图片Block
+@property (nonatomic ,copy) ImageDeleteBlock imageDeleteBlock;
 
 /// 提示框回调
 @property (nonatomic, copy) ActionSheetCompleteBlock complete;

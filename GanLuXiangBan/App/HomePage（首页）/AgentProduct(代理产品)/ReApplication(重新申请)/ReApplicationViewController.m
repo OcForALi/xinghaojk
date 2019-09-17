@@ -236,6 +236,21 @@
             .widthIs(size.width)
             .heightIs(size.height);
             
+            UIImageView *deleteImage = [UIImageView new];
+            deleteImage.image = [UIImage imageNamed:@"TreatmentDeleteImg"];
+            deleteImage.contentMode = UIViewContentModeScaleAspectFit;
+            deleteImage.userInteractionEnabled = YES;
+            deleteImage.tag = i + 1000;
+            UITapGestureRecognizer *deleteTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(deleteImage:)];
+            [deleteImage addGestureRecognizer:deleteTap];
+            [self.picView addSubview:deleteImage];
+            
+            deleteImage.sd_layout
+            .rightSpaceToView(imageView, 10)
+            .bottomSpaceToView(imageView, -10)
+            .widthIs(40)
+            .heightIs(20);
+            
             if (i == self.picArray.count - 1) {
                 
                 if (countInteger + 1 == 3) {
@@ -375,6 +390,14 @@
         }];
         
     }
+    
+}
+
+- (void)deleteImage:(UITapGestureRecognizer *)sender{
+    
+    [self.picArray removeObjectAtIndex:sender.view.tag - 1000];
+    
+    [self pic];
     
 }
 

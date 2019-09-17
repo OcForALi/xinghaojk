@@ -152,6 +152,7 @@
             
             UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
             [imageView addGestureRecognizer:tap];
+            
             [[tap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
                 
                 if (i >= self.imgDataSource.count) {
@@ -161,13 +162,39 @@
                     }
                 }
             }];
-
+            
+            if (self.imgDataSource.count != 0) {
+                
+                if (i != self.imgDataSource.count) {
+                    
+                    UIImageView *deleteImage = [UIImageView new];
+                    deleteImage.image = [UIImage imageNamed:@"TreatmentDeleteImg"];
+                    deleteImage.contentMode = UIViewContentModeScaleAspectFit;
+                    deleteImage.userInteractionEnabled = YES;
+                    deleteImage.tag = i + 1000;
+                    UITapGestureRecognizer *deleteTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(deleteImage:)];
+                    [deleteImage addGestureRecognizer:deleteTap];
+                    [footerView addSubview:deleteImage];
+                    
+                    deleteImage.sd_layout
+                    .rightSpaceToView(imageView, -10)
+                    .bottomSpaceToView(imageView, -10)
+                    .widthIs(40)
+                    .heightIs(20);
+                    
+                }
+                
+            }
+            
             // 设置图片
             if (self.imgDataSource.count > i) {
                 
                 NSURL *url = [NSURL URLWithString:self.imgDataSource[i]];
                 [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Keyboard_Image"]];
             }
+            
+            
+            
         }
     }
     
@@ -175,7 +202,13 @@
 }
 
 
-
+- (void)deleteImage:(UITapGestureRecognizer *)sender{
+    
+    if (self.imageDeleteBlock) {
+        self.imageDeleteBlock(sender.view.tag - 1000);
+    }
+    
+}
 
 -(void)initData{
     
