@@ -70,6 +70,7 @@
         textField.placeholder = @"请输入您的真实姓名";
     }
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.text = self.text;
     [bgView addSubview:textField];
     
     if (self.placeholderString.length > 0) {

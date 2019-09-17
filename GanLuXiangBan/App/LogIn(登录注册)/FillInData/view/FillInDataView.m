@@ -402,10 +402,15 @@
                         self.goViewControllerBlock(selDepartmentView);
                     }
                     
-                }else{
+                }
+                else {
                     
                     BaseViewController *viewController = [NSClassFromString([dict objectForKey:allKeys[index]]) new];
                     viewController.title = allKeys[index];
+                    
+                    if ([model.titleName containsString:@"姓名"] || [model.titleName containsString:@"身份证号"]) {
+                        [viewController setValue:model.messageString forKey:@"text"];
+                    }
                     
                     if (self.goViewControllerBlock) {
                         self.goViewControllerBlock(viewController);

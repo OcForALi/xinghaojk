@@ -156,8 +156,11 @@
         }
         else {
             
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            
             vcname = @"EditUserInfoViewController";
             vc = [NSClassFromString(vcname) new];
+            [vc setValue:cell.detailTextLabel.text forKey:@"text"];
             vc.title = text;
         }
     }

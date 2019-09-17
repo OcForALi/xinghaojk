@@ -11,5 +11,6 @@
 @interface EditUserInfoViewController : BaseViewController
 
 @property (nonatomic, strong) NSString *placeholderString;
+@property (nonatomic, strong) NSString *text;
 
 @end
