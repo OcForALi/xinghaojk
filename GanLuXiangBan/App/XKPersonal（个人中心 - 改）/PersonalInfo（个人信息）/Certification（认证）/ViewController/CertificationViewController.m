@@ -30,6 +30,15 @@
     
     self.imgArray = [NSMutableArray array];
     [self.imgArray addObjectsFromArray:@[@"", @"", @""]];
+    if ([self.title isEqualToString:@"身份认证"]) {
+        
+        self.certificationView.dataSources = @[@"身份证正面", @"身份证反面"];
+    }
+    else {
+        
+        self.certificationView.dataSources = @[@"相关授权资质"];
+    }
+    
     [self btnStateChangeWithState:self.state];
 }
 
@@ -186,7 +195,7 @@
 - (void)getDoctorFiles {
     
     @weakify(self);
-    self.certificationView.dataSources = @[@"相关授权", @"", @""];
+    self.certificationView.dataSources = @[@"相关授权资质"];
 
     [[CertificationViewModel new] getDoctorFilesWithComplete:^(id object) {
         

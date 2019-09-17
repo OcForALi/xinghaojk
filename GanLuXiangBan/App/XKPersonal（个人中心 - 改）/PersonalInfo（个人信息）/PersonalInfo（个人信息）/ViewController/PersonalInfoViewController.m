@@ -53,7 +53,7 @@
     if (!personalInfoView) {
         
         personalInfoView = [[PersonalInfoView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, self.view.height) style:UITableViewStyleGrouped];
-        personalInfoView.dataSources = @[@[@"姓名", @"性别", @"身份证号", @"代理区域"], @[@"身份认证", @"资格认证"]];
+        personalInfoView.dataSources = @[@[@"姓名", @"性别", @"身份证号", @"代理区域"], @[@"身份认证", @"资格验证"]];
         [self.view addSubview:personalInfoView];
         
         @weakify(self);
