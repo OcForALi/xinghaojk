@@ -246,7 +246,7 @@
             [self.picView addSubview:deleteImage];
             
             deleteImage.sd_layout
-            .leftSpaceToView(imageView, -20)
+            .rightSpaceToView(imageView, 10)
             .bottomSpaceToView(imageView, -10)
             .widthIs(40)
             .heightIs(20);

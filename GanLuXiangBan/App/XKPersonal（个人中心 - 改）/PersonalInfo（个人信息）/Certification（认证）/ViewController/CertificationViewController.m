@@ -36,7 +36,7 @@
     }
     else {
         
-        self.certificationView.dataSources = @[@"相关授权资质"];
+        self.certificationView.dataSources = @[@"相关授权资质", @"", @""];
     }
     
     [self btnStateChangeWithState:self.state];

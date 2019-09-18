@@ -248,11 +248,6 @@
             
             NSLog(@"注册成功");
             
-            if (generalBackModel == nil) {
-                [self.view makeToast:@"接口报错"];
-                return;
-            }
-            
             if (generalBackModel.retcode == 0) {
                 
                 FillInDataViewController *fillInVC = [[FillInDataViewController alloc] init];
