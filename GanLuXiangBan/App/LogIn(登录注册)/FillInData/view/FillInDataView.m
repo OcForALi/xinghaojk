@@ -177,7 +177,7 @@
                     [footerView addSubview:deleteImage];
                     
                     deleteImage.sd_layout
-                    .rightSpaceToView(imageView, -10)
+                    .leftSpaceToView(imageView, -20)
                     .bottomSpaceToView(imageView, -10)
                     .widthIs(40)
                     .heightIs(20);
