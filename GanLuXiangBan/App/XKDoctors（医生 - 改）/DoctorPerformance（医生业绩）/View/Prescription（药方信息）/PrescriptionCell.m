@@ -92,6 +92,10 @@
 
 - (void)setModel:(PerformanceRecipesModel *)model {
     
+    if (model == nil) {
+        return;
+    }
+    
     self.timeLabel.text = model.recipe_time;
     self.priceLabel.text = [@"¥ " stringByAppendingString:model.amount];
     self.userLabel.text = [@"临床诊断：" stringByAppendingString:model.check_result];

@@ -183,6 +183,11 @@
             WS(weakSelf)
             [self.logInRequest getCaptchaWithmobileno:self.phoneTextField.text type:1 complete:^(HttpGeneralBackModel *generalBackModel) {
                 
+                BOOL is_register = [generalBackModel.data[@"is_register"] boolValue];
+                if (is_register == YES) {
+                    [weakSelf.view makeToast:generalBackModel.retmsg];
+                }
+                
                 if (generalBackModel.retcode != 0) {
                     [weakSelf.view makeToast:generalBackModel.retmsg];
                 }

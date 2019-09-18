@@ -195,6 +195,11 @@
         
         SetUserDefault(UserPwd, pwd);
         
+        if (generalBackModel.retcode != 0) {
+            [self.view makeToast:generalBackModel.retmsg];
+            return ;
+        }
+        
         LogInModel *model = [LogInModel new];
         [model setValuesForKeysWithDictionary:generalBackModel.data];
         
@@ -225,9 +230,7 @@
                 [GLAppDelegate initMainController];
             }
             
-            if (generalBackModel.retcode == 1) {
-                [self.view makeToast:generalBackModel.retmsg];
-            }
+            
             [self hideHudAnimated];
         }
     }];

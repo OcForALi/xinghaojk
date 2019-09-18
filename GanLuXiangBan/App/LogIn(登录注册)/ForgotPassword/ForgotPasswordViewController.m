@@ -149,7 +149,7 @@
             self.logInRequest = [LogInRequest new];
             WS(weakSelf)
             [self.logInRequest getMasterDataCaptchaWithmobileno:self.phoneTextField.text type:2 complete:^(HttpGeneralBackModel *generalBackModel) {
-
+                
                 [self.view makeToast:generalBackModel.retcode == 0 ? @"发送验证码成功" : generalBackModel.retmsg];
                 
                 if (generalBackModel.retcode == 0) {

@@ -30,7 +30,7 @@
 
     [self requestWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
         
-        if (genneralBackModel.data == nil) {
+        if (genneralBackModel.data == nil || [genneralBackModel.data isKindOfClass:[NSNull class]] || [genneralBackModel.data isKindOfClass:[NSString class]]) {
             return ;
         }
         
