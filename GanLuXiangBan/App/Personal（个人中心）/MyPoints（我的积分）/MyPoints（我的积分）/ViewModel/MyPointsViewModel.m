@@ -30,6 +30,10 @@
 
     [self requestWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
         
+        if (genneralBackModel.data == nil) {
+            return ;
+        }
+        
         NSMutableArray *arr = [NSMutableArray array];
         NSDictionary *dict = genneralBackModel.data;
         NSDictionary *pageInfoDict = (NSDictionary *)genneralBackModel.pageinfo;

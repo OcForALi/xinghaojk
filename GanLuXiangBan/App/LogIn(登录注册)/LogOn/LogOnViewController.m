@@ -246,7 +246,10 @@
         
         [self.logInRequest postLogOnWithMobileNo:self.phoneTextField.text Password:self.passwordTextField.text Code:self.captchaTextField.text complete:^(HttpGeneralBackModel *generalBackModel) {
             
-            NSLog(@"注册成功");
+            if (generalBackModel == nil) {
+                [self.view makeToast:@"注册失败"];
+                return ;
+            }
             
             if (generalBackModel.retcode == 0) {
                 

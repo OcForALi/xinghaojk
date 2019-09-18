@@ -173,6 +173,10 @@
     
     [self.homeRequest getRankingLstPage:1 size:self.page*10 :^(HttpGeneralBackModel *generalBackModel) {
         
+        if (generalBackModel.data == nil) {
+            return ;
+        }
+        
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *dict in generalBackModel.data) {
             

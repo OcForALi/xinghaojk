@@ -21,12 +21,9 @@
         value = [numberFormatter stringFromNumber:value];
         value = [value stringByReplacingOccurrencesOfString:@"," withString:@""];
     }
-    else if ([value isKindOfClass:[NSNull class]]) {
+    else if ([value isKindOfClass:[NSNull class]] || value == nil) {
         value = @"";
     }
-//    else if (value == nil){
-//        return;
-//    }
     
     [super setValue:value forKey:key];
 }

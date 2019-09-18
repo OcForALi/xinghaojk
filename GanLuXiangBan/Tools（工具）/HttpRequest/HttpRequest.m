@@ -174,17 +174,17 @@
 
 - (NSString *)getRequestUrl:(NSArray *)parArr {
     
-#if 1
+//#if 1
+//
+//#else
+//    NSString *tempStr =@"http://appitftest.6ewei.com/api";
+//#endif
     NSString *tempStr =
-//    @"http://appitf.6ewei.com/api";
+    //    @"http://appitf.6ewei.com/api";
     //@"http://appitf.6ewei.com/api";
     //@"http://39.108.187.219/xhjk_api/api";
     @"http://112.74.128.188/Agent/api";
     //@"http://itf.6ewei.com/api";
-#else
-    NSString *tempStr =@"http://appitftest.6ewei.com/api";
-#endif
-    
     for (int i = 0; i < parArr.count; i++) {
         tempStr = [NSString stringWithFormat:@"%@/%@",tempStr,parArr[i]];
     }
