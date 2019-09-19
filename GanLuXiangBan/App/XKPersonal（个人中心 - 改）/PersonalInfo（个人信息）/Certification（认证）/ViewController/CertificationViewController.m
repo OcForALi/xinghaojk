@@ -179,7 +179,11 @@
     self.certificationView.dataSources = @[@"身份证正面", @"身份证反面"];
 
     [[CertificationViewModel new] getIdtAuthDetailWithComplete:^(id object) {
-     
+        
+        if ([object isKindOfClass:[NSNull class]] || object == nil) {
+            return ;
+        }
+        
         @strongify(self);
         
         CerImgModel *model = [CerImgModel new];
@@ -198,6 +202,10 @@
     self.certificationView.dataSources = @[@"相关授权资质"];
 
     [[CertificationViewModel new] getDoctorFilesWithComplete:^(id object) {
+        
+        if ([object isKindOfClass:[NSNull class]] || object == nil) {
+            return ;
+        }
         
         @strongify(self);
         
@@ -303,6 +311,10 @@
     
     NSData *imageData = UIImageJPEGRepresentation(image, 0.3);
     [[CertificationViewModel new] uploadImageWithImgs:imageData complete:^(id object) {
+        
+        if ([object isKindOfClass:[NSNull class]] || object == nil) {
+            return ;
+        }
         
         [self hideHudAnimated];
         [self.imgArray replaceObjectAtIndex:index withObject:object];

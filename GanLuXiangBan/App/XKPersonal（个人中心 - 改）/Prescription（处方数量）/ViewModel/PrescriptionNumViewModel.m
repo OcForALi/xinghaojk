@@ -21,6 +21,10 @@
     self.urlString = [self getRequestUrl:@[urlStr]];
     [self requestWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
         
+        if ([genneralBackModel.data isKindOfClass:[NSNull class]] || genneralBackModel.data == nil || [genneralBackModel.data isKindOfClass:[NSString class]]) {
+            return ;
+        }
+        
         NSMutableArray *arr = [NSMutableArray array];
         for (NSDictionary *dict in genneralBackModel.data) {
             

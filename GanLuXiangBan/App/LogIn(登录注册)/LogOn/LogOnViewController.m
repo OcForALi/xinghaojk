@@ -185,7 +185,7 @@
                 
                 BOOL is_register = [generalBackModel.data[@"is_register"] boolValue];
                 if (is_register == YES) {
-                    [weakSelf.view makeToast:generalBackModel.retmsg];
+                    [weakSelf.view makeToast:@"该手机号已注册"];
                 }
                 
                 if (generalBackModel.retcode != 0) {

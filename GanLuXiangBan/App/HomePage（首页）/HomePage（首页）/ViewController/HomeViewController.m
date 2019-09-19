@@ -173,7 +173,7 @@
     
     [self.homeRequest getRankingLstPage:1 size:self.page*10 :^(HttpGeneralBackModel *generalBackModel) {
         
-        if (generalBackModel.data == nil || [generalBackModel.data isKindOfClass:[NSNull class]]) {
+        if (generalBackModel.data == nil || [generalBackModel.data isKindOfClass:[NSNull class]] || [generalBackModel.data isKindOfClass:[NSString class]]) {
             return ;
         }
         

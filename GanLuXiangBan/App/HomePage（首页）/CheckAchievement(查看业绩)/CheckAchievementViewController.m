@@ -172,6 +172,10 @@
     
     [request postPointInfoRecord_type:0 Page:1 size:10 Point_date:@"" :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
         
+        if ([generalBackModel.data isKindOfClass:[NSNull class]] || generalBackModel.data == nil || [generalBackModel.data isKindOfClass:[NSString class]]) {
+            return ;
+        }
+        
         UILabel *label = [self.view viewWithTag:1001];
         
         UILabel *label1 = [self.view viewWithTag:1004];

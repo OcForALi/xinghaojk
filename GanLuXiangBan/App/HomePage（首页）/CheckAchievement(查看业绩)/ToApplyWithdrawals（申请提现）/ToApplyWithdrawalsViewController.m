@@ -66,6 +66,10 @@
     
     [self.checkAchievementRequest postPointInfoRecord_type:0 Page:1 size:10 Point_date:@"" :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
         
+        if ([generalBackModel.data isKindOfClass:[NSNull class]] || generalBackModel.data == nil || [generalBackModel.data isKindOfClass:[NSString class]]) {
+            return ;
+        }
+        
         if (generalBackModel.data != nil) {
             NSString *string = generalBackModel.data[@"presentIntegral"];
             NSString *string1 = generalBackModel.data[@"integralBalancep"];
