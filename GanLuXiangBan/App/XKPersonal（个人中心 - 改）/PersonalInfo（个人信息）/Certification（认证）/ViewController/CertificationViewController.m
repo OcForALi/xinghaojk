@@ -94,12 +94,14 @@
         case 1:
             
             self.submitBtn.backgroundColor = [UIColor colorWithHexString:@"0xc6c6c6"];
+            self.submitBtn.userInteractionEnabled = NO;
             [self.submitBtn setTitle:@"身份验证中" forState:UIControlStateNormal];
             break;
             
         case 2:
             
             self.submitBtn.backgroundColor = [UIColor colorWithHexString:@"0xc6c6c6"];
+            self.submitBtn.userInteractionEnabled = NO;
             [self.submitBtn setTitle:@"审核已通过" forState:UIControlStateNormal];
             break;
             
@@ -110,6 +112,7 @@
         default:
             
             self.submitBtn.backgroundColor = kMainColor;
+            self.submitBtn.userInteractionEnabled = YES;
             [self.submitBtn setTitle:@"提交申请" forState:UIControlStateNormal];
             break;
     }

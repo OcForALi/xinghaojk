@@ -229,7 +229,7 @@
         [manager GET:self.urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             HttpGeneralBackModel *model = [HttpGeneralBackModel new];
-            [model jsonParsingWithDict:responseObject];
+            [model setValuesForKeysWithDictionary:responseObject];
             model.responseObject = responseObject;
             
             DebugLog(@"urlString = %@\n\n  %@  retcode = %@  \n\n", self.urlString, [self printRequestData:model.data], @(model.retcode));
@@ -285,7 +285,7 @@
         [manager POST:self.urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             HttpGeneralBackModel *model = [HttpGeneralBackModel new];
-            [model jsonParsingWithDict:responseObject];
+            [model setValuesForKeysWithDictionary:responseObject];
             
             DebugLog(@"urlString = %@\n\n  %@  retcode = %@  \n\n  retmsg = %@  \n\n", self.urlString, [self printRequestData:model.data], @(model.retcode), model.retmsg);
             
@@ -401,7 +401,7 @@
             }
             
             HttpGeneralBackModel *model = [HttpGeneralBackModel new];
-            [model jsonParsingWithDict:responseObject];
+            [model setValuesForKeysWithDictionary:responseObject];
 //            [model setValuesForKeysWithDictionary:responseObject];
             model.responseObject = responseObject;
             
@@ -432,7 +432,7 @@
         [manager POST:self.urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
             HttpGeneralBackModel *model = [HttpGeneralBackModel new];
-            [model jsonParsingWithDict:responseObject];
+            [model setValuesForKeysWithDictionary:responseObject];
 
             DebugLog(@"urlString = %@\n\n  %@  retcode = %@  \n\n", self.urlString, [self printRequestData:model.data], @(model.retcode));
             
@@ -563,7 +563,7 @@
                 NSDictionary *response = (NSDictionary *)object;
                 
                 HttpGeneralBackModel *model = [HttpGeneralBackModel new];
-                [model jsonParsingWithDict:response];
+                [model setValuesForKeysWithDictionary:response];
                 DebugLog(@"urlString = %@\n\n  %@  retcode = %@  \n\n", request.URL, [self printRequestData:model.data], @(model.retcode));
                 
                 if (success) {
