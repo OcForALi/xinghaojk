@@ -23,14 +23,14 @@
     
 }
 
--(void)setModel:(HomeModel *)model{
+-(void)setModel:(HomeNewModel *)model{
     _model = model;
 }
 
 -(void)initUI{
     
     UIImageView *imageView = [UIImageView new];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.model.drinfoModel.qrcode2]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.model.invite_sample_qrcode]];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.layer.borderWidth = 1;
     imageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -89,7 +89,7 @@
     [subTitleLabel setSingleLineAutoResizeWithMaxWidth:200];
     
     UILabel *invitationLabel = [UILabel new];
-    invitationLabel.text = [NSString stringWithFormat:@"邀请码为：%@",self.model.drinfoModel.invite_code];
+    invitationLabel.text = [NSString stringWithFormat:@"邀请码为：%ld",(long)self.model.invite_code];
     invitationLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:invitationLabel];
     

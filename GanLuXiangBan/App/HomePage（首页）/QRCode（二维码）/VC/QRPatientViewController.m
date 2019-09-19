@@ -24,7 +24,7 @@
     
 }
 
--(void)setModel:(HomeModel *)model{
+-(void)setModel:(HomeNewModel *)model{
     
     _model = model;
     
@@ -33,7 +33,7 @@
 -(void)initUI{
     
     UIImageView *imageView = [UIImageView new];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.model.drinfoModel.qrcode]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.model.invite_dr_qrcode]];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.layer.borderWidth = 1;
     imageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];

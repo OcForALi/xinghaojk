@@ -10,6 +10,6 @@
 #import "HomeModel.h"
 @interface QRCodeViewController : BaseViewController
 
-@property (nonatomic ,copy) HomeModel *model;
+@property (nonatomic ,copy) HomeNewModel *model;
 
 @end

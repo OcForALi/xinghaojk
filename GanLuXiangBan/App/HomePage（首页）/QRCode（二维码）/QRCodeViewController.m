@@ -49,7 +49,7 @@
     
 }
 
--(void)setModel:(HomeModel *)model{
+-(void)setModel:(HomeNewModel *)model{
     
     _model = model;
     
@@ -144,14 +144,14 @@
 }
 
 - (void)shareWithWX:(int)scene {
-    NSString *title = [NSString stringWithFormat:@"我是%@医生，", GetUserDefault(UserName)];
-    NSString *url = [NSString stringWithFormat:@"http://nkwx.6ewei.com/yy/views/scan.html#/?drid=%@", GetUserDefault(UserID)];
+    NSString *title = [NSString stringWithFormat:@"我是%@，", GetUserDefault(UserName)];
+    NSString *url = [NSString stringWithFormat:@"http://nkwxtest.6ewei.com/yy/views/agent.html#/?agid=%@", GetUserDefault(UserID)];
     if (self.countInteger == 2) {
-        title = [title stringByAppendingString:@"邀请您加入幸好健康，成为首批进驻医生。"];
+        title = [title stringByAppendingString:@"邀请您加入幸好健康代理 商联盟，服务最权威的男性健康专科管理平台。"];
         url = [url stringByAppendingString:@"&type=1"];
     }
     else {
-        title = [title stringByAppendingString:@"欢迎关注我的幸好健康医生端公众账号，以便于为你提供一体化服务。"];
+        title = [title stringByAppendingString:@"邀请您加入幸好健康代理商联盟，服务最权威的男性健康专科管理平台。"];
         url = [url stringByAppendingString:@"&type=0"];
     }
     WS(weakSelf)

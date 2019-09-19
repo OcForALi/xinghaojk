@@ -11,6 +11,6 @@
 
 @interface QRDoctorViewController : BaseViewController
 
-@property (nonatomic ,copy)HomeModel *model;
+@property (nonatomic ,copy)HomeNewModel *model;
 
 @end

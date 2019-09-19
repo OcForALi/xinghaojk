@@ -47,6 +47,8 @@
 
 @property (nonatomic ,retain) HomeModel *homeModel;
 
+@property (nonatomic ,retain) HomeNewModel *homeNewModel;
+
 @property (nonatomic ,strong) HomeMessgeView *homeMessgeView;
 
 @property (nonatomic ,strong) UIView *signView;
@@ -76,6 +78,8 @@
     self.page = 1;
     
     self.homeModel = [HomeModel new];
+    
+    self.homeNewModel = [HomeNewModel new];
     
     [self request];
     
@@ -212,9 +216,15 @@
     
     [self.homeRequest getUserAgentInfo:^(HttpGeneralBackModel *generalBackModel) {
        
+        if ([generalBackModel.data isKindOfClass:[NSNull class]] || [generalBackModel.data isKindOfClass:[NSString class]] || generalBackModel.data == nil) {
+            return ;
+        }
+        
         if (generalBackModel.data[@"head"] != nil && [generalBackModel.data[@"head"] rangeOfString:@"http"].location !=NSNotFound) {
             SetUserDefault(UserHead, generalBackModel.data[@"head"]);
         }
+        
+        [weakSelf.homeNewModel setValuesForKeysWithDictionary:generalBackModel.data];
         
     }];
     
@@ -232,8 +242,8 @@
             amount = [generalBackModel.data[@"order_amount"] integerValue];
         }
         
-        weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%ld）", drNum];
-        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%ld）", amount];
+        weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%ld）", (long)drNum];
+        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%ld）", (long)amount];
     }];
     
     if (!GetUserDefault(UserHead)) {
@@ -422,7 +432,6 @@
         bannerView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
         bannerView.clipsToBounds = YES;
         [self.view addSubview:bannerView];
-        
         
         
         if (isIphoneX) {
@@ -725,7 +734,7 @@
     if (tag == 0) {
         
         QRCodeViewController *qrCodeVC = [[QRCodeViewController alloc] init];
-        qrCodeVC.model = self.homeModel;
+        qrCodeVC.model = self.homeNewModel;
         qrCodeVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:qrCodeVC animated:YES];
         

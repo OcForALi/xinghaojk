@@ -41,4 +41,10 @@
 
 @property (nonatomic ,assign) NSInteger num;
 
+@property (nonatomic ,copy) NSString *invite_dr_qrcode;
+
+@property (nonatomic ,copy) NSString *invite_sample_qrcode;
+
+@property (nonatomic ,assign) NSInteger invite_code;
+
 @end
