@@ -12,6 +12,8 @@
 @interface CertificationView : BaseTableView
 
 @property (nonatomic, strong) CerImgModel *cerImgModel;
+@property (nonatomic, assign) int state;
+
 @property (nonatomic, strong) void (^goImgBlock)(UIViewController *viewController);
 @property (nonatomic, strong) void (^uploadImg)(NSInteger index, UIImage *img);
 

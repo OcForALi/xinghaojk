@@ -164,11 +164,10 @@
         
         NSUInteger sourceType = 0;
         UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            
-            imagePickerController.showsCameraControls = NO;
-            imagePickerController.delegate = self;
-            imagePickerController.allowsEditing = YES;
+
             if (index == 1) {
                 
                 //拍照

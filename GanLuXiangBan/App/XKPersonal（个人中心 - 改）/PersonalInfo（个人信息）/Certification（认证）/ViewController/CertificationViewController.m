@@ -36,7 +36,7 @@
     }
     else {
         
-        self.certificationView.dataSources = @[@"相关授权资质", @"", @""];
+        self.certificationView.dataSources = @[@"相关授权资质"];
     }
     
     [self btnStateChangeWithState:self.state];
@@ -125,6 +125,7 @@
         
         certificationView = [[CertificationView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - self.navHeight - 50) style:UITableViewStyleGrouped];
         certificationView.backgroundColor = [UIColor whiteColor];
+        certificationView.state = self.state;
         [self.view addSubview:certificationView];
         
         WS(weakSelf);
@@ -317,6 +318,17 @@
         
         if ([object isKindOfClass:[NSNull class]] || object == nil) {
             return ;
+        }
+        
+        if (self.certificationView.dataSources.count - 1 <= index) {
+            
+            if ([self.title isEqualToString:@"资格验证"]) {
+                
+                NSMutableArray *arr = [NSMutableArray arrayWithArray:self.certificationView.dataSources];
+                [arr addObject:@""];
+                
+                self.certificationView.dataSources = arr;
+            }
         }
         
         [self hideHudAnimated];
