@@ -311,11 +311,11 @@
                     
                     if ([model.messageString isEqualToString:@"男"]) {
                         
-                        dataModel.Gender = @"1";
+                        dataModel.Gender = model.messageString;
                         
                     }else{
                         
-                        dataModel.Gender = @"0";
+                        dataModel.Gender = model.messageString;
                         
                     }
                     
