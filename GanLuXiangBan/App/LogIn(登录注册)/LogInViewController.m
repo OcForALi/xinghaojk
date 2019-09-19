@@ -195,8 +195,14 @@
         
         SetUserDefault(UserPwd, pwd);
         
+        [self hideHudAnimated];
+        
         if (generalBackModel.retcode != 0) {
             [self.view makeToast:generalBackModel.retmsg];
+            return ;
+        }
+        
+        if ([generalBackModel.data isKindOfClass:[NSNull class]] || [generalBackModel.data isKindOfClass:[NSString class]] || generalBackModel.data == nil) {
             return ;
         }
         
@@ -230,8 +236,6 @@
                 [GLAppDelegate initMainController];
             }
             
-            
-            [self hideHudAnimated];
         }
     }];
     
