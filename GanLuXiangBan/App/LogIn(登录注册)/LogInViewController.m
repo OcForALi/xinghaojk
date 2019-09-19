@@ -195,10 +195,9 @@
         
         SetUserDefault(UserPwd, pwd);
         
-        [self hideHudAnimated];
-        
         if (generalBackModel.retcode != 0) {
             [self.view makeToast:generalBackModel.retmsg];
+            [self hideHudAnimated];
             return ;
         }
         
@@ -236,7 +235,12 @@
                 [GLAppDelegate initMainController];
             }
             
+        }else if (model.check_status == -1){
+            [self.view makeToast:@"待审核中"];
         }
+        
+        [self hideHudAnimated];
+        
     }];
     
 }
