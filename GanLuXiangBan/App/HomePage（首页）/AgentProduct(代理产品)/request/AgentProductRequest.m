@@ -8,6 +8,8 @@
 
 #import "AgentProductRequest.h"
 
+
+
 @implementation AgentProductRequest
 
 - (void)getAgDrugLstStart:(NSInteger)status Page:(NSInteger)page size:(NSInteger)size :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
@@ -31,21 +33,13 @@
     
 }
 
-- (void)postAgentDrugAppAppId:(NSInteger)ID Drug_id:(NSString *)drug_id Drug_name:(NSString *)drug_name Commonname:(NSString *)commonname Producer:(NSString *)producer Spec:(NSString *)spec Form:(NSString *)form Unit:(NSString *)unit Approval:(NSString *)approval Certs:(NSArray *)certs :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+- (void)postAgentDrug:(DrugListModel*)model :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
     
     self.urlString = [self getRequestUrl:@[@"Drug",@"AgentDrugApp"]];
-    self.parameters = @{
-                        @"appId":@(ID),
-                        @"drug_id":drug_id,
-                        @"drug_name":drug_name,
-                        @"commonname":commonname,
-                        @"producer":producer,
-                        @"spec":spec,
-                        @"form":form,
-                        @"unit":unit,
-                        @"approval":approval,
-                        @"certs":certs
-                        };
+    if (model.unit == nil) {
+        model.unit = @"";
+    }
+    self.parameters = [self getParametersWithClass:model];
     
     [self requestNotHudWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
         
@@ -84,21 +78,13 @@
     
 }
 
-- (void)postReAppDrugAgentAppId:(NSInteger)ID Drug_id:(NSString *)drug_id Drug_name:(NSString *)drug_name Commonname:(NSString *)commonname Producer:(NSString *)producer Spec:(NSString *)spec Form:(NSString *)form Unit:(NSString *)unit Approval:(NSString *)approval Certs:(NSArray *)certs :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
+- (void)postReAppDrugAgent:(ProductModel*)model :(void (^)(HttpGeneralBackModel *generalBackModel))complete{
     
     self.urlString = [self getRequestUrl:@[@"Drug",@"ReAppDrugAgent"]];
-    self.parameters = @{
-                        @"appId":@(ID),
-                        @"drug_id":drug_id,
-                        @"drug_name":drug_name,
-                        @"commonname":commonname,
-                        @"producer":producer,
-                        @"spec":spec,
-                        @"form":form,
-                        @"unit":unit,
-                        @"approval":approval,
-                        @"certs":certs
-                        };
+    if (model.unit == nil) {
+        model.unit = @"";
+    }
+    self.parameters = [self getParametersWithClass:model];
     
     [self requestNotHudWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
         

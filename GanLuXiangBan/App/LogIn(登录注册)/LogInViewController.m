@@ -202,6 +202,7 @@
         }
         
         if ([generalBackModel.data isKindOfClass:[NSNull class]] || [generalBackModel.data isKindOfClass:[NSString class]] || generalBackModel.data == nil) {
+            [self hideHudAnimated];
             return ;
         }
         

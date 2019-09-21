@@ -148,11 +148,11 @@
     NSString *url = [NSString stringWithFormat:@"http://nkwxtest.6ewei.com/yy/views/agent.html#/?agid=%@", GetUserDefault(UserID)];
     if (self.countInteger == 2) {
         title = [title stringByAppendingString:@"邀请您加入幸好健康代理 商联盟，服务最权威的男性健康专科管理平台。"];
-        url = [url stringByAppendingString:@"&type=1"];
+        url = [url stringByAppendingString:@"&type=0"];
     }
     else {
         title = [title stringByAppendingString:@"邀请您加入幸好健康代理商联盟，服务最权威的男性健康专科管理平台。"];
-        url = [url stringByAppendingString:@"&type=0"];
+        url = [url stringByAppendingString:@"&type=1"];
     }
     WS(weakSelf)
     [[HttpRequest new] shortUrl:url complete:^(NSString *shortUrl) {

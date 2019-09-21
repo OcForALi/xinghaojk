@@ -220,7 +220,7 @@
             return ;
         }
         
-        if (generalBackModel.data[@"head"] != nil && [generalBackModel.data[@"head"] rangeOfString:@"http"].location !=NSNotFound) {
+        if (generalBackModel.data[@"head"] != nil && [generalBackModel.data[@"head"] rangeOfString:@"http"].location !=NSNotFound ) {
             SetUserDefault(UserHead, generalBackModel.data[@"head"]);
         }
         
@@ -232,7 +232,7 @@
 
         NSInteger drNum = 0;
         NSInteger amount = 0;
-        if (generalBackModel == nil || generalBackModel.data == nil) {
+        if (generalBackModel == nil || generalBackModel.data == nil || [generalBackModel.data isKindOfClass:[NSNull class]] || [generalBackModel.data isKindOfClass:[NSString class]]) {
             
             drNum = 0;
             amount = 0;
@@ -835,9 +835,11 @@
         
         [[CertificationViewModel new] uploadImageWithImgs:imageData complete:^(id object) {
             
-            SetUserDefault(UserHead, object);
-            
             [[HomeRequest new] postUpdateDrHeadUrl:object :^(HttpGeneralBackModel *generalBackModel) {
+                
+                if (generalBackModel.retcode == 0) {
+                    SetUserDefault(UserHead, object);
+                }
                 
             }];
             

@@ -31,12 +31,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,copy) NSString *reason;
 ///申请记录id
 @property (nonatomic ,assign) NSInteger appId;
+
 @property (nonatomic ,assign) BOOL noPassBool;
 ///不通过原因
 @property (nonatomic ,copy) NSString *unreason;
 ///资质上传图片
 @property (nonatomic ,copy) NSArray *certs;
-
+///单位
+@property (nonatomic ,copy) NSString *unit;
 
 @end
 

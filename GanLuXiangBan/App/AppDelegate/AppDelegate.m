@@ -42,7 +42,7 @@
         [self initFillInData];
         SetUserDefault(UserCheck_status, @"3");
     }else if ([GetUserDefault(UserCheck_status) integerValue] == 2){
-        [self initCertification];
+        [self initFillInData];
         SetUserDefault(UserCheck_status, @"3");
     } else {
         [self initLogIn];

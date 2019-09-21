@@ -36,5 +36,7 @@
 @property (nonatomic ,assign) BOOL isAdded;
 
 @property (nonatomic ,assign) NSInteger app_id;
+///单位
+@property (nonatomic ,copy) NSString *unit;
 
 @end

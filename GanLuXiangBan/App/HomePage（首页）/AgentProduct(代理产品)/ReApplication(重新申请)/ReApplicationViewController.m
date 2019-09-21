@@ -369,7 +369,7 @@
     
     if (self.type == 0) {
         
-        [request postAgentDrugAppAppId:0 Drug_id:self.addModel.drug_id Drug_name:self.addModel.drug_name Commonname:self.addModel.common_name Producer:self.addModel.producer Spec:self.addModel.standard Form:@"" Unit:@"" Approval:@"" Certs:self.picArray :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+        [request postAgentDrug:self.addModel :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
             
             [weakSelf.view makeToast:generalBackModel.retmsg];
             if (generalBackModel.retcode == 0) {
@@ -380,7 +380,7 @@
         
     }else if (self.type == 1){
         
-        [request postReAppDrugAgentAppId:self.noPassModel.appId Drug_id:self.noPassModel.drugId Drug_name:self.noPassModel.drugNm Commonname:self.noPassModel.commonNm Producer:self.noPassModel.producer Spec:self.noPassModel.spec Form:@"" Unit:@"" Approval:@"" Certs:self.picArray :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+        [request postReAppDrugAgent:self.noPassModel :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
             
             [weakSelf.view makeToast:generalBackModel.retmsg];
             if (generalBackModel.retcode == 0) {
