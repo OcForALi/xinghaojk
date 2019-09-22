@@ -153,6 +153,7 @@
     
     self.urlString = [self getRequestUrl:@[@"user", @"saveBasicInfo"]];
     self.parameters = [self getParametersWithClass:model];
+    NSLog(@"---- %@",self.parameters);
     [self requestNotHudWithIsGet:NO success:^(HttpGeneralBackModel *generalBackModel) {
 
         if (complete) {

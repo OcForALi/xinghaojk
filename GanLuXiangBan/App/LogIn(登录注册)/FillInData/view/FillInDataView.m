@@ -138,7 +138,7 @@
             CGFloat spacing = (ScreenWidth - size.width * 3) / 4;
             
             UIImageView *imageView = [UIImageView new];
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
             imageView.size = size;
             imageView.x = spacing + (spacing + size.width) * (i % 3);
             imageView.y = titleLabel.maxY + 20 + (size.height + 15) * (i / 3);
