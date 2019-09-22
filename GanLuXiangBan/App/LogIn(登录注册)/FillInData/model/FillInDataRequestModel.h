@@ -47,6 +47,6 @@
 ///代理医院IDs
 @property (nonatomic ,copy) NSArray *HospitalIds;
 ///资质图片ID
-@property (nonatomic ,copy) NSArray *FileIds;
+@property (nonatomic ,copy) NSArray *Files;
 
 @end

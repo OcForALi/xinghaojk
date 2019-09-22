@@ -381,7 +381,7 @@
             
         }else{
             
-            dataModel.FileIds = self.picArray;
+            dataModel.Files = self.picArray;
             
         }
         
