@@ -31,8 +31,8 @@
 
 - (void)setupSubviews {
     
-    NSArray *texts = @[@"总积分", @"可用积分"];
-    NSArray *units = @[@"", @""];
+    NSArray *texts = @[@"总积分", @"在途积分", @"可用积分"];
+    NSArray *units = @[@"", @"", @""];
     self.integralView = [self setInfoWithTexts:texts units:units];
     [self.contentView addSubview:self.integralView];
     
@@ -147,8 +147,8 @@
             
             if (i == 1) {
                 
-                units = @[@"", @""];
-                texts = @[model.totalIntegral, model.integral];
+                units = @[@"", @"", @""];
+                texts = @[model.totalIntegral, @"", model.integral];
                 subview = self.integralView;
             }
             
