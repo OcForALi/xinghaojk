@@ -27,6 +27,13 @@
     [self reloadData];
 }
 
+- (void)setImgs:(NSArray *)imgs {
+    
+    _imgs = imgs;
+    
+    [self reloadData];
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     
@@ -103,24 +110,13 @@
     
     cell.text = self.dataSources[indexPath.section];
     
-    if (self.cerImgModel != nil) {
+    if (self.imgs.count > indexPath.section) {
         
-        NSArray *imgUrls;
-        if (self.cerImgModel.isDoctorFiles) {
-            imgUrls = @[self.cerImgModel.emp_card, self.cerImgModel.qualification_card, self.cerImgModel.practice_card];
-        }
-        else {
-            imgUrls = @[self.cerImgModel.id_card_face, self.cerImgModel.id_card_con];
-        }
-        
-        if (imgUrls.count != 0) {
+        NSString *urlString = self.imgs[indexPath.section];
+        if (urlString.length > 0) {
             
-            NSString *urlString = imgUrls[indexPath.section];
-            if (urlString.length > 0) {
-                
-                urlString = urlString.length > 0 ? urlString : @"";
-                [cell.userImgView sd_setImageWithURL:[NSURL URLWithString:urlString]];
-            }
+            urlString = urlString.length > 0 ? urlString : @"";
+            [cell.userImgView sd_setImageWithURL:[NSURL URLWithString:urlString]];
         }
     }
     

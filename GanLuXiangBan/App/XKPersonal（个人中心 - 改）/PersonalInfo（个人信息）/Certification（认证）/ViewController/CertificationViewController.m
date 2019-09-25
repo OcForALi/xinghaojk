@@ -27,18 +27,38 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    
-    self.imgArray = [NSMutableArray array];
-    [self.imgArray addObjectsFromArray:@[@"", @"", @""]];
+        
+    NSArray *arr;
     if ([self.title isEqualToString:@"身份认证"]) {
         
         self.certificationView.dataSources = @[@"身份证正面", @"身份证反面"];
+        arr = @[@"", @""];
     }
     else {
         
         self.certificationView.dataSources = @[@"相关授权资质"];
+        arr = @[@""];
     }
     
+    NSArray *temps = self.certificationView.dataSources;
+    self.imgArray = [NSMutableArray arrayWithArray:arr];
+    for (int i = 0; i < self.imgs.count; i++) {
+        
+        if (temps.count > i) {
+            
+            [self.imgArray replaceObjectAtIndex:i withObject:self.imgs[i]];
+        }
+        else {
+            
+            NSMutableArray *tempArr = [NSMutableArray arrayWithArray:self.certificationView.dataSources];
+            [tempArr addObject:@""];
+            
+            self.certificationView.dataSources = tempArr;
+            [self.imgArray addObject:self.imgs[i]];
+        }
+    }
+    
+    self.certificationView.imgs = self.imgArray;
     [self btnStateChangeWithState:self.state];
 }
 
@@ -68,26 +88,6 @@
 }
 
 - (void)btnStateChangeWithState:(int)state {
-    
-    if (state == 3) {
-        
-        CerImgModel *model = self.certificationView.cerImgModel;
-        if (model.practice_card > 0) {
-            
-            NSArray *arr = @[model.emp_card, model.qualification_card, model.practice_card];
-            for (int i = 0; i < 3; i++) {
-                [self.imgArray replaceObjectAtIndex:i withObject:arr[i]];
-            }
-        }
-        else {
-            
-            NSArray *arr = @[model.id_card_face, model.id_card_con];
-            for (int i = 0; i < 3; i++) {
-                [self.imgArray replaceObjectAtIndex:i withObject:arr[i]];
-            }
-        }
-        
-    }
     
     switch (state) {
             
@@ -176,53 +176,6 @@
 }
 
 #pragma mark - request
-/// 获取身份认证状态
-- (void)getIdtAuthDetail {
-    
-    @weakify(self);
-    self.certificationView.dataSources = @[@"身份证正面", @"身份证反面"];
-
-    [[CertificationViewModel new] getIdtAuthDetailWithComplete:^(id object) {
-        
-        if ([object isKindOfClass:[NSNull class]] || object == nil) {
-            return ;
-        }
-        
-        @strongify(self);
-        
-        CerImgModel *model = [CerImgModel new];
-        [model setValuesForKeysWithDictionary:object];
-        model.auth_status = object[@"idt_auth_status"];
-        self.certificationView.cerImgModel = model;
-        
-        [self btnStateChangeWithState:[object[@"idt_auth_status"] intValue]];
-    }];
-}
-
-/// 获取资格认证状态
-- (void)getDoctorFiles {
-    
-    @weakify(self);
-    self.certificationView.dataSources = @[@"相关授权资质"];
-
-    [[CertificationViewModel new] getDoctorFilesWithComplete:^(id object) {
-        
-        if ([object isKindOfClass:[NSNull class]] || object == nil) {
-            return ;
-        }
-        
-        @strongify(self);
-        
-        CerImgModel *model = [CerImgModel new];
-        [model setValuesForKeysWithDictionary:object];
-        model.isDoctorFiles = YES;
-        model.idt_auth_remark = object[@"auth_remark"];
-        self.certificationView.cerImgModel = model;
-        
-        [self btnStateChangeWithState:[object[@"auth_status"] intValue]];
-    }];
-}
-
 /// 提交身份认证信息
 - (void)setIdtAuthFiles {
     

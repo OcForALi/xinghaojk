@@ -12,5 +12,6 @@
 
 @property (nonatomic ,assign) NSInteger type;
 @property (nonatomic, assign) int state;
+@property (nonatomic, strong) NSArray *imgs;
 
 @end

@@ -11,6 +11,7 @@
 
 @interface CertificationView : BaseTableView
 
+@property (nonatomic, strong) NSArray *imgs;
 @property (nonatomic, strong) CerImgModel *cerImgModel;
 @property (nonatomic, assign) int state;
 

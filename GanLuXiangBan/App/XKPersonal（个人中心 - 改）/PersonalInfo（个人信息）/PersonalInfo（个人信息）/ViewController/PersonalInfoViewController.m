@@ -143,13 +143,25 @@
     if ([viewController isKindOfClass:[CertificationViewController class]]) {
         
         CertificationViewController *vc = (CertificationViewController *)viewController;
-        if ([vc.title isEqualToString:@"身份证号"]) {
+        if ([vc.title isEqualToString:@"身份认证"]) {
+            
+            NSMutableArray *arr = [NSMutableArray array];
+            for (NSDictionary *dict in self.personalInfoView.model.auth_items) {
+                [arr addObject:dict[@"file_path"]];
+            }
             
             vc.state = [self.personalInfoView.model.auth_status intValue];
+            vc.imgs = arr;
         }
         else {
             
+            NSMutableArray *arr = [NSMutableArray array];
+            for (NSDictionary *dict in self.personalInfoView.model.certification_items) {
+                [arr addObject:dict[@"file_path"]];
+            }
+            
             vc.state = [self.personalInfoView.model.certification_status intValue];
+            vc.imgs = arr;
         }
     }
     [self.navigationController pushViewController:viewController animated:YES];
