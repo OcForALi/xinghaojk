@@ -24,7 +24,6 @@
 //药品规格
 @property (nonatomic ,copy) NSString *standard;
 @property (nonatomic ,copy) NSString *spec;
-
 //药品厂
 @property (nonatomic ,copy) NSString *producer;
 //药品价格

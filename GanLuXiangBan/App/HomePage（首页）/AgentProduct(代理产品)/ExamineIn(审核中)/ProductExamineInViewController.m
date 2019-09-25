@@ -34,13 +34,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+
     [super viewWillAppear:animated];
-    
+
     self.page = 1;
     [self request];
-    
+
 }
+
 
 - (void)initUI{
     

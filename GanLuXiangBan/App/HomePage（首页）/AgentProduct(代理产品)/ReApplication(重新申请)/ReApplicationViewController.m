@@ -54,7 +54,6 @@
             
             [weakSelf.picArray addObjectsFromArray:model.certs];
             weakSelf.noPassLabel.text = model.unreason;
-            [weakSelf pic];
             
         }
         
@@ -370,10 +369,11 @@
     
     if (self.type == 0) {
         
-        self.addModel.certs = self.picArray;
-        self.addModel.commoname = self.addModel.common_name;
-        self.addModel.spec = self.addModel.standard;
         [request postAgentDrug:self.addModel :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+            
+            self.addModel.certs = self.picArray;
+            self.addModel.commoname = self.addModel.common_name;
+            self.addModel.spec = self.addModel.standard;
             
             [weakSelf.view makeToast:generalBackModel.retmsg];
             if (generalBackModel.retcode == 0) {
@@ -384,8 +384,9 @@
         
     }else if (self.type == 1){
         
-        self.noPassModel.certs = self.picArray;
         [request postReAppDrugAgent:self.noPassModel :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
+            
+            self.noPassModel.certs = self.picArray;
             
             [weakSelf.view makeToast:generalBackModel.retmsg];
             if (generalBackModel.retcode == 0) {
