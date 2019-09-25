@@ -12,6 +12,7 @@
 
 //别名
 @property (nonatomic ,copy) NSString *common_name;
+@property (nonatomic ,copy) NSString *commoname;
 //药品id
 @property (nonatomic ,copy) NSString *drug_id;
 //药品名字
@@ -22,6 +23,8 @@
 @property (nonatomic ,copy) NSString *pic_path;
 //药品规格
 @property (nonatomic ,copy) NSString *standard;
+@property (nonatomic ,copy) NSString *spec;
+
 //药品厂
 @property (nonatomic ,copy) NSString *producer;
 //药品价格
@@ -38,5 +41,7 @@
 @property (nonatomic ,assign) NSInteger app_id;
 ///单位
 @property (nonatomic ,copy) NSString *unit;
+///授权图片
+@property (nonatomic ,copy) NSArray *certs;
 
 @end

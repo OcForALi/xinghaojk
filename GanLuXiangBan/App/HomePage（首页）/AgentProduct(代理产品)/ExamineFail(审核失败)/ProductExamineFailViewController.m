@@ -24,16 +24,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.page = 1;
-    
+
     [self initUI];
-    
-    [self request];
     
     [self refresh];
     
     [self block];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    self.page = 1;
+    [self request];
     
 }
 

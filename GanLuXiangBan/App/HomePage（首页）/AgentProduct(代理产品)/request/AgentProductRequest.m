@@ -39,6 +39,7 @@
     if (model.unit == nil) {
         model.unit = @"";
     }
+    
     self.parameters = [self getParametersWithClass:model];
     
     [self requestNotHudWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
