@@ -148,7 +148,7 @@
             if (i == 1) {
                 
                 units = @[@"", @"", @""];
-                texts = @[model.totalIntegral, @"", model.integral];
+                texts = @[model.totalIntegral, @"0", model.integral];
                 subview = self.integralView;
             }
             

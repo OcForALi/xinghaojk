@@ -37,9 +37,9 @@
 // 邀请码
 @property (nonatomic, strong) NSString *invite_code;
 // 资质认证附件
-@property (nonatomic, strong) NSString *certification_items;
+@property (nonatomic, strong) NSArray *certification_items;
 // 身份认证附件
-@property (nonatomic, strong) NSString *auth_items;
+@property (nonatomic, strong) NSArray *auth_items;
 // 代理医院集合
 @property (nonatomic, strong) NSString *hospital_items;
 /** 城市 */
@@ -48,7 +48,6 @@
 @property (nonatomic, strong) NSString *title;
 
 @end
-
 
 
 @interface PersonalStaticModel : BaseModel

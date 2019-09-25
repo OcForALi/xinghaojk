@@ -101,7 +101,7 @@
             detailText = self.model.idcard;
         }
         else if ([text containsString:@"代理区域"]) {
-            detailText = self.model.city;
+            detailText = [NSString stringWithFormat:@"%@%@", self.model.province_id, self.model.city];
         }
         
         cell.detailTextLabel.text = detailText;
@@ -109,7 +109,7 @@
     else {
         
         
-        NSString *status = indexPath.row == 0 ? self.model.certification_status : self.model.auth_status;
+        NSString *status = indexPath.row == 0 ? self.model.auth_status : self.model.certification_status;
         NSString *auth = @"未认证";
         if ([status intValue] == 1) {
             auth = @"认证中";
