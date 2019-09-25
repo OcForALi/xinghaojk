@@ -202,6 +202,7 @@
         }
         
         if ([generalBackModel.data isKindOfClass:[NSNull class]] || [generalBackModel.data isKindOfClass:[NSString class]] || generalBackModel.data == nil) {
+            [self.view makeToast:@"“登录账号或密码不正确”或 账号密码不能为空"];
             [self hideHudAnimated];
             return ;
         }

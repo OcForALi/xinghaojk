@@ -122,7 +122,7 @@
     self.reconsiderButton.backgroundColor = kMainColor;
     self.reconsiderButton.layer.cornerRadius = 5;
     self.reconsiderButton.titleLabel.font = [UIFont systemFontOfSize: 14.0];
-    [self.reconsiderButton setTitle:@"重新申请" forState:UIControlStateNormal];
+    [self.reconsiderButton setTitle:@"重新提交" forState:UIControlStateNormal];
     [self.reconsiderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     [self.contentView addSubview:self.reconsiderButton];

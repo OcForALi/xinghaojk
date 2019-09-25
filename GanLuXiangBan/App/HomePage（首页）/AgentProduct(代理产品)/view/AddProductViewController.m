@@ -62,11 +62,9 @@
     [super viewWillAppear:animated];
     
     self.page = 1;
-    
     self.keywordString = @"";
-    
     self.drugClassID = @"";
-    
+    [self.addProductView.dataSource removeAllObjects];
     [self request];
     
 }

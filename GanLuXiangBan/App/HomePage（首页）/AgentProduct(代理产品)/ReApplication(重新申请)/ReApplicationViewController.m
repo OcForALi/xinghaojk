@@ -54,7 +54,7 @@
             
             [weakSelf.picArray addObjectsFromArray:model.certs];
             weakSelf.noPassLabel.text = model.unreason;
-            
+            [weakSelf pic];
         }
         
     }];
@@ -225,8 +225,16 @@
             
             CGSize size = CGSizeMake(ScreenWidth*0.145, ScreenWidth*0.145);
             
+            NSString *urlString;
+            if ([self.picArray[i] isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *dict = self.picArray[i];
+                urlString = dict[@"file_path"];
+            }else{
+                urlString = self.picArray[i];
+            }
+            
             UIImageView *imageView = [UIImageView new];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:self.picArray[i]] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"Home_HeadDefault"]];
             imageView.contentMode = UIViewContentModeScaleAspectFit;
             [self.picView addSubview:imageView];
             
@@ -369,11 +377,11 @@
     
     if (self.type == 0) {
         
+        self.addModel.certs = self.picArray;
+        self.addModel.commoname = self.addModel.common_name;
+        self.addModel.spec = self.addModel.standard;
+        
         [request postAgentDrug:self.addModel :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
-            
-            self.addModel.certs = self.picArray;
-            self.addModel.commoname = self.addModel.common_name;
-            self.addModel.spec = self.addModel.standard;
             
             [weakSelf.view makeToast:generalBackModel.retmsg];
             if (generalBackModel.retcode == 0) {
@@ -384,9 +392,9 @@
         
     }else if (self.type == 1){
         
+        self.noPassModel.certs = self.picArray;
+        
         [request postReAppDrugAgent:self.noPassModel :^(HttpGeneralBackModel * _Nonnull generalBackModel) {
-            
-            self.noPassModel.certs = self.picArray;
             
             [weakSelf.view makeToast:generalBackModel.retmsg];
             if (generalBackModel.retcode == 0) {

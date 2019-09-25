@@ -38,6 +38,7 @@
     [super viewWillAppear:animated];
 
     self.page = 1;
+    [self.productExamineFailView.dataSource removeAllObjects];
     [self request];
 
 }
