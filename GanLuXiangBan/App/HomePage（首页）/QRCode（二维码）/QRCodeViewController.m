@@ -145,7 +145,7 @@
 
 - (void)shareWithWX:(int)scene {
     NSString *title = [NSString stringWithFormat:@"我是%@，", GetUserDefault(UserName)];
-    NSString *url = [NSString stringWithFormat:@"http://nkwxtest.6ewei.com/yy/views/agent.html#/?agid=%@", GetUserDefault(UserID)];
+    NSString *url = [NSString stringWithFormat:@"http://nkwx.6ewei.com/yy/views/agent.html#/?agid=%@", GetUserDefault(UserID)];
     if (self.countInteger == 2) {
         title = [title stringByAppendingString:@"邀请您加入幸好健康代理 商联盟，服务最权威的男性健康专科管理平台。"];
         url = [url stringByAppendingString:@"&type=0"];
