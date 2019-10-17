@@ -146,8 +146,11 @@
         if ([vc.title isEqualToString:@"身份认证"]) {
             
             NSMutableArray *arr = [NSMutableArray array];
-            for (NSDictionary *dict in self.personalInfoView.model.auth_items) {
-                [arr addObject:dict[@"file_path"]];
+            if ([self.personalInfoView.model.auth_items isKindOfClass:[NSArray class]]) {
+                
+                for (NSDictionary *dict in self.personalInfoView.model.auth_items) {
+                    [arr addObject:dict[@"file_path"]];
+                }
             }
             
             vc.state = [self.personalInfoView.model.auth_status intValue];
@@ -156,8 +159,11 @@
         else {
             
             NSMutableArray *arr = [NSMutableArray array];
-            for (NSDictionary *dict in self.personalInfoView.model.certification_items) {
-                [arr addObject:dict[@"file_path"]];
+            if ([self.personalInfoView.model.certification_items isKindOfClass:[NSArray class]]) {
+             
+                for (NSDictionary *dict in self.personalInfoView.model.certification_items) {
+                    [arr addObject:dict[@"file_path"]];
+                }
             }
             
             vc.state = [self.personalInfoView.model.certification_status intValue];
