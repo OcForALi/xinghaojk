@@ -49,13 +49,13 @@
     
     // 用户头像
     UIImageView *headImgView = [UIImageView new];
-    headImgView.layer.cornerRadius = 40;
-    headImgView.layer.masksToBounds = YES;
-    headImgView.userInteractionEnabled = NO;
-    headImgView.backgroundColor = [UIColor whiteColor];
+//    headImgView.layer.cornerRadius = 40;
+//    headImgView.layer.masksToBounds = YES;
+//    headImgView.userInteractionEnabled = NO;
+//    headImgView.backgroundColor = [UIColor whiteColor];
     headImgView.image = [UIImage imageNamed:@"Public_Logo"];
     [headBgView addSubview:headImgView];
-    self.logoView = headImgView;
+//    self.logoView = headImgView;
     
     [headImgView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(headBgView);
