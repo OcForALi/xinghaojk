@@ -259,7 +259,7 @@
             .widthIs(40)
             .heightIs(20);
             
-            if (i == self.picArray.count - 1) {
+            if (i == self.picArray.count - 1 && self.picArray.count < 9) {
                 
                 if (countInteger + 1 == 3) {
                     integer++;
@@ -355,6 +355,13 @@
         NSData *imageData = UIImageJPEGRepresentation(image, 0.3);
         WS(weakSelf)
         [[CertificationViewModel new] uploadImageWithImgs:imageData complete:^(id object) {
+            
+            if (weakSelf.picArray.count > 9) {
+                
+                [self.view makeToast:@"最多上传9张"];
+                
+                return;
+            }
             
             [weakSelf.picArray addObject:object];
             
